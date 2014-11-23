@@ -312,8 +312,17 @@ public class CertainBookStore implements BookStore, StockManager {
 	@Override
 	public synchronized List<StockBook> getBooksInDemand()
 			throws BookStoreException {
-		//TODO: not implemented
-		throw new BookStoreException("Not implemented");
+		List<StockBook> books = getBooks();
+		List<StockBook> inDemand = new ArrayList<StockBook>();
+		int isbn;
+
+		for (StockBook book : books) {
+			if (book.getSaleMisses() > 0) {
+				isbn = book.getISBN();
+				inDemand.add(bookMap.get(isbn).immutableStockBook()); //add an immutable stock book
+			}
+		}
+		return inDemand;
 	}
 
 	@Override

@@ -130,10 +130,17 @@ public class StockManagerHTTPProxy implements StockManager {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<StockBook> getBooksInDemand() throws BookStoreException {
-		// TODO Auto-generated method stub
-		throw new BookStoreException("Not implemented");
+	public synchronized List<StockBook> getBooksInDemand() throws BookStoreException {
+		ContentExchange exchange = new ContentExchange();
+		String urlString = serverAddress + "/"
+				+ BookStoreMessageTag.BOOKSINDEMAND;
+
+		exchange.setURL(urlString);
+
+		return (List<StockBook>) BookStoreUtility.SendAndRecv(this.client,
+				exchange);
 	}
 
 	public void removeAllBooks() throws BookStoreException {
@@ -191,4 +198,6 @@ public class StockManagerHTTPProxy implements StockManager {
 		return (List<StockBook>) BookStoreUtility.SendAndRecv(this.client,
 				exchange);
 	}
+
+
 }
