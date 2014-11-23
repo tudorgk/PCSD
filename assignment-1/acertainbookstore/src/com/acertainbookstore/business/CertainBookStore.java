@@ -3,16 +3,8 @@
  */
 package com.acertainbookstore.business;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Random;
-import java.util.Set;
 
 import com.acertainbookstore.interfaces.BookStore;
 import com.acertainbookstore.interfaces.StockManager;
@@ -25,11 +17,23 @@ import com.acertainbookstore.utils.BookStoreUtility;
  * defined in the BookStore
  */
 public class CertainBookStore implements BookStore, StockManager {
+	//singleton for the books store
+	private static CertainBookStore singleInstance;
 	private Map<Integer, BookStoreBook> bookMap = null;
 
 	public CertainBookStore() {
 		// Constructors are not synchronized
 		bookMap = new HashMap<Integer, BookStoreBook>();
+	}
+
+	public synchronized CertainBookStore getInstance() {
+		if (singleInstance != null) {
+			return singleInstance;
+		} else {
+			singleInstance = new CertainBookStore();
+			bookMap = new HashMap<Integer, BookStoreBook>();
+		}
+		return singleInstance;
 	}
 
 	public synchronized void addBooks(Set<StockBook> bookSet)
@@ -277,19 +281,58 @@ public class CertainBookStore implements BookStore, StockManager {
 	@Override
 	public synchronized List<Book> getTopRatedBooks(int numBooks)
 			throws BookStoreException {
-		throw new BookStoreException("Not implemented");
+
+		//create a comparator class that sorts the books by rating
+		class StockBookCompareRating implements Comparator<StockBook> {
+			@Override
+			public int compare(StockBook book0, StockBook book1) {
+				return (int) (book1.getAverageRating() - book0.getAverageRating());
+			}
+		}
+
+		if (numBooks < 0) {
+			throw new BookStoreException("numBooks = " + numBooks
+					+ ", but it must be positive");
+		}
+		numBooks = Math.min(numBooks, bookMap.values().size());
+		// Filter top rated
+		List<StockBook> books = getBooks(); // can return a BookStoreException
+		Collections.sort(books, new StockBookCompareRating());
+
+		List<Book> topRated = new ArrayList<Book>();
+		int isbn;
+
+		for (int i=0; i<numBooks; i++) {
+			isbn = books.get(i).getISBN();
+			topRated.add(bookMap.get(isbn).immutableBook());
+		}
+		return topRated;
 	}
 
 	@Override
 	public synchronized List<StockBook> getBooksInDemand()
 			throws BookStoreException {
+		//TODO: not implemented
 		throw new BookStoreException("Not implemented");
 	}
 
 	@Override
 	public synchronized void rateBooks(Set<BookRating> bookRating)
 			throws BookStoreException {
-		throw new BookStoreException("Not implemented");
+		// All or nothing
+		for (BookRating rating : bookRating) {
+			//if the rating is valid proceed..
+			if (!(0 <= rating.getRating() && rating.getRating() <= 5)
+					|| !bookMap.containsKey(rating.getISBN())) {
+				throw new BookStoreException(BookStoreConstants.ISBN + rating.getISBN()
+						+ BookStoreConstants.NOT_AVAILABLE);
+			}
+		}
+
+		// rating is valid
+		for (BookRating rating : bookRating) {
+			bookMap.get(rating.getISBN()).addRating(rating.getRating());
+		}
 	}
 
 	public synchronized void removeAllBooks() throws BookStoreException {

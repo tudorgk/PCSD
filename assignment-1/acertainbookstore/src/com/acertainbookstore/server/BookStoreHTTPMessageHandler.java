@@ -18,6 +18,7 @@ import com.acertainbookstore.business.BookCopy;
 import com.acertainbookstore.business.BookEditorPick;
 import com.acertainbookstore.business.CertainBookStore;
 import com.acertainbookstore.business.StockBook;
+import com.acertainbookstore.business.BookRating;
 import com.acertainbookstore.utils.BookStoreConstants;
 import com.acertainbookstore.utils.BookStoreException;
 import com.acertainbookstore.utils.BookStoreMessageTag;
@@ -230,7 +231,34 @@ public class BookStoreHTTPMessageHandler extends AbstractHandler {
 						.serializeObjectToXMLString(bookStoreResponse);
 				response.getWriter().println(listBooksxmlString);
 				break;
-				
+			case RATEBOOKS:
+				xml = BookStoreUtility.extractPOSTDataFromRequest(request);
+				Set<BookRating> bookRating = (Set<BookRating>) BookStoreUtility.deserializeXMLStringToObject(xml);
+
+				bookStoreResponse = new BookStoreResponse();
+				try {
+					myBookStore.rateBooks(bookRating);
+				} catch (BookStoreException ex) {
+					bookStoreResponse.setException(ex);
+				}
+				listBooksxmlString = BookStoreUtility.serializeObjectToXMLString(bookStoreResponse);
+				response.getWriter().println(listBooksxmlString);
+				break;
+			case TOPRATEDBOOKS:
+				numBooksString = URLDecoder.decode(request.getParameter(BookStoreConstants.BOOK_NUM_PARAM),"UTF-8");
+
+				bookStoreResponse = new BookStoreResponse();
+				try {
+					numBooks = BookStoreUtility
+							.convertStringToInt(numBooksString);
+					bookStoreResponse.setList(myBookStore.getTopRatedBooks(numBooks));
+				} catch (BookStoreException ex) {
+					bookStoreResponse.setException(ex);
+				}
+				listBooksxmlString = BookStoreUtility.serializeObjectToXMLString(bookStoreResponse);
+				response.getWriter().println(listBooksxmlString);
+				break;
+
 			default:
 				System.out.println("Unhandled message tag");
 				break;

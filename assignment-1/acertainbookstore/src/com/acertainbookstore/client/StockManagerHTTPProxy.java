@@ -170,7 +170,6 @@ public class StockManagerHTTPProxy implements StockManager {
 		try {
 			client.stop();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

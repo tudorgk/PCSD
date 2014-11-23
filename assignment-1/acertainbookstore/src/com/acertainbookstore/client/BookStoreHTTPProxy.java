@@ -123,22 +123,44 @@ public class BookStoreHTTPProxy implements BookStore {
 		try {
 			client.stop();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	@Override
 	public void rateBooks(Set<BookRating> bookRating) throws BookStoreException {
-		// TODO Auto-generated method stub
+		ContentExchange exchange = new ContentExchange();
+		String urlString = serverAddress + "/" + BookStoreMessageTag.RATEBOOKS;
 
-		
+		String setBookRatingxmlString = BookStoreUtility
+				.serializeObjectToXMLString(bookRating);
+		exchange.setMethod("POST");
+		exchange.setURL(urlString);
+		Buffer requestContent = new ByteArrayBuffer(setBookRatingxmlString);
+		exchange.setRequestContent(requestContent);
+
+		BookStoreUtility.SendAndRecv(this.client, exchange);
 	}
 
 	@Override
 	public List<Book> getTopRatedBooks(int numBooks) throws BookStoreException {
-		// TODO Auto-generated method stub
-		throw new BookStoreException("Not implemented");
+		ContentExchange exchange = new ContentExchange();
+		String urlEncodedNumBooks = null;
+
+		try {
+			urlEncodedNumBooks = URLEncoder.encode(Integer.toString(numBooks),
+					"UTF-8");
+		} catch (UnsupportedEncodingException ex) {
+			throw new BookStoreException("unsupported encoding of numbooks", ex);
+		}
+
+		String urlString = serverAddress + "/"
+				+ BookStoreMessageTag.TOPRATEDBOOKS + "?"
+				+ BookStoreConstants.BOOK_NUM_PARAM + "=" + urlEncodedNumBooks;
+
+		exchange.setURL(urlString);
+
+		return (List<Book>) BookStoreUtility.SendAndRecv(this.client, exchange);
 	}
 
 }
