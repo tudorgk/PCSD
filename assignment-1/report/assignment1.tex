@@ -61,7 +61,7 @@ Gabriel Carp}      % Declares the author's name.
 
 A simple solution would be to lay out the machines in one single address space. If we assume that all the machines have the exact same memory size and they are perfectly fault tolerant, a simple arithmetic calculation can be used in the translation of the addresses for each machine. We could find the machine with \emph{address {\bf mod} machineMemorySize } and the find the local address by subtracting the \emph{offSet}.\\
 
-Because we are not working with an ideal scenario, we must translate the address by doing a look-up for finding the machine that contains the page\footnote{A page, memory page, or virtual page is a fixed-length contiguous block of virtual memory, described by a single entry in the page table.} in memory. The look-up should be either a mapping or a function that retrieves the \emph{machine number} and \emph{local address} of the page. By using this solution the memory can be spread out in different sizes.\\
+Because we are not working with an ideal scenario, we must translate the address by doing a look-up for finding the machine that contains the page\footnote{A page, memory page, or virtual page is a fixed-length contiguous block of virtual memory, described by a single entry in the page table.} in memory. The look-up should be either a mapping or a function that retrieves the \emph{machine number} and \emph{local address} of the page. By using this solution, the memory can be spread out in different sized memory allocations on different machines.\\
 
 In order to do these translations we would need to implement a centralized mapping system (a system similar to DNS for websites). In our case we use the \textbf{Central Server Algorithm} where a central-server maintains all the shared data. It translates the addresses and services the read requests from other nodes or clients by returning the data items to them. It updates the data on write requests by clients and returns acknowledgment messages. A timeout can be employed to resend the requests in case of failed acknowledgments. Duplicate write requests can be detected by associating sequence numbers with write requests. A failure condition is returned to the application trying to access shared data after several retransmissions without a response.\\
 
@@ -72,9 +72,11 @@ The API contains the address translations and the READ and WRITE functions that 
 \begin{figure}[htbp]
 \begin{center}
 \begin{lstlisting}
-private {machineID, localOffset} translateAddress(address) {
-	{machineID, offset} = lookup(address); // the offset represents the first address of the machine
-	localOffset = address - offset; // get the local offset in the machine's memory  
+private {machineID, localOffset} TRANSLATE(address) {
+	 // the offset represents the first address of the machine
+	{machineID, offset} = lookupMachine(address);
+	// get the local offset in the machine's memory
+	localOffset = address - offset;   
 	return {machineID,localOffset};  
 	}
 \end{lstlisting}
@@ -83,158 +85,80 @@ private {machineID, localOffset} translateAddress(address) {
 \end{center}
 \end{figure}
 
+Essentially the translation gives us the machineID, to which we send the READ/WRITE request and the localOffset that provides the location where the machine stores the page. We use the lookupMachine function that returns us the machineID and the machine memory offset from the mapping of machines for the input address.\\
+
+\subsubsection*{READ}
+
+The READ function can return a data object (for e.g. a memory page) or an error if the machine that we need to read from is unreachable.\\
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+private data/error READ(address) {
+	{machineID, offset} = TRANSLATE(address);
+	SEND (machineID, offset};
+	//wait for the response; if TIMEOUT return error
+	try RECEIVE data;   
+	catch TIMEOUT
+		return error;
+	return data;
+	}
+\end{lstlisting}
+\caption{READ function}
+\label{READ function}
+\end{center}
+\end{figure}
+
+\subsubsection*{WRITE}
+
+The WRITE function keeps track of the data by handling a status response from the machine that we must write on to.\\
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+private status WRITE(address, data) {
+	{machineID, offset} = TRANSLATE(address);
+	SEND (machineID, offset, data};
+	//wait for the response; if TIMEOUT return error
+	try RECEIVE status;   
+	catch TIMEOUT
+		return error;
+	return success;
+	}
+\end{lstlisting}
+\caption{WRITE function}
+\label{WRITE function}
+\end{center}
+\end{figure}
+
+We assumed that our distributed memory system would \emph{always} have the machines in the system. The current name mapping does not allow dynamic joins and leaves without compromising memory segments. If a machine should fail the requested page upon a READ for example will be lost. To resolve this issue we should implement data migration, where every page is replicated on different machines. The look-up should be changed by extending the algorithm and should retrieve the cloned locations as well..\\ 
+
+But what do we do about the machines that left address space? In order to implement dynamic joins and leaves we must manage several redundant machines. The central server monitors the status of each machine and modifies the mapping accordingly. The system should handle copying data to joining
+machines, to ensure true redundancy. \\ 
 
 
-Because printing is different from typewriting,
-there are a number of things that you have to do
-differently when preparing an input file than if
-you were just typing the document directly.
-Quotation marks like
-       ``this'' 
-have to be handled specially, as do quotes within
-quotes:
-       ``\,`this'            % \, separates the double and single quote.
-        is what I just 
-        wrote, not  `that'\,''.  
+\section{Question 2: Techniques for Performance}
 
-Dashes come in three sizes: an 
-       intra-word 
-dash, a medium dash for number ranges like 
-       1--2, 
-and a punctuation 
-       dash---like 
-this.
 
-A sentence-ending space should be larger than the
-space between words within a sentence.  You
-sometimes have to type special commands in
-conjunction with punctuation characters to get
-this right, as in the following sentence.
-       Gnats, gnus, etc.\ all  % `\ ' makes an inter-word space.
-       begin with G\@.         % \@ marks end-of-sentence punctuation.
-You should check the spaces after periods when
-reading your output to make sure you haven't
-forgotten any special cases.  Generating an
-ellipsis
-       \ldots\               % `\ ' is needed after `\ldots' because TeX 
-                             % ignores spaces after command names like \ldots 
-                             % made from \ + letters.
-                             %
-                             % Note how a `%' character causes TeX to ignore 
-                             % the end of the input line, so these blank lines 
-                             % do not start a new paragraph.
-                             %
-with the right spacing around the periods requires
-a special command.
+\subsubsection{How does concurrency influence latency in a computer system? Is its
+influence always positive, always negative, or is there a trade-off?}
 
-\LaTeX\ interprets some common characters as
-commands, so you must type special commands to
-generate them.  These characters include the
-following:
-       \$ \& \% \# \{ and \}.
+Concurrency doesn't always guarantee a decrease in latency, it correlates to how the algorithm could be broken down into several tasks. If the processing parallelizes perfectly (i.e., each subtask can run without any coordination with other subtasks and each subtask requires the same amount of work),then this plan can,in principle,speed up the processing by a factor n,where n is the number of subtasks executing in parallel. In practice, the speedup is usually less than n because there is overhead in parallelizing a computation. Because the parallelization can't be perfectly balanced across n machines,  we must wait for the slowest response in order to present the results.  \\
 
-In printing, text is usually emphasized with an
-       \emph{italic}  
-type style.  
+Although parallelizing can improve performance, several challenges must be overcome. First, many applications are difficult to parallelize. And it still depends on the algorithm maybe by making it concurrent unexpected problems occur while separating tasks. Programmers must often struggle with threads and locks,or explicit message passing, to obtain concurrency. The trade-off is always an increase in development and testing time to reduce the latency.\\
 
-\begin{em}
-   A long segment of text can also be emphasized 
-   in this way.  Text within such a segment can be 
-   given \emph{additional} emphasis.
-\end{em}
+\subsubsection{Explain the difference between dallying and batching. Provide one example of each.}
 
-It is sometimes necessary to prevent \LaTeX\ from
-breaking a line where it might otherwise do so.
-This may be at a space, as between the ``Mr.''\ and
-``Jones'' in
-       ``Mr.~Jones'',        % ~ produces an unbreakable interword space.
-or within a word---especially when the word is a
-symbol like
-       \mbox{\emph{itemnum}} 
-that makes little sense when hyphenated across
-lines.
+Dallying is the process of delaying requests in the chance that the initial request is overwritten by the following or that all the requests could be sent together in a process called batching. Batching is the process of sending several requests at a time  which saves time instead of sending them individually. Both process are used to decrease latency. \\
 
-Footnotes\footnote{This is an example of a footnote.}
-pose no problem.
+Dallying also increases the opportunities for batching, thus we chose an example that implements both at the same time. When designing a network card, the packet buffer must be large enough to hold N packets and then only allow it to send an interrupt when it has received N packets. This way, the CPU won't have to check for data via polling, but it also won't get overwhelmed with interrupts because they will be occurring N times less often. This may increase the latency for an individual packet that is dallied but our overall throughput will increase since we are eliminating many of the expensive interrupts.\\
 
-\LaTeX\ is good at typesetting mathematical formulas
-like
-       \( x-3y + z = 7 \) 
-or
-       \( a_{1} > x^{2n} + y^{2n} > x' \)
-or  
-       \( \ip{A}{B} = \sum_{i} a_{i} b_{i} \).
-The spaces you type in a formula are 
-ignored.  Remember that a letter like
-       $x$                   % $ ... $  and  \( ... \)  are equivalent
-is a formula when it denotes a mathematical
-symbol, and it should be typed as one.
+\subsubsection{Is caching an example of a fast path optimization? Explain why or why not.}
 
-\section{Displayed Text}
+Caching is the most common example of optimizing for the most frequent cases. For example, most Web browsers maintain a cache of recently accessed Web pages.This cache is indexed by the name of theWeb page and returns the page for that name.If the user asks to view the same page again, then the cache can return the cached copy of the page immediately (a fast path); only the first access requires a trip to the service (a slow path). Of course we always need to verify the content of the web page, if it has been modified or not. The only overhead here is checking the freshness and validity of the page.\\
 
-Text is displayed by indenting it from the left
-margin.  Quotations are commonly displayed.  There
-are short quotations
-\begin{quote}
-   This is a short quotation.  It consists of a 
-   single paragraph of text.  See how it is formatted.
-\end{quote}
-and longer ones.
-\begin{quotation}
-   This is a longer quotation.  It consists of two
-   paragraphs of text, neither of which are
-   particularly interesting.
+\section*{Programming Task}
 
-   This is the second paragraph of the quotation.  It
-   is just as dull as the first paragraph.
-\end{quotation}
-Another frequently-displayed structure is a list.
-The following is an example of an \emph{itemized}
-list.
-\begin{itemize}
-   \item This is the first item of an itemized list.
-         Each item in the list is marked with a ``tick''.
-         You don't have to worry about what kind of tick
-         mark is used.
-
-   \item This is the second item of the list.  It
-         contains another list nested inside it.  The inner
-         list is an \emph{enumerated} list.
-         \begin{enumerate}
-            \item This is the first item of an enumerated 
-                  list that is nested within the itemized list.
-
-            \item This is the second item of the inner list.  
-                  \LaTeX\ allows you to nest lists deeper than 
-                  you really should.
-         \end{enumerate}
-         This is the rest of the second item of the outer
-         list.  It is no more interesting than any other
-         part of the item.
-   \item This is the third item of the list.
-\end{itemize}
-You can even display poetry.
-\begin{verse}
-   There is an environment 
-    for verse \\             % The \\ command separates lines
-   Whose features some poets % within a stanza.
-   will curse.   
-
-                             % One or more blank lines separate stanzas.
-
-   For instead of making\\
-   Them do \emph{all} line breaking, \\
-   It allows them to put too many words on a line when they'd rather be 
-   forced to be terse.
-\end{verse}
-
-Mathematical formulas may also be displayed.  A
-displayed formula 
-is 
-one-line long; multiline
-formulas require special formatting instructions.
-   \[  \ip{\Gamma}{\psi'} = x'' + y^{2} + z_{i}^{n}\]
-Don't start a paragraph with a displayed equation,
-nor make one a paragraph by itself.
+\subsection*{Implementation}
 
 \end{document}               % End of document.

@@ -1,2 +1,5 @@
 \BOOKMARK [1][-]{section.1}{Question 1: Fundamental Abstractionst}{}% 1
-\BOOKMARK [1][-]{section.2}{Displayed Text}{}% 2
+\BOOKMARK [1][-]{section.2}{Question 2: Techniques for Performance}{}% 2
+\BOOKMARK [2][-]{subsubsection.2.0.1}{How does concurrency influence latency in a computer system? Is its influence always positive, always negative, or is there a trade-off?}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.0.2}{Explain the difference between dallying and batching. Provide one example of each.}{subsubsection.2.0.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.0.3}{Is caching an example of a fast path optimization? Explain why or why not.}{subsubsection.2.0.1}% 5

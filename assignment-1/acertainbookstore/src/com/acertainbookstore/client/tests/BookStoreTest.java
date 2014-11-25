@@ -311,32 +311,20 @@ public class BookStoreTest {
 
 /************************************************************************************/
 	/**
-	 * Here we want to test addBook functionality.
-	 *
-	 * 1. We create a BookStoreBook instance and add it to a list. Please note
-	 * that we are also checking that the title and the author name could be any
-	 * valid arbitrary string, which could also contain special characters.
-	 *
-	 * 2. We execute addBooks with the list creates in step 1 as a parameter.
-	 *
-	 * 3. Now we execute storeManager.getBooks, which returns a list of all the
-	 * books available.
-	 *
-	 * 4. Finally we check whether the book added in step 2 is returned by
-	 * getBooks. 5. We also try to add invalid books and check that they throw
-	 * appropriate exceptions.
+	 *  addbook() Test
 	 */
 	@Test
 	public void testAddBook() {
 		Set<StockBook> booksToAdd = new HashSet<StockBook>();
 		Integer testISBN = 100;
 		booksToAdd.add(new ImmutableStockBook(testISBN,
-				"*@#&)%rdrrdjtIHH%^#)$&N 37874\n \t",
-				"eurgqo	89274267^&#@&$%@&%$( \t", (float) 100, 5, 0, 0, 0,
+				"m=n86wz2CCFrqpWU2\nYs!}S",
+				"pju%v_VVe=atN3mZD4\t \\z?8+", (float) 10, 5, 0, 0, 0,
 				false));
 
 		List<StockBook> listBooks = null;
 		try {
+			//test the add books
 			storeManager.addBooks(booksToAdd);
 			listBooks = storeManager.getBooks();
 		} catch (BookStoreException e) {
@@ -344,6 +332,7 @@ public class BookStoreTest {
 			fail();
 		}
 
+		//check if the book exists
 		Boolean containsTestISBN = false;
 		Iterator<StockBook> it = listBooks.iterator();
 		while (it.hasNext()) {
@@ -351,18 +340,20 @@ public class BookStoreTest {
 			if (b.getISBN() == testISBN)
 				containsTestISBN = true;
 		}
-		assertTrue("List should contain the book added!", containsTestISBN);
+		assertTrue("Book added!", containsTestISBN);
 
 		Boolean exceptionThrown = false;
 		booksToAdd.add(new ImmutableStockBook(-1, "BookName", "Author",
 				(float) 100, 5, 0, 0, 0, false));
 
+		//test if the manager sends an exception for adding an invalid ISBN
 		try {
 			storeManager.addBooks(booksToAdd);
 		} catch (BookStoreException e) {
 			exceptionThrown = true;
 		}
-		assertTrue("Invlaid ISBN exception should be thrown!", exceptionThrown);
+
+		assertTrue("Invlaid ISBN ", exceptionThrown);
 		List<StockBook> currentList = null;
 		try {
 			currentList = storeManager.getBooks();
@@ -376,12 +367,13 @@ public class BookStoreTest {
 		booksToAdd.add(new ImmutableStockBook(testISBN + 1, "BookName",
 				"Author", (float) 100, 0, 0, 0, 0, false));
 
+		//check invalid number of copies
 		try {
 			storeManager.addBooks(booksToAdd);
 		} catch (BookStoreException e) {
 			exceptionThrown = true;
 		}
-		assertTrue("Invalid number of copies exception should be thrown!",
+		assertTrue("Invalid nr of copies!",
 				exceptionThrown);
 		try {
 			currentList = storeManager.getBooks();
@@ -395,12 +387,13 @@ public class BookStoreTest {
 		booksToAdd.add(new ImmutableStockBook(testISBN + 2, "BookName",
 				"Author", (float) -100, 0, 0, 0, 0, false));
 
+		//check invalid price
 		try {
 			storeManager.addBooks(booksToAdd);
 		} catch (BookStoreException e) {
 			exceptionThrown = true;
 		}
-		assertTrue("Invlaid price exception should be thrown!", exceptionThrown);
+		assertTrue("Invalid price!", exceptionThrown);
 		try {
 			currentList = storeManager.getBooks();
 			assertTrue(currentList.equals(listBooks));
@@ -412,33 +405,18 @@ public class BookStoreTest {
 	}
 
 	/**
-	 * Here we want to test addCopies functionality. 1. We create a
-	 * BookStoreBook instance with number of copies = 5.
 	 *
-	 * 2. We execute addBooks with the list creates in step 1 as a parameter.
-	 *
-	 * 3. Using storeManager.addCopies we add 2 more copies to the book added in
-	 * step 2.
-	 *
-	 * 4. We execute storeManager.getBooks and check the number of copies for
-	 * the book added in step 2.
-	 *
-	 * 5. Finally we test that the final number of copies = 7 (5 + 2).
-	 *
-	 * 6. We also test that if we try to add invalid number of copies
-	 * /non-existing ISBN/invalid ISBN BookStoreException is thrown.
-	 *
-	 * 7. Finally we also test that all the invalid addCopies have not changed
-	 * the initial status.
+	 * addCopies() Test
 	 */
+
 	@Test
 	public void testAddCopies() {
 		Integer testISBN = 200;
 		Integer totalNumCopies = 7;
 
 		Set<StockBook> booksToAdd = new HashSet<StockBook>();
-		booksToAdd.add(new ImmutableStockBook(testISBN, "Book Name",
-				"Book Author", (float) 100, 5, 0, 0, 0, false));
+		booksToAdd.add(new ImmutableStockBook(testISBN, "Name",
+				"Author", (float) 100, 5, 0, 0, 0, false));
 		try {
 			storeManager.addBooks(booksToAdd);
 		} catch (BookStoreException e) {
@@ -466,6 +444,7 @@ public class BookStoreTest {
 			fail();
 		}
 
+		//Test invalid number of copies
 		bookCopy = new BookCopy(testISBN, 0);
 		Boolean invalidNumCopiesThrewException = false;
 		bookCopyList = new HashSet<BookCopy>();
@@ -476,6 +455,7 @@ public class BookStoreTest {
 			invalidNumCopiesThrewException = true;
 		}
 		assertTrue(invalidNumCopiesThrewException);
+
 		List<StockBook> currentList = null;
 		try {
 			currentList = storeManager.getBooks();
@@ -485,6 +465,7 @@ public class BookStoreTest {
 			fail();
 		}
 
+		//Invalid ISBN test
 		bookCopy = new BookCopy(-1, 0);
 		Boolean invalidISBNThrewException = false;
 		bookCopyList = new HashSet<BookCopy>();
@@ -503,7 +484,8 @@ public class BookStoreTest {
 			fail();
 		}
 
-		bookCopy = new BookCopy(1000000, 0);
+		//Non existing ISBN
+		bookCopy = new BookCopy(99999999, 0);
 		Boolean nonExistingISBNThrewException = false;
 		bookCopyList = new HashSet<BookCopy>();
 		bookCopyList.add(bookCopy);
@@ -522,18 +504,8 @@ public class BookStoreTest {
 	}
 
 	/**
-	 * Here we test updateEditorsPick and getEditorPicks functionalities.
+	 * updateEditorsPick() and getEditorPicks() Tests
 	 *
-	 * 1. We create a book, make it an Editors pick by updateEditorsPick.
-	 *
-	 * 2. Execute getEditorPicks and check that the book is returned.
-	 *
-	 * 3. Now we remove this book from editor's pick.
-	 *
-	 * 4. Executing getEditorPicks should now throw exception.
-	 *
-	 * 5. We also test that exception is thrown if updateEditorsPick is executed
-	 * with wrong arguments.
 	 */
 	@Test
 	public void testUpdateEditorsPick() {
@@ -618,28 +590,20 @@ public class BookStoreTest {
 
 	}
 
+	@Test
+	public void testRateBook(){
+
+	}
+
+
 	/**
-	 * Here we want to test getBooksInDemand functionality
+	 * getBooksInDemand() Test
 	 *
-	 * 1. We create a book with 1 copy in stock.
-	 *
-	 * 2. We try to buy this book twice.
-	 *
-	 * 3. First time buying should be successful but the second time buying
-	 * should throw exception book not in stock.
-	 *
-	 * 4. Now we execute storeManager.getBooksInDemand and check that testISBN
-	 * is returned in this call.
-	 *
-	 * 5. Check that repeating step 1-3 for a new book will make
-	 *  storeManager.getBooksInDemand return at least two books
-	 *  including the one added last.
-	 */
+	 * */
 
 	@Test
 	public void testGetBooksInDemand() {
 		Integer testISBN = 500;
-
 
 		// Get initial number of books in demand
 		List<StockBook> booksInDemand = null;
