@@ -173,10 +173,26 @@ The architecture is strongly modular by using good design patterns and enforcing
 
 The architecture of the solution takes into account the matter of isolation by differentiating the calls from each client to a different address. And it protects these calls by serializing the sensitive data sent from the stock manager. While both do some basic data verification before actually sending the request to the server.\\
 
-
 %2
 The architecture does not implement a naming service because the service is accessible locally. However, we do specify which IP and port the proxies connect to. If we would use a naming system like DNS for example, we could access the servers by simply accessing a link like \emph{www.bookstore.com}.\\
 
 Search Path is a naming mechanism that allows clients to discover and communicate with services, not by using it's own AI to become the new SkyNet while finding and dealing with services but by simply going though a list of possible addresses that could respond and passing each of them in order till they respond as expected.\\
+
+%3
+The Exactly-once RPC semantics are used in the architecture because we are using a client timeout which disregards or throws an error the request if no answer comes in the set time. And the other thing that maintains this semantic is the all or none semantic imposed over each method call from each client that makes sure that the request happens as it is or nothing else. There is some error handling but only to respond, not to retry the request.\\
+
+%4
+Looking over Figure 2 one should assume that a web proxy may be safe, strongly due to the naming conventions of 2 main modules within the architecture which use the word proxy in them. 
+If programmed responsibly the web proxy server is safe but the problems that may arise when implementing one is keeping the records up-to-date while still supporting the imposed limitation of all or nothing RPC requests from each client. These proxies could be deployed between book store clients and the store manager clients but that would bring little improvement, mainly they could be used to support an increasing number of book store clients to the interface all while keeping good time between each of them and the isbn database. The no cache addendum would be ideal in such a situation in order to avoid keeping old records.\\
+
+%5
+The actual server is the bottleneck by the limitation of real world processing power that could handle a finite number of user requests at once. Also the server is limited by having only one data store. Even if the number of proxies gets increased, that only adds more communication links. \\
+
+%6
+In case that the server crashes, the only difference would be that of time, some would run a bit longer till the state of the server would be updated on the proxy. Even if a cache would be used that would only delay the problem than actually helping at all.\\
+
+Yes, this approach would mask the crash but it would stir up problems for the users and the company running it, by processing orders that might not be fulfilled if the databases aren't correlated.\\
+
+A smart web caching system won't change the semantics because it is supposed to be an optimization method. We must take into account that the client might not use caching at all, and in this case caching should have no effect on the semantics of the bookstore.\\
 
 \end{document}               % End of document.
