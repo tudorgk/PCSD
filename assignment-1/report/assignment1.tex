@@ -159,6 +159,12 @@ Caching is the most common example of optimizing for the most frequent cases. Fo
 
 \section*{Programming Task}
 
-\subsection*{Implementation}
+\subsubsection*{rateBooks}
+In the {\bf rateBooks} method in the {\bf CertainBookStore} adds a ratings to the given set only if all the items in the set are valid. If one does not meet the criteria we don't rate any of them and throw an exception.\\
+\subsubsection*{getTopRatedBooks}
+The {\bf getTopRatedBooks} method we needed to retrieve the books sorted by a rating. This is simply done by implementing a custom class that implements the \emph{Comparator} interface and applying it  to the \emph{Collection.sort} method. If the user requests {\bf k} books and {\bf k} is larger than the number of books in the store, we simply retrieve the entire list of books and do not throw an exception.\\
+\subsubsection*{getBooksInDemand}
+Returns the books that have the amount of sale misses larger than 0.\\
+
 
 \end{document}               % End of document.

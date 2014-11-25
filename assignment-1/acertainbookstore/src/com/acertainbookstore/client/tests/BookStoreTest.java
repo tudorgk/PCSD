@@ -363,22 +363,22 @@ public void testRateBook() throws BookStoreException {
 }
 
 	/**
-	 * GetTopRatedBooks() Test
+	 * getTopRatedBooks() Test
 	 *
 	 */
 	@Test
 	public void testGetTopRatedBooks() {
-		Integer testISBN = 620;
+		Integer testISBN = 1245;
 		List<Book> books = null;
 		Set<StockBook> booksToAdd;
 		ImmutableStockBook book0, book1, book2;
 		Set<BookRating> bookRatingList;
 		book0 = new ImmutableStockBook(testISBN, "High",
-				"Book Author", (float) 100, 5, 0, 0, 0, false);
+				"Author", (float) 100, 5, 0, 0, 0, false);
 		book1 = new ImmutableStockBook(testISBN+1, "Low",
-				"Book Author", (float) 100, 5, 0, 0, 0, false);
-		book2 = new ImmutableStockBook(testISBN+2, "Book High2",
-				"Book Author", (float) 100, 5, 0, 0, 0, false);
+				"Author", (float) 100, 5, 0, 0, 0, false);
+		book2 = new ImmutableStockBook(testISBN+2, "High2",
+				"Author", (float) 100, 5, 0, 0, 0, false);
 
 
 
