@@ -310,408 +310,149 @@ public class BookStoreTest {
 	}
 
 /************************************************************************************/
-	/**
-	 *  addbook() Test
+	/*
+	 * rateBook() Test
 	 */
-	@Test
-	public void testAddBook() {
-		Set<StockBook> booksToAdd = new HashSet<StockBook>();
-		Integer testISBN = 100;
-		booksToAdd.add(new ImmutableStockBook(testISBN,
-				"m=n86wz2CCFrqpWU2\nYs!}S",
-				"pju%v_VVe=atN3mZD4\t \\z?8+", (float) 10, 5, 0, 0, 0,
-				false));
+@Test
+public void testRateBook() throws BookStoreException {
+	Integer testISBN = 123;
 
-		List<StockBook> listBooks = null;
-		try {
-			//test the add books
-			storeManager.addBooks(booksToAdd);
-			listBooks = storeManager.getBooks();
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		//check if the book exists
-		Boolean containsTestISBN = false;
-		Iterator<StockBook> it = listBooks.iterator();
-		while (it.hasNext()) {
-			Book b = it.next();
-			if (b.getISBN() == testISBN)
-				containsTestISBN = true;
-		}
-		assertTrue("Book added!", containsTestISBN);
-
-		Boolean exceptionThrown = false;
-		booksToAdd.add(new ImmutableStockBook(-1, "BookName", "Author",
-				(float) 100, 5, 0, 0, 0, false));
-
-		//test if the manager sends an exception for adding an invalid ISBN
-		try {
-			storeManager.addBooks(booksToAdd);
-		} catch (BookStoreException e) {
-			exceptionThrown = true;
-		}
-
-		assertTrue("Invlaid ISBN ", exceptionThrown);
-		List<StockBook> currentList = null;
-		try {
-			currentList = storeManager.getBooks();
-			assertTrue(currentList.equals(listBooks));
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		exceptionThrown = false;
-		booksToAdd.add(new ImmutableStockBook(testISBN + 1, "BookName",
-				"Author", (float) 100, 0, 0, 0, 0, false));
-
-		//check invalid number of copies
-		try {
-			storeManager.addBooks(booksToAdd);
-		} catch (BookStoreException e) {
-			exceptionThrown = true;
-		}
-		assertTrue("Invalid nr of copies!",
-				exceptionThrown);
-		try {
-			currentList = storeManager.getBooks();
-			assertTrue(currentList.equals(listBooks));
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		exceptionThrown = false;
-		booksToAdd.add(new ImmutableStockBook(testISBN + 2, "BookName",
-				"Author", (float) -100, 0, 0, 0, 0, false));
-
-		//check invalid price
-		try {
-			storeManager.addBooks(booksToAdd);
-		} catch (BookStoreException e) {
-			exceptionThrown = true;
-		}
-		assertTrue("Invalid price!", exceptionThrown);
-		try {
-			currentList = storeManager.getBooks();
-			assertTrue(currentList.equals(listBooks));
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
+	// Add a book
+	Set<StockBook> booksToAdd = new HashSet<StockBook>();
+	booksToAdd.add(new ImmutableStockBook(testISBN, "Name",
+			"Author", (float) 100, 1, 0, 0, 0, false));
+	try {
+		storeManager.addBooks(booksToAdd);
+	} catch (BookStoreException e) {
+		e.printStackTrace();
+		fail();
 	}
 
-	/**
-	 *
-	 * addCopies() Test
-	 */
-
-	@Test
-	public void testAddCopies() {
-		Integer testISBN = 200;
-		Integer totalNumCopies = 7;
-
-		Set<StockBook> booksToAdd = new HashSet<StockBook>();
-		booksToAdd.add(new ImmutableStockBook(testISBN, "Name",
-				"Author", (float) 100, 5, 0, 0, 0, false));
-		try {
-			storeManager.addBooks(booksToAdd);
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		BookCopy bookCopy = new BookCopy(testISBN, 2);
-		Set<BookCopy> bookCopyList = new HashSet<BookCopy>();
-		bookCopyList.add(bookCopy);
-		List<StockBook> listBooks = null;
-		try {
-			storeManager.addCopies(bookCopyList);
-			listBooks = storeManager.getBooks();
-
-			for (StockBook b : listBooks) {
-				if (b.getISBN() == testISBN) {
-					assertTrue("Number of copies!",
-							b.getNumCopies() == totalNumCopies);
-					break;
-				}
-			}
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		//Test invalid number of copies
-		bookCopy = new BookCopy(testISBN, 0);
-		Boolean invalidNumCopiesThrewException = false;
-		bookCopyList = new HashSet<BookCopy>();
-		bookCopyList.add(bookCopy);
-		try {
-			storeManager.addCopies(bookCopyList);
-		} catch (BookStoreException e) {
-			invalidNumCopiesThrewException = true;
-		}
-		assertTrue(invalidNumCopiesThrewException);
-
-		List<StockBook> currentList = null;
-		try {
-			currentList = storeManager.getBooks();
-			assertTrue(currentList.equals(listBooks));
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		//Invalid ISBN test
-		bookCopy = new BookCopy(-1, 0);
-		Boolean invalidISBNThrewException = false;
-		bookCopyList = new HashSet<BookCopy>();
-		bookCopyList.add(bookCopy);
-		try {
-			storeManager.addCopies(bookCopyList);
-		} catch (BookStoreException e) {
-			invalidISBNThrewException = true;
-		}
-		assertTrue(invalidISBNThrewException);
-		try {
-			currentList = storeManager.getBooks();
-			assertTrue(currentList.equals(listBooks));
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		//Non existing ISBN
-		bookCopy = new BookCopy(99999999, 0);
-		Boolean nonExistingISBNThrewException = false;
-		bookCopyList = new HashSet<BookCopy>();
-		bookCopyList.add(bookCopy);
-		try {
-			storeManager.addCopies(bookCopyList);
-		} catch (BookStoreException e) {
-			nonExistingISBNThrewException = true;
-		}
-		assertTrue(nonExistingISBNThrewException);
-		try {
-			currentList = storeManager.getBooks();
-			assertTrue(currentList.equals(listBooks));
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-		}
+	// rate it
+	Set<BookRating> booksToRate = new HashSet<BookRating>();
+	booksToRate.add(new BookRating(testISBN,3));
+	try {
+		client.rateBooks(booksToRate);
+	} catch (BookStoreException e) {
+		e.printStackTrace();
+		fail();
 	}
 
+	List<StockBook> booksInStore = storeManager.getBooks();
+	//check if the book exists
+	float rating= -1;
+	Iterator<StockBook> it = booksInStore.iterator();
+	while (it.hasNext()) {
+		ImmutableStockBook b = (ImmutableStockBook) it.next();
+		if (b.getISBN() == testISBN){
+			rating = b.getAverageRating();
+		}
+	}
+	assertTrue(rating == 3);
+
+	booksToRate = new HashSet<BookRating>();
+	booksToRate.add(new BookRating(testISBN,-1));
+	Boolean invalidRatingExceptionThrown = false;
+	try {
+		client.rateBooks(booksToRate);
+	} catch (BookStoreException e) {
+		invalidRatingExceptionThrown = true;
+	}
+	assertTrue("invalid Rating!",
+			invalidRatingExceptionThrown);
+}
+
 	/**
-	 * updateEditorsPick() and getEditorPicks() Tests
+	 * GetTopRatedBooks() Test
 	 *
 	 */
 	@Test
-	public void testUpdateEditorsPick() {
-		Integer testISBN = 800;
-		Set<StockBook> books = new HashSet<StockBook>();
-		books.add(new ImmutableStockBook(testISBN, "Book Name", "Book Author",
-				(float) 100, 1, 0, 0, 0, false));
-
-		try {
-			storeManager.addBooks(books);
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		Set<BookEditorPick> editorPicksVals = new HashSet<BookEditorPick>();
-		BookEditorPick editorPick = new BookEditorPick(testISBN, true);
-		editorPicksVals.add(editorPick);
-		try {
-			storeManager.updateEditorPicks(editorPicksVals);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		List<Book> lstEditorPicks = new ArrayList<Book>();
-		try {
-			lstEditorPicks = client.getEditorPicks(1);
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		Boolean testISBNisInEditorPicks = false;
-		for (Book book : lstEditorPicks) {
-			if (book.getISBN() == testISBN)
-				testISBNisInEditorPicks = true;
-		}
-		assertTrue("Chk if list contains testISBN!", testISBNisInEditorPicks);
-
-		editorPicksVals.clear();
-		editorPick = new BookEditorPick(testISBN, false);
-		editorPicksVals.add(editorPick);
-		try {
-			storeManager.updateEditorPicks(editorPicksVals);
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		Boolean exceptionThrown = false;
-		lstEditorPicks = new ArrayList<Book>();
-		try {
-			lstEditorPicks = client.getEditorPicks(1);
-		} catch (BookStoreException e) {
-			exceptionThrown = true;
-		}
-
-		assertFalse(exceptionThrown);
-
-		exceptionThrown = false;
-		editorPicksVals.clear();
-		editorPick = new BookEditorPick(-1, false);
-		editorPicksVals.add(editorPick);
-		try {
-			storeManager.updateEditorPicks(editorPicksVals);
-		} catch (BookStoreException e) {
-			exceptionThrown = true;
-		}
-		assertTrue(exceptionThrown);
-
-		exceptionThrown = false;
-		editorPicksVals.clear();
-		editorPick = new BookEditorPick(1000000000, false);
-		editorPicksVals.add(editorPick);
-		try {
-			storeManager.updateEditorPicks(editorPicksVals);
-		} catch (BookStoreException e) {
-			exceptionThrown = true;
-		}
-		assertTrue(exceptionThrown);
-
-	}
-
-	@Test
-	public void testRateBook(){
-
-	}
+	public void testGetTopRatedBooks() {
+		Integer testISBN = 620;
+		List<Book> books = null;
+		Set<StockBook> booksToAdd;
+		ImmutableStockBook book0, book1, book2;
+		Set<BookRating> bookRatingList;
+		book0 = new ImmutableStockBook(testISBN, "High",
+				"Book Author", (float) 100, 5, 0, 0, 0, false);
+		book1 = new ImmutableStockBook(testISBN+1, "Low",
+				"Book Author", (float) 100, 5, 0, 0, 0, false);
+		book2 = new ImmutableStockBook(testISBN+2, "Book High2",
+				"Book Author", (float) 100, 5, 0, 0, 0, false);
 
 
-	/**
-	 * getBooksInDemand() Test
-	 *
-	 * */
 
-	@Test
-	public void testGetBooksInDemand() {
-		Integer testISBN = 500;
-
-		// Get initial number of books in demand
-		List<StockBook> booksInDemand = null;
-		try {
-			booksInDemand = storeManager.getBooksInDemand();
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-		int initBooksInDemand = booksInDemand.size();
-
-
-		// Add a book
-		Set<StockBook> booksToAdd = new HashSet<StockBook>();
-		booksToAdd.add(new ImmutableStockBook(testISBN, "Book Name",
-				"Book Author", (float) 100, 1, 0, 0, 0, false));
-		try {
-			storeManager.addBooks(booksToAdd);
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-
-		// Buy it twice
-		Set<BookCopy> booksToBuy = new HashSet<BookCopy>();
-		booksToBuy.add(new BookCopy(testISBN, 1));
-		try {
-			client.buyBooks(booksToBuy);
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-		Boolean notInStockExceptionThrown = false;
-		try {
-			client.buyBooks(booksToBuy);
-		} catch (BookStoreException e) {
-			notInStockExceptionThrown = true;
-		}
-		assertTrue("Trying to buy the book second time should throw exception",
-				notInStockExceptionThrown);
-
-		// The book should now be in demand
-		booksInDemand = null;
-		try {
-			booksInDemand = storeManager.getBooksInDemand();
-		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
-		}
-		Boolean listContainsTestISBN = false;
-		for (StockBook b : booksInDemand) {
-			if (b.getISBN() == testISBN) {
-				listContainsTestISBN = true;
-				break;
-			}
-		}
-		assertTrue("testISBN should be returned by getBooksInDemand",
-				listContainsTestISBN);
-
-		// Add another book
+		// Add a book and a rating
+		bookRatingList = new HashSet<BookRating>();
+		bookRatingList.add(new BookRating(testISBN, 5));
 		booksToAdd = new HashSet<StockBook>();
-		booksToAdd.add(new ImmutableStockBook(testISBN+1, "Book Name",
-				"Book Author", (float) 100, 1, 0, 0, 0, false));
+		booksToAdd.add(book0);
 		try {
 			storeManager.addBooks(booksToAdd);
+			client.rateBooks(bookRatingList);
+			books = client.getTopRatedBooks(1);
+		} catch (BookStoreException e) {
+			e.printStackTrace();
+			fail();
+		}
+		assertEquals(book0, books.get(0));
+
+		// Add new book with lower rating
+		bookRatingList = new HashSet<BookRating>();
+		booksToAdd = new HashSet<StockBook>();
+		booksToAdd.add(book1);
+		bookRatingList.add(new BookRating(testISBN+1, 4));
+		try {
+			storeManager.addBooks(booksToAdd);
+			client.rateBooks(bookRatingList);
+			books = client.getTopRatedBooks(1);
+		} catch (BookStoreException e) {
+			e.printStackTrace();
+			fail();
+		}
+		assertEquals(book0, books.get(0));
+
+		// Add new book with same rating
+		bookRatingList = new HashSet<BookRating>();
+		booksToAdd = new HashSet<StockBook>();
+		booksToAdd.add(book2);
+		bookRatingList.add(new BookRating(testISBN+2, 5));
+		try {
+			storeManager.addBooks(booksToAdd);
+			client.rateBooks(bookRatingList);
+			books = client.getTopRatedBooks(1);
 		} catch (BookStoreException e) {
 			e.printStackTrace();
 			fail();
 		}
 
-		// Buy it twice
-		booksToBuy = new HashSet<BookCopy>();
-		booksToBuy.add(new BookCopy(testISBN+1, 1));
+		// Test get multiple highest rated books
 		try {
-			client.buyBooks(booksToBuy);
+			books = client.getTopRatedBooks(3);
 		} catch (BookStoreException e) {
 			e.printStackTrace();
 			fail();
 		}
-		notInStockExceptionThrown = false;
-		try {
-			client.buyBooks(booksToBuy);
-		} catch (BookStoreException e) {
-			notInStockExceptionThrown = true;
-		}
-		assertTrue("Trying to buy the book second time should throw exception",
-				notInStockExceptionThrown);
+		assertTrue(books.contains(book0) && books.contains(book1) && books.contains(book2));
 
-		// There should now be at least two books in demand
-		// including the book just added
-		booksInDemand = null;
+		// Test argument negative
+		boolean exceptionThrown = false;
 		try {
-			booksInDemand = storeManager.getBooksInDemand();
+			books = client.getTopRatedBooks(-1);
 		} catch (BookStoreException e) {
-			e.printStackTrace();
-			fail();
+			exceptionThrown = true;
 		}
-		listContainsTestISBN = false;
-		for (StockBook b : booksInDemand) {
-			if (b.getISBN() == testISBN+1) {
-				listContainsTestISBN = true;
-				break;
-			}
+		assertTrue(exceptionThrown);
+
+		// Test get more top rated books than books in store
+		exceptionThrown = false;
+		try {
+			books = client.getTopRatedBooks(1010);
+		} catch (BookStoreException e) {
+			exceptionThrown = true;
 		}
-		assertTrue("testISBN+1 should be returned by getBooksInDemand",
-				listContainsTestISBN);
-		assertTrue("there should be at least two books in demand",
-				booksInDemand.size() == initBooksInDemand+2);
+		assertFalse(exceptionThrown);
+		assertTrue(books.size() < 1010);
 
 	}
 
