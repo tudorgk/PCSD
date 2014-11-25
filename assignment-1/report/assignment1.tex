@@ -179,7 +179,7 @@ The architecture does not implement a naming service because the service is acce
 Search Path is a naming mechanism that allows clients to discover and communicate with services, not by using it's own AI to become the new SkyNet while finding and dealing with services but by simply going though a list of possible addresses that could respond and passing each of them in order till they respond as expected.\\
 
 %3
-The Exactly-once RPC semantics are used in the architecture because we are using a client timeout which disregards or throws an error the request if no answer comes in the set time. And the other thing that maintains this semantic is the all or none semantic imposed over each method call from each client that makes sure that the request happens as it is or nothing else. There is some error handling but only to respond, not to retry the request.\\
+The \emph{at-most-once} semantics are used in this architecture because each message is only sent once at the application layer. If the communication between the server and the client fails, then the server side will not be affected. However, there is a chance that the server receives the request but fails to respond to the client. Thus the client can only know for sure that the request has gone through at most once.\\
 
 %4
 Looking over Figure 2 one should assume that a web proxy may be safe, strongly due to the naming conventions of 2 main modules within the architecture which use the word proxy in them. 
