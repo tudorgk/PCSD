@@ -166,5 +166,17 @@ The {\bf getTopRatedBooks} method we needed to retrieve the books sorted by a ra
 \subsubsection*{getBooksInDemand}
 Returns the books that have the amount of sale misses larger than 0.\\
 
+\section*{Discussion on architecture}
+
+%1
+The architecture is strongly modular by using good design patterns and enforcing an approach based on interface implementation. All the classes are clearly defined and don't overlap and changing one doesn't impact other parts of the code. All in all this design uses the core principles of OOP and ensures scalability as well as robustness. We can easily add or remove proxies without compromising the server-side.\\
+
+The architecture of the solution takes into account the matter of isolation by differentiating the calls from each client to a different address. And it protects these calls by serializing the sensitive data sent from the stock manager. While both do some basic data verification before actually sending the request to the server.\\
+
+
+%2
+The architecture does not implement a naming service because the service is accessible locally. However, we do specify which IP and port the proxies connect to. If we would use a naming system like DNS for example, we could access the servers by simply accessing a link like \emph{www.bookstore.com}.\\
+
+Search Path is a naming mechanism that allows clients to discover and communicate with services, not by using it's own AI to become the new SkyNet while finding and dealing with services but by simply going though a list of possible addresses that could respond and passing each of them in order till they respond as expected.\\
 
 \end{document}               % End of document.
