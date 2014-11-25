@@ -7,12 +7,14 @@
 
                              % The preamble begins here.
 \title{\bf Principles of Computer Systems Design\\ {\Large Assignment 1}}  % Declares the document's title.
-\author{Tudor Dragan}      % Declares the author's name.
+\author{Tudor Dragan\\
+Gabriel Carp}      % Declares the author's name.
 \date{December 25, 2014}      % Deleting this command produces today's date.
 
 \usepackage{verbatimbox}
 \usepackage{listings}
 \usepackage{color}
+\usepackage[]{amsmath}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -20,6 +22,7 @@
 \usepackage{hyperref}
 \usepackage[T1]{fontenc} % font
 \usepackage{program}
+\usepackage[top=1.5in, bottom=1.5in, left=1.4in, right=1.4in]{geometry}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -52,43 +55,35 @@
 
 \maketitle                   % Produces the title.
 
-This is an example input file.  Comparing it with
-the output it generates can show you how to
-produce a simple document of your own.
-
-\begin{figure}[ht]
-\begin{lstlisting}
-    public static void main(String [] args){
-        bla bla
-    }
-    \end{lstlisting}
-
-  \centering
-  \caption{I wish this were centered}
-\end{figure}
-
-\section{Ordinary Text}      % Produces section heading.  Lower-level
+\section{Question 1: Fundamental Abstractionst}      % Produces section heading.  Lower-level
                              % sections are begun with similar 
                              % \subsection and \subsubsection commands.
 
-The ends  of words and sentences are marked 
-  by   spaces. It  doesn't matter how many 
-spaces    you type; one is as good as 100.  The
-end of   a line counts as a space.
+A simple solution would be to lay out the machines in one single address space. If we assume that all the machines have the exact same memory size and they are perfectly fault tolerant, a simple arithmetic calculation can be used in the translation of the addresses for each machine. We could find the machine with \emph{address {\bf mod} machineMemorySize } and the find the local address by subtracting the \emph{offSet}.\\
 
-One   or more   blank lines denote the  end 
-of  a paragraph.  
+Because we are not working with an ideal scenario, we must translate the address by doing a look-up for finding the machine that contains the page\footnote{A page, memory page, or virtual page is a fixed-length contiguous block of virtual memory, described by a single entry in the page table.} in memory. The look-up should be either a mapping or a function that retrieves the \emph{machine number} and \emph{local address} of the page. By using this solution the memory can be spread out in different sizes.\\
 
-Since any number of consecutive spaces are treated
-like a single one, the formatting of the input
-file makes no difference to
-      \LaTeX,                % The \LaTeX command generates the LaTeX logo.
-but it makes a difference to you.  When you use
-\LaTeX, making your input file as easy to read 
-as possible will be a great help as you write 
-your document and when you change it.  This sample 
-file shows how you can add comments to your own input 
-file.
+In order to do these translations we would need to implement a centralized mapping system (a system similar to DNS for websites). In our case we use the \textbf{Central Server Algorithm} where a central-server maintains all the shared data. It translates the addresses and services the read requests from other nodes or clients by returning the data items to them. It updates the data on write requests by clients and returns acknowledgment messages. A timeout can be employed to resend the requests in case of failed acknowledgments. Duplicate write requests can be detected by associating sequence numbers with write requests. A failure condition is returned to the application trying to access shared data after several retransmissions without a response.\\
+
+Although, the central-server algorithm is simple to implement, the central-server can become a \emph{bottleneck}. To overcome this problem, shared data can be distributed among several servers. In such a case, clients must be able to locate the appropriate server for every data access. Multicasting data access requests is undesirable as it does not reduce the load at the servers compared to the central-server scheme. A better way to distribute data is to partition the shared data by address and use a mapping function to locate the appropriate server\footnote{\url{http://cs.gmu.edu/cne/modules/dsm/blue/ctr_ser_Al.html}}.\\
+
+The API contains the address translations and the READ and WRITE functions that we assume as being atomic functions\footnote{In concurrent programming, an operation (or set of operations) is atomic, linearizable, indivisible or uninterruptible if it appears to the rest of the system to occur instantaneously. Atomicity is a guarantee of isolation from concurrent processes.}. The READ and WRITE functions need to translate the address by calculating the address offset and machine identifier that has the page.\\
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+private {machineID, localOffset} translateAddress(address) {
+	{machineID, offset} = lookup(address); // the offset represents the first address of the machine
+	localOffset = address - offset; // get the local offset in the machine's memory  
+	return {machineID,localOffset};  
+	}
+\end{lstlisting}
+\caption{Translate function}
+\label{Translate function}
+\end{center}
+\end{figure}
+
+
 
 Because printing is different from typewriting,
 there are a number of things that you have to do
