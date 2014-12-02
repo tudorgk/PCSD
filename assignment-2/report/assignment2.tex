@@ -58,9 +58,9 @@ Gabriel Carp}      % Declares the author's name.
 
 \section*{Question 1: Serializability \& Locking} 
 
-Conflict-serializability is defined by equivalence to a serial schedule (no overlapping transactions) with the same transactions, such that both schedules have the same sets of respective chronologically ordered pairs of conflicting operations (same precedence relations of respective conflicting operations).
+Conflict-serializability is defined by equivalence to a serial schedule (no overlapping transactions) with the same transactions, such that both schedules have the same sets of respective chronologically ordered pairs of conflicting operations (same precedence relations of respective conflicting operations).\\
 
-A schedule is conflict-serializable if and only if it's precedence graph has no cycles. This is a graph of nodes and vertices, where the nodes are the transaction names and the vertices are attribute collisions.
+A schedule is conflict-serializable if and only if it's precedence graph has no cycles. This is a graph of nodes and vertices, where the nodes are the transaction names and the vertices are attribute collisions.\\
 
 \subsection*{Schedule 1}
 
@@ -85,25 +85,25 @@ shared lock.
 
 \subsection*{Scenario 1}
 
-Because $T_1$ finishes before $T_3$ starts, the \nth{1} condition holds. We have to check that the \nth{2} condition holds for $T_2$ and $T_3$, but because $T_2$ writes the object that $T_3$ reads from, this condition does not hold. Therefore $T_3$ has to \emph{rollback}.
+Because $T_1$ finishes before $T_3$ starts, the \nth{1} condition holds. We have to check that the \nth{2} condition holds for $T_2$ and $T_3$, but because $T_2$ writes the object that $T_3$ reads from, this condition does not hold. Therefore $T_3$ has to \emph{rollback}.\\
 
 \subsection*{Scenario 2}
 
-The \nth{2} validation condition does not hold for $T_1$ and $T_3$ because $T_1$ writes to object 3 and $T_3$ reads from it. Therefore $T_3$ has to rollback. We can observe that the \nth{3} holds for $T_2$, because $T_3$ does not access object 8.
+The \nth{2} validation condition does not hold for $T_1$ and $T_3$ because $T_1$ writes to object 3 and $T_3$ reads from it. Therefore $T_3$ has to rollback. We can observe that the \nth{3} holds for $T_2$, because $T_3$ does not access object 8.\\
 
 \subsection*{Scenario 3}
 
-The only object that $T_1$ writes to is object 4 and because $T_3$ does not read or write to that object, the \nth{2} validation condition holds. Then we check is the \nth{2} condition holds for $T_2$ and $T_3$. $T_2$ only writes to object 6 and $T_3$ does not access that object in any way, therefore $T_3$ can commit.
+The only object that $T_1$ writes to is object 4 and because $T_3$ does not read or write to that object, the \nth{2} validation condition holds. Then we check is the \nth{2} condition holds for $T_2$ and $T_3$. $T_2$ only writes to object 6 and $T_3$ does not access that object in any way, therefore $T_3$ can commit.\\
 
 \section*{Programming Task}
 
-For the implementation of the locking protocol used in the ConcurrentCertainBookStore we used the \emph{ReentrantReadWriteLock} class available in the \emph{java.util.concurrent.locks} package. 
+For the implementation of the locking protocol used in the ConcurrentCertainBookStore we used the \emph{ReentrantReadWriteLock} class available in the \emph{java.util.concurrent.locks} package. \\
 
-A reentrant mutual exclusion Lock with the same basic behavior and semantics as the implicit monitor lock accessed using synchronized methods and statements, but with extended capabilities. A ReentrantLock is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock.
+A reentrant mutual exclusion Lock with the same basic behavior and semantics as the implicit monitor lock accessed using synchronized methods and statements, but with extended capabilities. A ReentrantLock is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock.\\
 
-The ReentrantReadWriteLock allows both readers and writers to reacquire read or write locks in the style of a ReentrantLock. Non-reentrant readers are not allowed until all write locks held by the writing thread have been released. Additionally, a writer can acquire the read lock, but not vice-versa. Among other applications, reentrancy can be useful when write locks are held during calls or callbacks to methods that perform reads under read locks. If a reader tries to acquire the write lock it will never succeed.
+The ReentrantReadWriteLock allows both readers and writers to reacquire read or write locks in the style of a ReentrantLock. Non-reentrant readers are not allowed until all write locks held by the writing thread have been released. Additionally, a writer can acquire the read lock, but not vice-versa. Among other applications, reentrancy can be useful when write locks are held during calls or callbacks to methods that perform reads under read locks. If a reader tries to acquire the write lock it will never succeed.\\
 
-We implemented the strict two-phase locking (S2PL) by requiring a write lock when modifying the data at the start of the method. Some methods only require read locks such as getBooks and getBooksInDemand.
+We implemented the strict two-phase locking (S2PL) by requiring a write lock when modifying the data at the start of the method. Some methods only require read locks such as getBooks and getBooksInDemand.\\
 
 % Please add the following required packages to your document preamble:
 % \usepackage[table,xcdraw]{xcolor}
@@ -122,5 +122,21 @@ We implemented the strict two-phase locking (S2PL) by requiring a write lock whe
 \end{table}
 
 \subsection*{Discussion on the Concurrent Implementation of Bookstore}
+
+\subsubsection*{Is your locking protocol correct? Why? Argue for the correctness of your protocol by equivalence to a variant of 2PL.}
+
+Our protocol is implemented by using the conservative S2PL by acquiring a lock at the beginning of each method and releasing it before the method returns.\\
+
+\subsubsection*{Can your locking protocol lead to deadlocks? Explain why or why not.}
+
+The deadlock cannot occur because we acquire the locks right at the start of the methods, transforming every call into an \emph{atomic} one. This approach impacts the performance by lowering concurrency, but ultimately assures proper synchronization.\\
+
+\subsubsection*{Is/are there any scalability bottleneck/s with respect to the number of clients in the bookstore after your implementation? If so, where is/are the bottleneck/s and why? If not, why can we infinitely scale the number of clients accessing this service?}
+
+Scalability is a problem because \emph{we lock the entire datastore} when we are modifying the database. We have taken into account the difference between readers and writers and we allow for multiple reads but not for multiple writes. A solution to this problem would be the fact that we acquire writing locks on the table entry level. For example, if a client modifies the stock of a book in the book store, we should not wait for the stock update when adding a rating. 
+
+\subsubsection*{Discuss the overhead being paid in the locking protocol in the implementation vs. the degree of concurrency you expect your protocol to achieve.}
+
+
 
 \end{document}               % End of document.
