@@ -133,10 +133,48 @@ The deadlock cannot occur because we acquire the locks right at the start of the
 
 \subsubsection*{Is/are there any scalability bottleneck/s with respect to the number of clients in the bookstore after your implementation? If so, where is/are the bottleneck/s and why? If not, why can we infinitely scale the number of clients accessing this service?}
 
-Scalability is a problem because \emph{we lock the entire datastore} when we are modifying the database. We have taken into account the difference between readers and writers and we allow for multiple reads but not for multiple writes. A solution to this problem would be the fact that we acquire writing locks on the table entry level. For example, if a client modifies the stock of a book in the book store, we should not wait for the stock update when adding a rating. 
+Scalability is a problem because \emph{we lock the entire datastore} when we are modifying the database. We have taken into account the difference between readers and writers and we allow for multiple reads but not for multiple writes. A solution to this problem would be the fact that we acquire writing locks on the table entry level. For example, if a client modifies the stock of a book in the book store, we should not wait for the stock update when adding a rating.\\
 
 \subsubsection*{Discuss the overhead being paid in the locking protocol in the implementation vs. the degree of concurrency you expect your protocol to achieve.}
 
+It is safe to assume that the overhead is not that big. Because we are dealing with a bookstore, the customers that \emph{get and read}  more information about the books are more frequent, compared to the buyers that \emph{modify and change} the bookstore's stock and ratings. Our locking protocol is suitable enough for providing adequate isolation and performance.
 
+\newpage
+\appendix
+\section*{\\Appendix 1: Serializability \& Locking}
+% the \\ insures the section title is centered below the phrase: AppendixA
+
+\begin{figure}[ht!]
+\centering
+ \includegraphics[scale=.15]{q1}
+\caption{The precedence graphs for the two schedules \label{overflow}}
+\end{figure}
+
+
+\newpage
+\section*{\\Appendix 2: Optimistic Concurrency Control}
+% the \\ insures the section title is centered below the phrase: Appendix B
+\begin{figure}[ht!]
+\centering
+ \includegraphics[scale=.15]{q2-1}
+\caption{Scenario 1 \label{overflow}}
+\end{figure}
+
+\newpage
+
+\begin{figure}[ht!]
+\centering
+ \includegraphics[scale=.15]{q2-2}
+\caption{Scenario 2 \label{overflow}}
+\end{figure}
+
+ \newpage
+\begin{figure}[ht!]
+\centering
+ \includegraphics[scale=.15]{q2-3}
+\caption{Scenario 3 \label{overflow}}
+\end{figure}
+
+\newpage
 
 \end{document}               % End of document.
