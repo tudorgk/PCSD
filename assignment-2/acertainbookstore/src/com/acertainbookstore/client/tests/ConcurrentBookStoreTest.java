@@ -116,11 +116,11 @@ public class ConcurrentBookStoreTest {
         Thread client1 = new Thread (new ConcurrentAddCopies(bookCopySet));
         Thread client2 = new Thread (new ConcurrentBuyBooks(bookCopySet));
 
-        // Run them
+        // run
         client1.start();
         client2.start();
 
-        // Wait
+        // wait
         try {
             client1.join();
             client2.join();
@@ -136,7 +136,7 @@ public class ConcurrentBookStoreTest {
             e.printStackTrace();
             fail();
         }
-        // Recount
+        // recount the stock
         Set<Integer> isbns = new HashSet<Integer>();
         isbns.add(isbn1);
         isbns.add(isbn2);
@@ -193,15 +193,15 @@ public class ConcurrentBookStoreTest {
         isbns.add(isbn2);
         isbns.add(isbn3);
 
-        // Create clients
+        // create clients
         Thread getBooksClient = new Thread (new ConcurrentGetBooks(before, after, isbns, tries));
         Thread buyAndAddClient= new Thread (new ConcurrentBuyAndAdd(bookCopySet, tries));
 
-        // Run them
+        // run them
         getBooksClient.start();
         buyAndAddClient.start();
 
-        // Wait
+        // wait
         try {
             getBooksClient.join();
             buyAndAddClient.join();
@@ -213,6 +213,105 @@ public class ConcurrentBookStoreTest {
     @Test
     public void concurrentRateTest() throws BookStoreException{
 
+        Integer isbn1 = 31;
+        Integer isbn2 = 32;
+
+        addBooks(isbn1,5);
+        addBooks(isbn2, 5);
+
+        BookRating rating1 = new BookRating(isbn1, 1);
+        BookRating rating2 = new BookRating(isbn2, 5);
+
+        Set<BookRating> ratings = new HashSet<BookRating>();
+        ratings.add(rating1);
+        ratings.add(rating2);
+
+        // create clients
+        Thread rater1 = new Thread (new ConcurrentRating(ratings, 2));
+        Thread rater2 = new Thread (new ConcurrentRating(ratings, 2));
+
+        // run threads
+        rater1.start();
+        rater2.start();
+
+        // wait
+        try {
+            rater1.join();
+            rater2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        List<StockBook> books = null;
+        try {
+            books = storeManager.getBooks();
+        } catch (BookStoreException e) {
+            e.printStackTrace();
+            fail();
+        }
+
+        // expected rating:
+        int expectedRating1 = 1 * (2 + 2);
+        int expectedRating2 = 5 * (2 + 2);
+        int expectedAvgRating1 = expectedRating1/ 4;
+        int expectedAvgRating2 = expectedRating2 / 4;
+
+        for (StockBook book : books) {
+            if (book.getISBN() == isbn1) {
+                assertTrue(book.getAverageRating() == expectedAvgRating1);
+            }
+            if (book.getISBN() == isbn2) {
+                assertTrue(book.getAverageRating() == expectedAvgRating2);
+            }
+        }
+    }
+
+    @Test
+    public void concurrentGetTopRated() throws BookStoreException{
+        Integer isbn1 = 41;
+        Integer isbn2 = 42;
+        Integer isbn3 = 43;
+
+        addBooks(isbn1,5);
+        addBooks(isbn2,5);
+        addBooks(isbn3,5);
+
+        BookRating rating1 = new BookRating(isbn1, 2);
+        BookRating rating2 = new BookRating(isbn2, 3);
+        BookRating rating3 = new BookRating(isbn3, 4);
+
+
+        Set<BookRating> ratings = new HashSet<BookRating>();
+        ratings.add(rating1);
+        ratings.add(rating2);
+        ratings.add(rating3);
+
+        // create clients
+        Thread rater1 = new Thread (new ConcurrentRating(ratings, 10));
+        Thread rater2 = new Thread (new ConcurrentRating(ratings, 3));
+        
+        // run threads
+        rater1.start();
+        rater2.start();
+
+        // wait
+        try {
+            rater1.join();
+            rater2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            fail();
+        }
+
+        List<Book> books = null;
+        try {
+            books = client.getTopRatedBooks(1);
+        } catch (BookStoreException e) {
+            e.printStackTrace();
+            fail();
+        }
+
+        assertTrue(isbn3 == books.get(0).getISBN());
     }
 
     @AfterClass
