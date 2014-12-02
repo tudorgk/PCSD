@@ -90,7 +90,130 @@ public class ConcurrentBookStoreTest {
     }
 
     /****************************************************************************/
-    
+    @Test
+    public void addBuyTest() throws BookStoreException{
+
+        int isbn1 = 11;
+        int isbn2 = 12;
+        int isbn3 = 13;
+
+        //add books to the store with 5 copies each
+        addBooks(isbn1,5);
+        addBooks(isbn2,5);
+        addBooks(isbn3,5);
+
+        //create a book set that is added then bought
+        BookCopy bookCopy1 = new BookCopy(isbn1, 10);
+        BookCopy bookCopy2 = new BookCopy(isbn2, 10);
+        BookCopy bookCopy3 = new BookCopy(isbn3, 10);
+        HashSet<BookCopy> bookCopySet = new HashSet<BookCopy>();
+        bookCopySet.add(bookCopy1);
+        bookCopySet.add(bookCopy2);
+        bookCopySet.add(bookCopy3);
+
+
+        //create 2 clients. one for adding and one for buying.
+        Thread client1 = new Thread (new ConcurrentAddCopies(bookCopySet));
+        Thread client2 = new Thread (new ConcurrentBuyBooks(bookCopySet));
+
+        // Run them
+        client1.start();
+        client2.start();
+
+        // Wait
+        try {
+            client1.join();
+            client2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //the books after the adding and buying
+        List<StockBook> storeManagerBooks = null;
+        try {
+            storeManagerBooks = storeManager.getBooks();
+        } catch (BookStoreException e) {
+            e.printStackTrace();
+            fail();
+        }
+        // Recount
+        Set<Integer> isbns = new HashSet<Integer>();
+        isbns.add(isbn1);
+        isbns.add(isbn2);
+        isbns.add(isbn3);
+
+        for (StockBook book : storeManagerBooks) {
+            // first stock was 5
+            if (isbns.contains(book.getISBN())) {
+                assertTrue(5 == book.getNumCopies());
+            }
+        }
+    }
+
+    @Test
+    public void complexAddBuyTest() throws BookStoreException{
+        int tries = 5;
+
+        int isbn1 = 21;
+        int isbn2 = 22;
+        int isbn3 = 23;
+
+        BookCopy bookCopy1 = new BookCopy(isbn1, 2);
+        BookCopy bookCopy2 = new BookCopy(isbn2, 2);
+        BookCopy bookCopy3 = new BookCopy(isbn3, 2);
+        Set<BookCopy> bookCopySet = new HashSet<BookCopy>();
+        bookCopySet.add(bookCopy1);
+        bookCopySet.add(bookCopy2);
+        bookCopySet.add(bookCopy3);
+
+        List<StockBook> before = null;
+        List<StockBook> after = null;
+        try {
+            before = storeManager.getBooks();
+            after = storeManager.getBooks();
+            //add books to the store with 5 copies each
+            addBooks(isbn1,5);
+            addBooks(isbn2,5);
+            addBooks(isbn3,5);
+        } catch (BookStoreException e1) {
+            e1.printStackTrace();
+            fail();
+        }
+
+        //add the books to after list in order to keep track
+        assertTrue(after.add(new ImmutableStockBook(isbn1, "Test of Thrones",
+                "George RR Testin'", (float) 10, 5, 0, 0, 0, false)));
+        assertTrue(after.add(new ImmutableStockBook(isbn2, "Test of Thrones",
+                "George RR Testin'", (float) 10, 5, 0, 0, 0, false)));
+        assertTrue(after.add(new ImmutableStockBook(isbn3, "Test of Thrones",
+                "George RR Testin'", (float) 10, 5, 0, 0, 0, false)));
+
+        Set<Integer> isbns = new HashSet<Integer>();
+        isbns.add(isbn1);
+        isbns.add(isbn2);
+        isbns.add(isbn3);
+
+        // Create clients
+        Thread getBooksClient = new Thread (new ConcurrentGetBooks(before, after, isbns, tries));
+        Thread buyAndAddClient= new Thread (new ConcurrentBuyAndAdd(bookCopySet, tries));
+
+        // Run them
+        getBooksClient.start();
+        buyAndAddClient.start();
+
+        // Wait
+        try {
+            getBooksClient.join();
+            buyAndAddClient.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void concurrentRateTest() throws BookStoreException{
+
+    }
 
     @AfterClass
     public static void tearDownAfterClass() throws BookStoreException {
@@ -98,6 +221,117 @@ public class ConcurrentBookStoreTest {
         if (!localTest) {
             ((BookStoreHTTPProxy) client).stop();
             ((StockManagerHTTPProxy) storeManager).stop();
+        }
+    }
+
+    class ConcurrentAddCopies implements Runnable{
+        HashSet<BookCopy> copies;
+        public ConcurrentAddCopies (HashSet<BookCopy> bookCopies){
+            this.copies = bookCopies;
+        }
+
+        @Override
+        public void run() {
+            try {
+                storeManager.addCopies(copies);
+            } catch (BookStoreException e) {
+                e.printStackTrace();
+                fail();
+            }
+        }
+    }
+
+    class ConcurrentBuyBooks implements Runnable{
+        HashSet<BookCopy> books;
+        public ConcurrentBuyBooks (HashSet<BookCopy> bookCopies){
+            this.books = bookCopies;
+        }
+
+        @Override
+        public void run() {
+            try {
+                client.buyBooks(books);
+            } catch (BookStoreException e) {
+                e.printStackTrace();
+                fail();
+            }
+        }
+    }
+
+    class ConcurrentGetBooks implements Runnable{
+        Set<Integer> isbns;
+        int tries;
+        List<StockBook> before;
+        List<StockBook> after;
+        public ConcurrentGetBooks (List<StockBook> before,
+                                       List<StockBook> after,
+                                       Set<Integer> ISBNList,
+                                       int tries) {
+            this.before = before;
+            this.after  = after;
+            this.isbns  = ISBNList;
+            this.tries  = tries;
+        }
+
+        public void run() {
+            List<StockBook> booksFromServer = null;
+            for (int i=0; i < tries; i++)
+                try {
+                    booksFromServer = storeManager.getBooks();
+                } catch (BookStoreException e) {
+                    e.printStackTrace();
+                    fail();
+                }
+
+            //check if the books are the same as in our before and after list
+            if (! (compareBooks(booksFromServer, before)
+                    || compareBooks(booksFromServer, after))) {
+                fail();
+            }
+        }
+
+        class compareByISBN implements Comparator<StockBook> {
+            @Override
+            public int compare(StockBook book0, StockBook book1) {
+                return (int) (book1.getISBN() - book0.getISBN());
+            }
+        }
+
+        public boolean compareBooks (List<StockBook> books1, List<StockBook> books2) {
+
+            //sort the books by isbn
+            Collections.sort(books1, new compareByISBN());
+            Collections.sort(books2, new compareByISBN());
+
+            //
+            if (books1.size() != books2.size()) {
+                return false;
+            }
+            for (int i = 0; i < books1.size(); i++) {
+                if (! books1.get(i).equals(books2.get(i))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    public static class ConcurrentBuyAndAdd implements Runnable {
+        Set<BookCopy> bookCopies;
+        int tries;
+        public ConcurrentBuyAndAdd (Set<BookCopy> bookCopies, int tries) {
+            this.bookCopies = bookCopies;
+            this.tries = tries;
+        }
+        public void run() {
+            for (int i=0; i < tries; i++)
+                try {
+                    client.buyBooks(bookCopies);
+                    storeManager.addCopies(bookCopies);
+                } catch (BookStoreException e) {
+                    e.printStackTrace();
+                    fail();
+                }
         }
     }
 }
