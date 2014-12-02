@@ -316,7 +316,7 @@ public class ConcurrentBookStoreTest {
         }
     }
 
-    public static class ConcurrentBuyAndAdd implements Runnable {
+    class ConcurrentBuyAndAdd implements Runnable {
         Set<BookCopy> bookCopies;
         int tries;
         public ConcurrentBuyAndAdd (Set<BookCopy> bookCopies, int tries) {
@@ -332,6 +332,25 @@ public class ConcurrentBookStoreTest {
                     e.printStackTrace();
                     fail();
                 }
+        }
+    }
+
+    class ConcurrentRating implements Runnable {
+        Set<BookRating> ratings;
+        int nrRatings;
+        public ConcurrentRating (Set<BookRating> ratings, int numRatings) {
+            this.ratings = ratings;
+            this.nrRatings = numRatings;
+        }
+        public void run() {
+            for (int i = 0; i < nrRatings; i++) {
+                try {
+                    client.rateBooks(ratings);
+                } catch (BookStoreException e) {
+                    e.printStackTrace();
+                    fail();
+                }
+            }
         }
     }
 }
