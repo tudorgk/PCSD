@@ -69,7 +69,11 @@ we also do not have to undo the changes of an aborted transaction (because these
 
 \subsection*{2.  What is the difference between nonvolatile and stable storage? What types of failures are survived by each type of storage?}
 
+According to the theory, a volatile memory is one whose mechanism of retaining information consumes energy. If its power supply is interrupted for some reason, it forgets its information content. Such a memory is RAM. On the other hand a stable or non-volatile storage retains its content even if the power supply is interrupted. When power is again available, READ operations return the same values as before.
+
 \subsection*{3.  In a system that implements Write-Ahead Logging, which are the two situations in which the log tail must be forced to stable storage? Explain why log forces are necessary in these situations and argue why they are sufficient for durability.}
+A situation in which the log tail is forced to stable storage, is when a transaction is committed, even if a no-force approach is being used.
+TODO TODO TODO
 
 \section*{Question 2: ARIES}
 
