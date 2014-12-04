@@ -77,69 +77,35 @@ TODO TODO TODO
 
 \section*{Question 2: ARIES}
 
-\subsection*{Scenario 1}
-
-Because $T_1$ finishes before $T_3$ starts, the \nth{1} condition holds. We have to check that the \nth{2} condition holds for $T_2$ and $T_3$, but because $T_2$ writes the object that $T_3$ reads from, this condition does not hold. Therefore $T_3$ has to \emph{rollback}.\\
-
-\subsection*{Scenario 2}
-
-The \nth{2} validation condition does not hold for $T_1$ and $T_3$ because $T_1$ writes to object 3 and $T_3$ reads from it. Therefore $T_3$ has to rollback. We can observe that the \nth{3} holds for $T_2$, because $T_3$ does not access object 8.\\
-
-\subsection*{Scenario 3}
-
-The only object that $T_1$ writes to is object 4 and because $T_3$ does not read or write to that object, the \nth{2} validation condition holds. Then we check is the \nth{2} condition holds for $T_2$ and $T_3$. $T_2$ only writes to object 6 and $T_3$ does not access that object in any way, therefore $T_3$ can commit.\\
+\begin{enumerate}
+\item
+\item
+\item
+\item
+\item
+\item
+\end{enumerate}
 
 \section*{Programming Task}
 
-For the implementation of the locking protocol used in the ConcurrentCertainBookStore we used the \emph{ReentrantReadWriteLock} class available in the \emph{java.util.concurrent.locks} package. \\
 
-A ReentrantLock is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock.\\
 
-The ReentrantReadWriteLock allows both readers and writers to reacquire read or write locks in the style of a ReentrantLock. Non-reentrant readers are not allowed until all write locks held by the writing thread have been released. Additionally, a writer can acquire the read lock, but not vice-versa. Among other applications, reentrancy can be useful when write locks are held during calls or callbacks to methods that perform reads under read locks. If a reader tries to acquire the write lock it will never succeed.\\
-
-We implemented the strict two-phase locking (S2PL) by requiring a write lock when modifying the data at the start of the method. Some methods only require read locks such as getBooks and getBooksInDemand.\\
-
-% Please add the following required packages to your document preamble:
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-{\bf{Lock type}} & \bf{read-lock} & \bf{write-lock} \\ \hline
-\bf{read-lock} & \multicolumn{1}{l|}{} & \bf{X} \\ \hline
-\bf{write-lock} & \bf{X} & \bf{X} \\ \hline
-\end{tabular}
-\caption{Lock compatibility table}
-\label{Lock compatibility table}
-\end{center}
-\end{table}
 
 \subsection*{Testing}
 
-The testing has been performed locally. Every client has been emulated as a \emph{Thread} that uses the helper classes that have implemented the \emph{Runnable} interface. By creating different threads we manage to satisfy the requests concurrently.  
 
-We have implemented the 2 required tests that were presented in the assignment text and added 2 of our own that handled the posting of \emph{ratings} and getting the \emph{top rated books}.
 
-Our two tests test the behavior of adding two or more ratings concurrently and checking a hardcoded value. The assertion returns true in both tests.
+\subsection*{Questions for Discussion on the Performance Measure-
+ments}
 
-\subsection*{Discussion on the Concurrent Implementation of Bookstore}
+\subsubsection*{ Discuss in detail the setup you have created for your experiments. In particular, document your data generation procedures, hardware employed, measurement procedures (e.g., number of repetitions, statistics used such as average or deviation), and any other considerations you made. In the evaluation of this question, we will consider not only your thoroughness, but also whether you provide a brief justification/rationale for your decisions.}
 
-\subsubsection*{Is your locking protocol correct? Why? Argue for the correctness of your protocol by equivalence to a variant of 2PL.}
 
-Our protocol is implemented by using the conservative S2PL by acquiring a lock at the beginning of each method and releasing it before the method returns.\\
 
-\subsubsection*{Can your locking protocol lead to deadlocks? Explain why or why not.}
+\subsubsection*{ Show and explain the plots for throughput and latency that you obtained. As described above, we expect two plots: one for throughput and one for latency. Each plot should include two curves: one for executions in the same address space, and one for executions across address spaces. Describe the trends observed and any other effects. Explain why you observe these trends and how much that matches your Expectations. }
 
-The deadlock cannot occur because we acquire the locks right at the start of the methods, transforming every call into an \emph{atomic} one. This approach impacts the performance by lowering concurrency, but ultimately assures proper synchronization.\\
 
-\subsubsection*{Is/are there any scalability bottleneck/s with respect to the number of clients in the bookstore after your implementation? If so, where is/are the bottleneck/s and why? If not, why can we infinitely scale the number of clients accessing this service?}
+\subsubsection*{How reliable are the metrics and the workloads for predicting the performance of the bookstore? Are the metrics well chosen? What additional metrics would you choose to demonstrate the performance of the bookstore?}
 
-Scalability is a problem because \emph{we lock the entire datastore} when we are modifying the database. We have taken into account the difference between readers and writers and we allow for multiple reads but not for multiple writes. A solution to this problem would be the fact that we acquire writing locks on the table entry level. For example, if a client modifies the stock of a book in the book store, we should not wait for the stock update when adding a rating.\\
 
-\subsubsection*{Discuss the overhead being paid in the locking protocol in the implementation vs. the degree of concurrency you expect your protocol to achieve.}
-
-It is safe to assume that the overhead is not that big. Because we are dealing with a bookstore, the customers that \emph{get and read}  more information about the books are more frequent, compared to the buyers that \emph{modify and change} the bookstore's stock and ratings. Our locking protocol is suitable enough for providing adequate isolation and performance.
-
-\newpage
 \end{document}               % End of document.
