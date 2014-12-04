@@ -60,6 +60,11 @@ Gabriel Carp}      % Declares the author's name.
 
 
 \subsection*{1.In a system implementing force and no-steal, is it necessary to implement a scheme for redo? What about a scheme for undo? Explain why.}
+In a system like this we do not have to implement a scheme for redo because the force approach is used, which according to the theory means that we do not have to redo the changes of a committed transaction if there is a subsequent crash. As a result because all these changes are guaranteed to have been written to disk at commit time.  
+
+If a no-steal approach is used,
+we also do not have to undo the changes of an aborted transaction (because these changes have not been written to disk),
+
 
 \subsection*{2.  What is the difference between nonvolatile and stable storage? What types of failures are survived by each type of storage?}
 
