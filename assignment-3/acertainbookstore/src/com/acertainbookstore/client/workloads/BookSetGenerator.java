@@ -53,8 +53,8 @@ public class BookSetGenerator {
 		int SaleMisses = 0;
 		int timesRated = 0;
 		int totalRating = 0;
+		String sampleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
 		for(int i=0;i<num;i++){
-			String sampleCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
 			int randomStringlength = new Random().nextInt(20) + 1;
 			int ISBN = new Random().nextInt() + 1;
 			// check if the isbn has been generated before
