@@ -89,7 +89,8 @@ public class BookSetGenerator {
 	public static String generateString(Random rng, String characters, int length)
 	{
 	    char[] text = new char[length];
-	    for (int i = 0; i < length; i++)
+	    int limit = new Random(length).nextInt();
+	    for (int i = 0; i < limit; i++)
 	    {
 	        text[i] = characters.charAt(rng.nextInt(characters.length()));
 	    }
