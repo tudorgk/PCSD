@@ -133,6 +133,8 @@ public class Worker implements Callable<WorkerRunResult> {
 		//sort list of books based on numCopies
 		Comparator<StockBook> comparator = new Comparator<StockBook>(){
 					@Override
+					// I am not sure if the comparison is done this way
+					// or the other way around.
 					public int compare(StockBook o1, StockBook o2) {
 						if(o1.getNumCopies() < o2.getNumCopies()){
 							return 1;
