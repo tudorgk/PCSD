@@ -3,6 +3,7 @@ package com.acertainbookstore.client.tests;
 
 import static org.junit.Assert.*;
 
+import java.security.cert.TrustAnchor;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -97,6 +98,7 @@ public class WorkloadTest {
     @Test
     public void testSubsetGenerator() {
         BookSetGenerator generator = new BookSetGenerator();
+
         Set<Integer> initialISBNSet = new HashSet<Integer>();
 
         initialISBNSet.add(2341412);
@@ -109,8 +111,9 @@ public class WorkloadTest {
 
         Set<Integer> subsetISBNs = generator.sampleFromSetOfISBNs(initialISBNSet,4);
 
-        System.out.printf(subsetISBNs.toString());
-
+        for (Integer ISBNnumber : subsetISBNs){
+            assertTrue(initialISBNSet.contains(ISBNnumber));
+        }
     }
 
     @AfterClass

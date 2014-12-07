@@ -24,6 +24,17 @@ public class BookSetGenerator {
 	 * @return
 	 */
 	public Set<Integer> sampleFromSetOfISBNs(Set<Integer> isbns, int num) {
+
+		if(num>isbns.size()){
+			//if the subset number is bigger than the set size return the entire set
+			return isbns;
+		}
+
+		if (num < 0){
+			//if the subset number is smaller than 0, return an empty set
+			return new HashSet<Integer>();
+		}
+
 		ArrayList<Integer> originalISBNArray = new ArrayList<Integer> (isbns);
 		ArrayList<Integer> subsetArray = new ArrayList<Integer>(num);
 
