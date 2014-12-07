@@ -1,9 +1,6 @@
 package com.acertainbookstore.client.workloads;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 import com.acertainbookstore.business.ImmutableStockBook;
 import com.acertainbookstore.business.StockBook;
@@ -27,18 +24,22 @@ public class BookSetGenerator {
 	 * @return
 	 */
 	public Set<Integer> sampleFromSetOfISBNs(Set<Integer> isbns, int num) {
-		Set<Integer> result = new HashSet<Integer>();
-		int counter = 0;
-		for(int i=0; i<num; i++){
-			int randomPosition = new Random().nextInt(isbns.size());
-			for(Integer isbn : isbns){
-				if(counter == randomPosition){
-					result.add(isbn);
-				}
-				counter++;
+		ArrayList<Integer> originalISBNArray = new ArrayList<Integer> (isbns);
+		ArrayList<Integer> subsetArray = new ArrayList<Integer>(num);
+
+		/* Fill in subset array with first part of original array */
+		for(int i=0;i<num;i++){
+			subsetArray.add(i,originalISBNArray.get(i));
+		}
+
+		/*Go through the rest of the array*/
+		for(int i=num;i<originalISBNArray.size();i++){
+			int k = new Random().nextInt(i+1);
+			if(k<num){
+				subsetArray.set(k, originalISBNArray.get(i));
 			}
 		}
-		return result;
+		return new HashSet<Integer>(subsetArray);
 	}
 
 	/**
