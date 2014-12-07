@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.8)  4 DEC 2014 14:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.8)  7 DEC 2014 18:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -731,89 +731,37 @@ LaTeX Info: Redefining \nameref on input line 56.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
-
- []
-
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 130--131
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
-
- []
-
-[3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 111.
+ [2]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 111.
  (./assignment3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 111.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 111.
 Package rerunfilecheck Info: File `assignment3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 111.
  ) 
 Here is how much of TeX's memory you used:
- 8916 strings out of 495028
- 123836 string characters out of 6181497
- 245876 words of memory out of 5000000
- 11976 multiletter control sequences out of 15000+600000
- 18243 words of font info for 49 fonts, out of 8000000 for 9000
+ 8907 strings out of 495028
+ 123722 string characters out of 6181497
+ 244876 words of memory out of 5000000
+ 11970 multiletter control sequences out of 15000+600000
+ 16279 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,9n,40p,539b,337s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,6n,40p,497b,419s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/sokras/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/
-sokras/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/sokras/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/sokras/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/sokras/.texmf-var/fonts/pk/ljf
-our/jknappen/ec/ecbx1200.600pk> </home/sokras/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecrm1200.600pk> </home/sokras/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx
-1440.600pk> </home/sokras/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-Output written on assignment3.pdf (3 pages, 97273 bytes).
+sokras/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/sokras/.te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/sokras/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/sokras/.texmf-var/fonts/pk/ljf
+our/jknappen/ec/ecbx1440.600pk> </home/sokras/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecbx1728.600pk>
+Output written on assignment3.pdf (2 pages, 65792 bytes).
 PDF statistics:
- 328 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 265 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  20 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
