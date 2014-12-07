@@ -3,12 +3,16 @@
  */
 package com.acertainbookstore.client.workloads;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
+import com.acertainbookstore.business.BookCopy;
+import com.acertainbookstore.business.ImmutableStockBook;
 import com.acertainbookstore.business.StockBook;
 import com.acertainbookstore.utils.BookStoreException;
 
@@ -124,7 +128,35 @@ public class Worker implements Callable<WorkerRunResult> {
 	 * @throws BookStoreException
 	 */
 	private void runFrequentStockManagerInteraction() throws BookStoreException {
+		// get books in store
+		List<StockBook> storeBooks = configuration.getStockManager().getBooks();
+		//sort list of books based on numCopies
+		Comparator<StockBook> comparator = new Comparator<StockBook>(){
+					@Override
+					public int compare(StockBook o1, StockBook o2) {
+						if(o1.getNumCopies() < o2.getNumCopies()){
+							return 1;
+						}else if(o1.getNumCopies() > o2.getNumCopies()){
+							return -1;
+						}
+						return 0;
+					}
+
+		};
+		Collections.sort(storeBooks,comparator);
+		Set<StockBook> booksToAdd = new HashSet<StockBook>();
+		Set<BookCopy> copiesToAdd = new HashSet<BookCopy>();
+		// we choose the k books with smallest quantities from the 
+		// WorkloadConfiguration class
+		for(int i=0; i<configuration.getNumBooksWithLeastCopies();i++){
+			// make a BookCopy to add
+			BookCopy temp = new BookCopy(storeBooks.get(i).getISBN(), 
+					configuration.getNumAddCopies());
+			copiesToAdd.add(temp);
+		}
 		
+		// add copies of the books
+		configuration.getStockManager().addCopies(copiesToAdd);
 	}
 
 	/**
