@@ -11,6 +11,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.Callable;
 
+import com.acertainbookstore.business.Book;
 import com.acertainbookstore.business.BookCopy;
 import com.acertainbookstore.business.ImmutableStockBook;
 import com.acertainbookstore.business.StockBook;
@@ -167,7 +168,25 @@ public class Worker implements Callable<WorkerRunResult> {
 	 * @throws BookStoreException
 	 */
 	private void runFrequentBookStoreInteraction() throws BookStoreException {
-		// TODO: Add code for Customer Interaction
+		// get editor picks
+		List<Book> editorPicks = configuration.getBookStore()
+				.getEditorPicks(configuration.getNumEditorPicksToGet());
+		Set<Integer> isbns = new HashSet<Integer>();
+		for(Book book : editorPicks){
+			isbns.add(book.getISBN());
+		}
+		// sample editor picks
+		Set<Integer> isbnsToBuy = configuration.getBookSetGenerator()
+				.sampleFromSetOfISBNs(isbns, configuration.getNumBooksToBuy());
+		List<StockBook> booksForSet = configuration.getStockManager().getBooksByISBN(isbnsToBuy);
+		// create set for books to buy
+		Set<BookCopy> booksToBuy = new HashSet<BookCopy>();
+		for(StockBook book : booksForSet){
+			booksToBuy.add(new BookCopy(book.getISBN(), 
+					configuration.getNumBookCopiesToBuy()));
+		}
+		// buy books
+		configuration.getBookStore().buyBooks(booksToBuy);
 	}
 
 }
