@@ -14,7 +14,6 @@ import com.acertainbookstore.business.StockBook;
 public class BookSetGenerator {
 
 	HashMap<Integer, Boolean> isbns = new HashMap<Integer, Boolean>();
-	HashMap<String, Boolean> titles = new HashMap<String, Boolean>();
 	public BookSetGenerator() {
 		// TODO Auto-generated constructor stub
 	}

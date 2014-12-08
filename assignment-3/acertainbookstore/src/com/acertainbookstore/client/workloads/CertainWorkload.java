@@ -5,11 +5,13 @@ package com.acertainbookstore.client.workloads;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import com.acertainbookstore.business.CertainBookStore;
+import com.acertainbookstore.business.StockBook;
 import com.acertainbookstore.client.BookStoreHTTPProxy;
 import com.acertainbookstore.client.StockManagerHTTPProxy;
 import com.acertainbookstore.interfaces.BookStore;
@@ -37,7 +39,7 @@ public class CertainWorkload {
 		List<Future<WorkerRunResult>> runResults = new ArrayList<Future<WorkerRunResult>>();
 
 		// Initialize the RPC interfaces if its not a localTest, the variable is
-		// overriden if the property is set
+		// over-ridden if the property is set
 		String localTestProperty = System
 				.getProperty(BookStoreConstants.PROPERTY_KEY_LOCAL_TEST);
 		localTest = (localTestProperty != null) ? Boolean
@@ -92,6 +94,18 @@ public class CertainWorkload {
 	 */
 	public static void reportMetric(List<WorkerRunResult> workerRunResults) {
 		// TODO: You should aggregate metrics and output them for plotting here
+		float successfulCust = 0;
+		float totalCust = 0;
+		float time = 0;
+		for (WorkerRunResult result : workerRunResults) {
+			successfulCust += result.getSuccessfulFrequentBookStoreInteractionRuns();
+			totalCust += result.getTotalFrequentBookStoreInteractionRuns();
+			time += result.getElapsedTimeInNanoSecs();
+		}
+		float averageseconds = (time / workerRunResults.size()) / 1000000000;
+		float throughput  = successfulCust / averageseconds;
+		float latency = averageseconds / (successfulCust / workerRunResults.size());
+		System.out.println(workerRunResults.size() + ", " + throughput + ", " + latency + ", " + successfulCust / totalCust);
 	}
 
 	/**
@@ -102,10 +116,14 @@ public class CertainWorkload {
 	 */
 	public static void initializeBookStoreData(BookStore bookStore,
 			StockManager stockManager) throws BookStoreException {
-		// choose to generate 20 books in the library with the 
-		// BookSetGenerator
-		BookSetGenerator bg = new BookSetGenerator();
-		stockManager.addBooks(bg.nextSetOfStockBooks(20));
+		/*TODO: To implement
+		* This method should initialize the bookstore with a given initial number of books.
+		* NOTE: You will need to decide details of the procedure for data genera- tion, e.g.,
+		* how many books you will initially load the bookstore with, how long should book titles be,
+		* or how many copies of the books are given initially to the books added to the bookstore.
+		* Remember to document these decisions in your experimental setup description asked for below.*/
 
-	}
+		BookSetGenerator bg = new BookSetGenerator();
+		stockManager.addBooks(bg.nextSetOfStockBooks(500));
+ 	}
 }

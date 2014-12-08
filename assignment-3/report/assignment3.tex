@@ -61,24 +61,82 @@ Sokratis Siozos - Drosos}      % Declares the author's name.
 
 
 \subsection*{1.In a system implementing force and no-steal, is it necessary to implement a scheme for redo? What about a scheme for undo? Explain why.}
-In a system like this we do not have to implement a scheme for redo because the force approach is used, which according to the theory means that we do not have to redo the changes of a committed transaction if there is a subsequent crash. As a result because all these changes are guaranteed to have been written to disk at commit time.  
 
-If a no-steal approach is used,
-we also do not have to undo the changes of an aborted transaction (because these changes have not been written to disk),
+In a system like this, we do not have to implement a scheme for redo because the force approach is used, which according to the theory means that we do not have to redo the changes of a committed transaction if there is a subsequent crash. As a result, all these changes are guaranteed to have been written to disk at the time the data has been commited. \\
+
+If a no-steal approach is used, we also do not have to undo the changes of an aborted transaction (because these changes have not been written to disk),\\
 
 
 \subsection*{2.  What is the difference between nonvolatile and stable storage? What types of failures are survived by each type of storage?}
 
-According to the theory, a volatile memory is one whose mechanism of retaining information consumes energy. If its power supply is interrupted for some reason, it forgets its information content. Such a memory is RAM. On the other hand a stable or non-volatile storage retains its content even if the power supply is interrupted. When power is again available, READ operations return the same values as before.
+According to the theory, a volatile memory is one whose mechanism of retaining information consumes energy. If its power supply is interrupted for some reason, it forgets its information content. Such a memory is RAM. On the other hand a stable or non-volatile storage retains its content even if the power supply is interrupted. When power is again available, READ operations return the same values as before.\\
 
 \subsection*{3.  In a system that implements Write-Ahead Logging, which are the two situations in which the log tail must be forced to stable storage? Explain why log forces are necessary in these situations and argue why they are sufficient for durability.}
 A situation in which the log tail is forced to stable storage, is when a transaction is committed, even if a no-force approach is being used.
-TODO TODO TODO
+TODO TODO TODO\\
 
 \section*{Question 2: ARIES}
 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{LSN} & \textbf{LAST\_LSN} & \textbf{TRAN\_ID} & \textbf{TYPE} & \textbf{PAGE\_ID} \\ \hline
+1            & -                  & -                 & begin CKPT    & -                 \\ 
+2            & -                  & -                 & end CKPT      & -                 \\ 
+3            & NULL               & T1                & update        & P2                \\ 
+4            & 3                  & T1                & update        & P1                \\ 
+5            & NULL               & T2                & update        & P5                \\
+6            & NULL               & T3                & update        & P3                \\
+7            & 6                  & T3                & commit        & -                 \\ 
+8            & 5                  & T2                & update        & P5                \\
+9            & 8                  & T2                & update        & P3                \\ 
+10           & 6                  & T3                & end           &                   \\ \hline
+\end{tabular}
+\caption{The LOG before the crash}
+\label{The LOG before the crash}
+\end{center}
+\end{table}
+
 \begin{enumerate}
-\item
+\item %question 1 
+
+To create the \emph{Transaction} and \emph{Dirty Page} tables we need to go through the \emph{Analysis Phase}. The algorithm states that we must reconstruct these tables after the last \emph{end CKPT} mark. We scan the log forward from \emph{LSN 3} and add the transactions in the \emph{Transaction Table} that have not encountered an \emph{end} record. We update the transaction's  \emph{last LSN} entry by updating it to the current LSN of the transaction. The \emph{Transaction table} after the analysis phase would look like this:\\
+
+%transaction table
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Tx ID} & \textbf{Status} & \textbf{LastLSN} \\ \hline
+T1             & active          & 4                \\ 
+T2             & active          & 9                \\ \hline
+\end{tabular}
+\caption{Transaction Table}
+\label{Transaction Table}
+\end{center}
+\end{table}
+
+For the \emph{Dirty Page table}, we need to check the \emph{update} records in the log. We need to store the earliest LSN for that page modification. If the a page is modified by a transaction that has successfully ended it's commit action, we remove it from the \emph{Dirty Page table}. The \emph{Dirty Page table} is presented below:\\
+
+%dirty page table
+\begin{table}[h]
+\begin{center}
+
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Page ID} & \textbf{recLSN} \\ 
+\hline
+P2               & 3               \\
+P1               & 4               \\
+P5               & 5               \\ 
+\hline
+\end{tabular}
+\caption{Dirty Page Table}
+\label{Dirty Page Table}
+\end{center}
+\end{table}
+
 \item
 \item
 \item
