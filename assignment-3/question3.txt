@@ -1,0 +1,7 @@
+According to the theory, a performance metric is considered reliable if a system A outperforms a system B when the corresponding values of the metric for both systems indicate that system A should outperform system B. \\
+
+Based on the graphs we can safely infer that latency is a reliable metric as we can see that as we increase the number of concurrent clients, the lantecy does too. As for for the throughput we cannot say that it is a reliable metric. As we can see from the graphs there relation between the number of clients and throuphput even after configuring the workload metrics. \\
+
+An additional metric that could be used to demonstrate the performance of the book-store is the Execution time. Since it can give precise results concerning the time it took for the system to execute a given program or a unit test. This way, as the theory says, we can compare time directly, or use them to derive appropriate rates. \\
+
+Another metric that could be used the Speedup. Although, it is defined in terms of throughput, it is often calculated directly from execution times. As a result, we can safely say that it is a reliable metric for our system. \\
