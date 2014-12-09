@@ -78,8 +78,6 @@ public class BookSetGenerator {
 			// the same isbn twice in the future
 			isbns.put(ISBN, true);
 
-			int randomStringLength = new Random().nextInt(20) + 1;
-
 			Random rnd = new Random();
 			String title = new BigInteger(130, rnd).toString(32);
 			String author = new BigInteger(130, rnd).toString(32);
