@@ -15,10 +15,13 @@ import com.acertainbookstore.business.StockBook;
 import com.acertainbookstore.client.BookStoreHTTPProxy;
 import com.acertainbookstore.client.StockManagerHTTPProxy;
 import com.acertainbookstore.client.workloads.BookSetGenerator;
+import com.acertainbookstore.client.workloads.Worker;
+import com.acertainbookstore.client.workloads.WorkloadConfiguration;
 import com.acertainbookstore.interfaces.BookStore;
 import com.acertainbookstore.interfaces.StockManager;
 import com.acertainbookstore.utils.BookStoreConstants;
 import com.acertainbookstore.utils.BookStoreException;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -130,6 +133,19 @@ public class WorkloadTest {
             System.out.println(book.toString());
         }
 
+    }
+    @Test
+    public void testComparison() throws Exception{
+    	BookStore bookStore = null;
+		StockManager stockManager = null;
+    	CertainBookStore store = new CertainBookStore();
+		bookStore = store;
+		stockManager = store;
+    	WorkloadConfiguration config = new WorkloadConfiguration(bookStore,
+				stockManager);
+		Worker workerTask = new Worker(config);
+		workerTask.call();
+		
     }
 
     @AfterClass

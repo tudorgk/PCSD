@@ -1,0 +1,53 @@
+1. Analysis Phase:
+
+	Dirty page table:
+	pageID 		recLSN
+	P2		3
+	P1		4
+	P5		8
+	P3		9
+
+
+
+	Transaction Table:
+	transID		lastLSN
+	T1		3
+	T2		9
+
+Redo Phase:
+	Redone Log Record:
+	LSN 	Page_ID		ACTION
+	1	P2		Update
+	2	P1		Update
+	3	P5		Update
+	4	P3		Update
+	5	P3		Commit
+	6	P3		End
+
+2. Undo Phase:
+	Winner transactions: {T3}
+	Loser transactions: {T1,T2}
+
+3. Values where the undo starts:
+	ToUndo set: {9,3,8,5}
+
+4. set of pages to be rewritten:
+	{P2,P1,P5,P3}
+CLR table:
+UndoLSN	UndoNextLSN	ACTION
+9		8	
+8		5
+
+
+
+5. Set of undone log records: {9,8,5,4,3}
+
+6.
+LSN 	LOG
+11	UNDO T2 LSN 9
+12 	UNDO T2 LSN 8
+13 	UNDO T2 LSN 5
+14	T2 END
+15	UDDO T1 LSN 4
+16 	UNDO T1 LSN 3
+17	T1 END
