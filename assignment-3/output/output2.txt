@@ -9,3 +9,14 @@ Workers: 8, Goodput/Aggregate throughput: 44.3443895309969, Throughput: 44.34438
 Workers: 9, Goodput/Aggregate throughput: 41.52485750744419, Throughput: 41.52485750744419, Latency: 0.21673764921135644
 Workers: 10, Goodput/Aggregate throughput: 39.775803200737926, Throughput: 39.79833906657404, Latency: 0.2514091280453258
 
+
+private int numBooksToBuy = 5;
+	private int numBookCopiesToBuy = 1;
+	private int numEditorPicksToGet = 10;
+	private int numAddCopies = 8;
+	private int numBooksToAdd = 5;
+	private int numBooksWithLeastCopies = 5;
+	private int warmUpRuns = 100;
+	private int numActualRuns = 500;
+	private float percentRareStockManagerInteraction = 10f;
+	private float percentFrequentStockManagerInteraction = 30f;
