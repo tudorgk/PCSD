@@ -137,11 +137,26 @@ P5               & 5               \\
 \end{table}
 
 \item %question 2
+The transactions that have not committed, are considered \emph{losing transactions} because they have not been written to the non-volatile storage. In our case the only transaction that completed it's commit is $T3$. Therefore the loser transactions are $T1$ and $T2$.\\
 
-\item
-\item
-\item
-\item
+\item %question 3
+The REDO phase starts from the smallest \emph{recLSN} in dirty page table after the Analysis phase. In our case the smallest LSN is \emph{3}. The UNDO phase ends at the oldest log record of an active transaction at crash. In our case the minimum LSN is \emph{3}.\\
+
+\item %question 4
+Because in the REDO phase we actually reapply everything, all the pages that were updated after the checkpoint will be modified. The set should therefore be:
+\begin{verbatim}
+RedoPageSet = {P2,P1,P5,P3}
+\end{verbatim}
+
+\item %question 5
+In the UNDO stage we need to rollback all the transactions that haven't committed their changes. The UNDO set is composed of the LSN's that are attributed to a loser transaction. In our case the UNDO log record set will be:
+\begin{verbatim}
+UndoLogRecords ={9,8,5,4,3}
+\end{verbatim}
+
+\item %question 6
+When building the log after a crash we must rollback the transactions that haven't committed (loser transactions).
+ 
 \end{enumerate}
 
 \section*{Programming Task}
