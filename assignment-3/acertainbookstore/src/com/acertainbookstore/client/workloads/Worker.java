@@ -147,7 +147,6 @@ public class Worker implements Callable<WorkerRunResult> {
 
 		};
 		Collections.sort(storeBooks,comparator);
-		Set<StockBook> booksToAdd = new HashSet<StockBook>();
 		Set<BookCopy> copiesToAdd = new HashSet<BookCopy>();
 		// we choose the k books with smallest quantities from the 
 		// WorkloadConfiguration class

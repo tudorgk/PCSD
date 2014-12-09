@@ -105,7 +105,7 @@ public class CertainWorkload {
 		float averageseconds = (time / workerRunResults.size()) / 1000000000;
 		float throughput  = successfulCust / averageseconds;
 		float latency = averageseconds / (successfulCust / workerRunResults.size());
-		System.out.println(workerRunResults.size() + ", " + throughput + ", " + latency + ", " + successfulCust / totalCust);
+		System.out.println("Workers: "+workerRunResults.size() + ", Throughput: " + throughput + ", Latency: " + latency + ", Probability of successful: " + successfulCust / totalCust);
 	}
 
 	/**
