@@ -129,23 +129,10 @@ public class WorkloadTest {
 
         Set<StockBook> generatedBooks = generator.nextSetOfStockBooks(numberOfBooksToGenerate);
 
-        for (StockBook book : generatedBooks){
+        for (StockBook book : generatedBooks) {
             System.out.println(book.toString());
         }
 
-    }
-    @Test
-    public void testComparison() throws Exception{
-    	BookStore bookStore = null;
-		StockManager stockManager = null;
-    	CertainBookStore store = new CertainBookStore();
-		bookStore = store;
-		stockManager = store;
-    	WorkloadConfiguration config = new WorkloadConfiguration(bookStore,
-				stockManager);
-		Worker workerTask = new Worker(config);
-		workerTask.call();
-		
     }
 
     @AfterClass

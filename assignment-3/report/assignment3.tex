@@ -60,18 +60,18 @@ Sokratis Siozos - Drosos}      % Declares the author's name.
 \section*{Question 1: Recovery Concepts} 
 
 
-\subsection*{1.In a system implementing force and no-steal, is it necessary to implement a scheme for redo? What about a scheme for undo? Explain why.}
+\subsubsection*{1.In a system implementing force and no-steal, is it necessary to implement a scheme for redo? What about a scheme for undo? Explain why.}
 
 In a system like this, we do not have to implement a scheme for redo because the force approach is used, which according to the theory means that we do not have to redo the changes of a committed transaction if there is a subsequent crash. As a result, all these changes are guaranteed to have been written to disk at the time the data has been commited. \\
 
 If a no-steal approach is used, we also do not have to undo the changes of an aborted transaction (because these changes have not been written to disk),\\
 
 
-\subsection*{2.  What is the difference between nonvolatile and stable storage? What types of failures are survived by each type of storage?}
+\subsubsection*{2.  What is the difference between nonvolatile and stable storage? What types of failures are survived by each type of storage?}
 
 According to the theory, a volatile memory is one whose mechanism of retaining information consumes energy. If its power supply is interrupted for some reason, it forgets its information content. Such a memory is RAM. On the other hand a stable or non-volatile storage retains its content even if the power supply is interrupted. When power is again available, READ operations return the same values as before.\\
 
-\subsection*{3.  In a system that implements Write-Ahead Logging, which are the two situations in which the log tail must be forced to stable storage? Explain why log forces are necessary in these situations and argue why they are sufficient for durability.}
+\subsubsection*{3.  In a system that implements Write-Ahead Logging, which are the two situations in which the log tail must be forced to stable storage? Explain why log forces are necessary in these situations and argue why they are sufficient for durability.}
 A situation in which the log tail is forced to stable storage, is when a transaction is committed, even if a no-force approach is being used.
 TODO TODO TODO\\
 
@@ -187,7 +187,6 @@ When building the log after a crash we must rollback the transactions that haven
 \end{table}
 \end{enumerate}
 To add the CLR records we must keep track of the last LSN's of the loser transactions. We choose the largest LSN ( in out case 9) and we observe that the record is an \emph{update}. We then undo the update and write a CLR (Compensation Log Record) to record that we did the rollback. Afterwards we update the CLR's prevLSN with the last LSN of the transaction (in our example here, we set the prevLSN to 8). We apply this algorithm until we have no more loser transaction updates to undo. \\
-
 
 \section*{Programming Task}
 

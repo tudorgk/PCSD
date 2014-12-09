@@ -94,18 +94,23 @@ public class CertainWorkload {
 	 */
 	public static void reportMetric(List<WorkerRunResult> workerRunResults) {
 		// TODO: You should aggregate metrics and output them for plotting here
-		float successfulCust = 0;
-		float totalCust = 0;
+		float successfulFreqInteractionRuns = 0;
+		float totalFreqInteractionRuns = 0;
 		float time = 0;
 		for (WorkerRunResult result : workerRunResults) {
-			successfulCust += result.getSuccessfulFrequentBookStoreInteractionRuns();
-			totalCust += result.getTotalFrequentBookStoreInteractionRuns();
+			successfulFreqInteractionRuns  += result.getSuccessfulFrequentBookStoreInteractionRuns();
+			totalFreqInteractionRuns += result.getTotalFrequentBookStoreInteractionRuns();
 			time += result.getElapsedTimeInNanoSecs();
 		}
-		float averageseconds = (time / workerRunResults.size()) / 1000000000;
-		float throughput  = successfulCust / averageseconds;
-		float latency = averageseconds / (successfulCust / workerRunResults.size());
-		System.out.println("Workers: "+workerRunResults.size() + ", Throughput: " + throughput + ", Latency: " + latency + ", Probability of successful: " + successfulCust / totalCust);
+		//average seconds elapsed for workers
+		float averageSeconds = (time / workerRunResults.size()) / 1000000000; //10^9
+		float throughput  = successfulFreqInteractionRuns  / averageSeconds;
+		float latency = averageSeconds / (successfulFreqInteractionRuns  / workerRunResults.size());
+		System.out.println(
+				"Workers: "+workerRunResults.size() +
+				", Throughput: " + throughput +
+				", Latency: " + latency +
+				", Aggregate throughput: " + successfulFreqInteractionRuns / totalFreqInteractionRuns);
 	}
 
 	/**
@@ -116,14 +121,8 @@ public class CertainWorkload {
 	 */
 	public static void initializeBookStoreData(BookStore bookStore,
 			StockManager stockManager) throws BookStoreException {
-		/*TODO: To implement
-		* This method should initialize the bookstore with a given initial number of books.
-		* NOTE: You will need to decide details of the procedure for data genera- tion, e.g.,
-		* how many books you will initially load the bookstore with, how long should book titles be,
-		* or how many copies of the books are given initially to the books added to the bookstore.
-		* Remember to document these decisions in your experimental setup description asked for below.*/
-
+		/* This method should initialize the bookstore with a given initial number of books.*/
 		BookSetGenerator bg = new BookSetGenerator();
-		stockManager.addBooks(bg.nextSetOfStockBooks(500));
+		stockManager.addBooks(bg.nextSetOfStockBooks(50));
  	}
 }

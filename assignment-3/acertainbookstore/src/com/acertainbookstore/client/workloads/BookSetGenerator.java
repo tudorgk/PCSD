@@ -69,20 +69,19 @@ public class BookSetGenerator {
 
 		for(int i=0;i<num;i++){
 
-			int ISBN = new Random().nextInt(10000000) + 1;
+			int ISBN = new Random().nextInt(1000) + 1;
 			// check if the isbn has been generated before
 			while(isbns.containsKey(ISBN)){
-				ISBN = new Random().nextInt(10000000) + 1;
+				ISBN = new Random().nextInt(1000) + 1;
 			}
 			// add the isbn to the hashmap to make sure we dont produce
 			// the same isbn twice in the future
 			isbns.put(ISBN, true);
 
-			Random rnd = new Random();
-			String title = new BigInteger(130, rnd).toString(32);
-			String author = new BigInteger(130, rnd).toString(32);
-
-			int price = new Random().nextInt(1000) + 1;
+			//add the title, price and author with the same value of the ISBN
+			String title = Integer.toString(ISBN);
+			String author = Integer.toString(ISBN);
+			int price = ISBN;
 
 			boolean editorPick = new Random().nextBoolean();
 
