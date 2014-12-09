@@ -1,3 +1,7 @@
 1. We initialize the bookstore with 50 books. The number of books that clients can buy is set to 5, while the number of book copies is set to 1. After some tests it was clear that since the probability of buying a book was higher than the one for adding books or book copies then as the number of concurrent clients increased, the goodput was steadily decreasing. As a result, we set the variable numAddCopies to 8 (a value eight times higher than the numBookCopiesToBuy) so that we can make sure that the sale misses are minimized.  The variable numBooksToAdd was set to 5, which is the same with numBooksToBuy, test whether the sale misses increased or not. Finally, the variable numBooksWithLeastCopies was also set to 5 for the same reason as before.\\
 
 We ran the tests in a Macbook Pro with 2Ghz Intel core i7(8 threads) and 8GB of RAM. The testing was done for 1 and up to 10 concurrent clients in both local and through RPC. \\
+
+We tested the the bookstore for multiple values of numEditorPicksToGet, numAddCopies and numBooksToAdd. We did not change the number of warmUpRuns or numActualRuns so that we could have a better idea of the impact that these changes had on the final results.\\
+
+Below each group of graphs we give the specific workload configurations that we used.\\
