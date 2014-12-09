@@ -101,7 +101,7 @@ TODO TODO TODO\\
 \begin{enumerate}
 \item %question 1 
 
-To create the \emph{Transaction} and \emph{Dirty Page} tables we need to go through the \emph{Analysis Phase}. The algorithm states that we must reconstruct these tables after the last \emph{end CKPT} mark. We scan the log forward from \emph{LSN 3} and add the transactions in the \emph{Transaction Table} that have not encountered an \emph{end} record. We update the transaction's  \emph{last LSN} entry by updating it to the current LSN of the transaction. The \emph{Transaction table} after the analysis phase would look like this:\\
+To create the \emph{Transaction} and \emph{Dirty Page} tables we need to go through the \emph{Analysis Phase}. The algorithm states that we must reconstruct these tables after the last \emph{end CKPT} mark. We scan the log forward from \emph{LSN 3} and add the transactions in the \emph{Transaction Table} that have not encountered an \emph{end} record. We update the transaction's  \emph{last LSN} entry by updating it to the current LSN of the transaction. The \emph{Transaction table} after the analysis phase would look like this: \\
 
 %transaction table
 \begin{table}[h]
@@ -137,6 +137,7 @@ P5               & 5               \\
 \end{table}
 
 \item %question 2
+
 \item
 \item
 \item
