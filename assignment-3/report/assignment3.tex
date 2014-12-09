@@ -70,11 +70,13 @@ To implement a scheme for undo we need to have steal approach. Thus, if a frame 
 
 \subsubsection*{2.  What is the difference between nonvolatile and stable storage? What types of failures are survived by each type of storage?}
 
-According to the theory, a volatile memory is one whose mechanism of retaining information consumes energy. If its power supply is interrupted for some reason, it forgets its information content. Such a memory is RAM. On the other hand a stable or non-volatile storage retains its content even if the power supply is interrupted. When power is again available, READ operations return the same values as before.\\
+A stable storage is guaranteed to survive crashes and media failures. Stable storage is implemented by maintaining multiple copies of information (perhaps in different locations) on nonvolatile storage devices such as disks or tapes. A non-volatile storage retains its content even if the power supply is interrupted, but has no guarantees because it can be prone to media failures. When power is again available, READ operations return the same values as before. A stable storage survives crashes and media failures, while the nonvolatile storage only survives crashes.\\
+
 
 \subsubsection*{3.  In a system that implements Write-Ahead Logging, which are the two situations in which the log tail must be forced to stable storage? Explain why log forces are necessary in these situations and argue why they are sufficient for durability.}
-A situation in which the log tail is forced to stable storage, is when a transaction is committed, even if a no-force approach is being used.
-TODO TODO TODO\\
+The first situation for the log tail to be forced to stable storage is before a data page gets to disk. Another situation is when a transaction is committed, even if a no-force approach is being used. \\
+
+A force approach is necessary because all the pages modified by the transaction, rather than a portion of the log that includes all its records, must be forced to disk when the transaction commits. Furthermore the cost of forcing the log tail is much smaller than the cost of writing all changed stages to disk, thus insuring durability.\\
 
 \section*{Question 2: ARIES}
 
