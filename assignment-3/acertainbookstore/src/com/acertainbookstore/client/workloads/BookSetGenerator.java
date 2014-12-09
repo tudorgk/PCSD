@@ -69,10 +69,10 @@ public class BookSetGenerator {
 
 		for(int i=0;i<num;i++){
 
-			int ISBN = new Random().nextInt(1000) + 1;
+			int ISBN = new Random().nextInt(10000000) + 10000000;
 			// check if the isbn has been generated before
 			while(isbns.containsKey(ISBN)){
-				ISBN = new Random().nextInt(1000) + 1;
+				ISBN = new Random().nextInt(10000000) + 10000000;
 			}
 			// add the isbn to the hashmap to make sure we dont produce
 			// the same isbn twice in the future

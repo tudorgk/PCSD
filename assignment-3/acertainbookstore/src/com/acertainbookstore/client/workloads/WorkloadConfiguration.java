@@ -13,7 +13,7 @@ public class WorkloadConfiguration {
 	private int numBooksToBuy = 5;
 	private int numBookCopiesToBuy = 1;
 	private int numEditorPicksToGet = 10;
-	private int numAddCopies = 10;
+	private int numAddCopies = 8;
 	private int numBooksToAdd = 5;
 	private int numBooksWithLeastCopies = 5;
 	private int warmUpRuns = 100;

@@ -33,6 +33,12 @@ public class CertainWorkload {
 	 */
 	public static void main(String[] args) throws Exception {
 		int numConcurrentWorkloadThreads = 10;
+		for (int i = 1; i<=numConcurrentWorkloadThreads;i++){
+			runLocalTests(i);
+		}
+	}
+
+	public static void runLocalTests(int numConcurrentWorkloadThreads) throws Exception {
 		String serverAddress = "http://localhost:8081";
 		boolean localTest = true;
 		List<WorkerRunResult> workerRunResults = new ArrayList<WorkerRunResult>();
@@ -94,23 +100,25 @@ public class CertainWorkload {
 	 */
 	public static void reportMetric(List<WorkerRunResult> workerRunResults) {
 		// TODO: You should aggregate metrics and output them for plotting here
-		float successfulFreqInteractionRuns = 0;
-		float totalFreqInteractionRuns = 0;
-		float time = 0;
+		double successfulFreqInteractionRuns = 0;
+		double totalFreqInteractionRuns = 0;
+		double time = 0;
 		for (WorkerRunResult result : workerRunResults) {
 			successfulFreqInteractionRuns  += result.getSuccessfulFrequentBookStoreInteractionRuns();
 			totalFreqInteractionRuns += result.getTotalFrequentBookStoreInteractionRuns();
 			time += result.getElapsedTimeInNanoSecs();
 		}
 		//average seconds elapsed for workers
-		float averageSeconds = (time / workerRunResults.size()) / 1000000000; //10^9
-		float throughput  = successfulFreqInteractionRuns  / averageSeconds;
-		float latency = averageSeconds / (successfulFreqInteractionRuns  / workerRunResults.size());
+		double averageSeconds = (time / workerRunResults.size()) / 1000000000.0f; //10^9
+		double goodput  = successfulFreqInteractionRuns  / averageSeconds;
+		double throughput = totalFreqInteractionRuns / averageSeconds;
+		double latency = averageSeconds / (successfulFreqInteractionRuns  / workerRunResults.size());
+
 		System.out.println(
 				"Workers: "+workerRunResults.size() +
+				", Goodput/Aggregate throughput: " + goodput +
 				", Throughput: " + throughput +
-				", Latency: " + latency +
-				", Aggregate throughput: " + successfulFreqInteractionRuns / totalFreqInteractionRuns);
+				", Latency: " + latency);
 	}
 
 	/**
@@ -122,6 +130,7 @@ public class CertainWorkload {
 	public static void initializeBookStoreData(BookStore bookStore,
 			StockManager stockManager) throws BookStoreException {
 		/* This method should initialize the bookstore with a given initial number of books.*/
+		stockManager.removeAllBooks();
 		BookSetGenerator bg = new BookSetGenerator();
 		stockManager.addBooks(bg.nextSetOfStockBooks(50));
  	}

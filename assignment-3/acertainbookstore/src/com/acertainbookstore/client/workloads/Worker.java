@@ -138,9 +138,9 @@ public class Worker implements Callable<WorkerRunResult> {
 					// or the other way around.
 					public int compare(StockBook o1, StockBook o2) {
 						if(o1.getNumCopies() < o2.getNumCopies()){
-							return 1;
-						}else if(o1.getNumCopies() > o2.getNumCopies()){
 							return -1;
+						}else if(o1.getNumCopies() > o2.getNumCopies()){
+							return 1;
 						}
 						return 0;
 					}

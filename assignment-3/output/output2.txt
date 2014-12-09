@@ -1,0 +1,11 @@
+Workers: 1, Goodput/Aggregate throughput: 40.19004183042692, Throughput: 40.19004183042692, Latency: 0.024881785498489423
+Workers: 2, Goodput/Aggregate throughput: 38.10584568064819, Throughput: 38.10584568064819, Latency: 0.05248538549075392
+Workers: 3, Goodput/Aggregate throughput: 41.26932076913506, Throughput: 41.26932076913506, Latency: 0.07269322450888681
+Workers: 4, Goodput/Aggregate throughput: 33.95849503797543, Throughput: 33.95849503797543, Latency: 0.11779085014005601
+Workers: 5, Goodput/Aggregate throughput: 24.998974971606515, Throughput: 24.998974971606515, Latency: 0.20000820056338028
+Workers: 6, Goodput/Aggregate throughput: 25.867401920054164, Throughput: 25.867401920054164, Latency: 0.23195216970546986
+Workers: 7, Goodput/Aggregate throughput: 49.5621923622923, Throughput: 49.5621923622923, Latency: 0.14123669003241493
+Workers: 8, Goodput/Aggregate throughput: 44.3443895309969, Throughput: 44.3443895309969, Latency: 0.18040613670886077
+Workers: 9, Goodput/Aggregate throughput: 41.52485750744419, Throughput: 41.52485750744419, Latency: 0.21673764921135644
+Workers: 10, Goodput/Aggregate throughput: 39.775803200737926, Throughput: 39.79833906657404, Latency: 0.2514091280453258
+
