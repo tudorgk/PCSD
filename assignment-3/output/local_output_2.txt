@@ -1,0 +1,19 @@
+Workers: 1, Goodput/Aggregate throughput: 3412.470140886267, Throughput: 3412.470140886267, Latency: 2.9304285714285716E-4
+Workers: 2, Goodput/Aggregate throughput: 7664.94772916464, Throughput: 7664.94772916464, Latency: 2.609280677009873E-4
+Workers: 3, Goodput/Aggregate throughput: 13118.207301280265, Throughput: 13118.207301280265, Latency: 2.2868978444236175E-4
+Workers: 4, Goodput/Aggregate throughput: 21426.26653759277, Throughput: 21426.26653759277, Latency: 1.866867469879518E-4
+Workers: 5, Goodput/Aggregate throughput: 26961.866073385518, Throughput: 26961.866073385518, Latency: 1.854471046770601E-4
+Workers: 6, Goodput/Aggregate throughput: 20533.467539003526, Throughput: 20533.467539003526, Latency: 2.922058823529411E-4
+Workers: 7, Goodput/Aggregate throughput: 18026.44824500241, Throughput: 18026.44824500241, Latency: 3.8831831455986645E-4
+Workers: 8, Goodput/Aggregate throughput: 19509.69514358156, Throughput: 19509.69514358156, Latency: 4.1005253752680486E-4
+Workers: 9, Goodput/Aggregate throughput: 19743.980203673742, Throughput: 19756.216943806172, Latency: 4.558351409978308E-4
+Workers: 10, Goodput/Aggregate throughput: 14529.724329178931, Throughput: 14529.724329178931, Latency: 6.882443034323623E-4
+
+	private int numBooksToBuy = 5;
+	private int numBookCopiesToBuy = 1;
+	private int numEditorPicksToGet = 5;
+	private int numAddCopies = 5;
+	private int numBooksToAdd = 3;
+	private int numBooksWithLeastCopies = 5;
+	private int warmUpRuns = 100;
+	private int numActualRuns = 500;

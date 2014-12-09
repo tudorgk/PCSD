@@ -33,14 +33,63 @@ public class CertainWorkload {
 	 */
 	public static void main(String[] args) throws Exception {
 		int numConcurrentWorkloadThreads = 10;
-		for (int i = 1; i<=numConcurrentWorkloadThreads;i++){
-			runLocalTests(i);
+		String serverAddress = "http://localhost:8081";
+		boolean localTest = false;
+		List<WorkerRunResult> workerRunResults = new ArrayList<WorkerRunResult>();
+		List<Future<WorkerRunResult>> runResults = new ArrayList<Future<WorkerRunResult>>();
+
+		// Initialize the RPC interfaces if its not a localTest, the variable is
+		// over-ridden if the property is set
+		String localTestProperty = System
+				.getProperty(BookStoreConstants.PROPERTY_KEY_LOCAL_TEST);
+		localTest = (localTestProperty != null) ? Boolean
+				.parseBoolean(localTestProperty) : localTest;
+
+		BookStore bookStore = null;
+		StockManager stockManager = null;
+		if (localTest) {
+			CertainBookStore store = new CertainBookStore();
+			bookStore = store;
+			stockManager = store;
+		} else {
+			stockManager = new StockManagerHTTPProxy(serverAddress + "/stock");
+			bookStore = new BookStoreHTTPProxy(serverAddress);
 		}
+
+		// Generate data in the bookstore before running the workload
+		initializeBookStoreData(bookStore, stockManager);
+
+		ExecutorService exec = Executors
+				.newFixedThreadPool(numConcurrentWorkloadThreads);
+
+		for (int i = 0; i < numConcurrentWorkloadThreads; i++) {
+			WorkloadConfiguration config = new WorkloadConfiguration(bookStore,
+					stockManager);
+			Worker workerTask = new Worker(config);
+			// Keep the futures to wait for the result from the thread
+			runResults.add(exec.submit(workerTask));
+		}
+
+		// Get the results from the threads using the futures returned
+		for (Future<WorkerRunResult> futureRunResult : runResults) {
+			WorkerRunResult runResult = futureRunResult.get(); // blocking call
+			workerRunResults.add(runResult);
+		}
+
+		exec.shutdownNow(); // shutdown the executor
+
+		// Finished initialization, stop the clients if not localTest
+		if (!localTest) {
+			((BookStoreHTTPProxy) bookStore).stop();
+			((StockManagerHTTPProxy) stockManager).stop();
+		}
+
+		reportMetric(workerRunResults);
 	}
 
 	public static void runLocalTests(int numConcurrentWorkloadThreads) throws Exception {
 		String serverAddress = "http://localhost:8081";
-		boolean localTest = true;
+		boolean localTest = false;
 		List<WorkerRunResult> workerRunResults = new ArrayList<WorkerRunResult>();
 		List<Future<WorkerRunResult>> runResults = new ArrayList<Future<WorkerRunResult>>();
 
@@ -114,11 +163,18 @@ public class CertainWorkload {
 		double throughput = totalFreqInteractionRuns / averageSeconds;
 		double latency = averageSeconds / (successfulFreqInteractionRuns  / workerRunResults.size());
 
+//		System.out.println(
+//				"Workers: "+workerRunResults.size() +
+//				", Goodput/Aggregate throughput: " + goodput +
+//				", Throughput: " + throughput +
+//				", Latency: " + latency);
+
 		System.out.println(
-				"Workers: "+workerRunResults.size() +
-				", Goodput/Aggregate throughput: " + goodput +
-				", Throughput: " + throughput +
-				", Latency: " + latency);
+				"" + workerRunResults.size() +
+						"\t" + goodput +
+						"\t" + throughput +
+						"\t" + latency);
+
 	}
 
 	/**
