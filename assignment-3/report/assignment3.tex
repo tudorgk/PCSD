@@ -137,7 +137,7 @@ P5               & 5               \\
 \end{table}
 
 \item %question 2
-The transactions that have not committed, are considered \emph{losing transactions} because they have not been written to the non-volatile storage. In our case the only transaction that completed it's commit is $T3$. Therefore the loser transactions are $T1$ and $T2$.\\
+The transactions that have not committed, are considered \emph{losing transactions} because they have not been written to the non-volatile storage. In our case, the only transaction that completed it's commit is $T3$. Therefore, the loser transactions are $T1$ and $T2$.\\
 
 \item %question 3
 The REDO phase starts from the smallest \emph{recLSN} in dirty page table after the Analysis phase. In our case the smallest LSN is \emph{3}. The UNDO phase ends at the oldest log record of an active transaction at crash. In our case the minimum LSN is \emph{3}.\\
@@ -151,18 +151,45 @@ RedoPageSet = {P2,P1,P5,P3}
 \item %question 5
 In the UNDO stage we need to rollback all the transactions that haven't committed their changes. The UNDO set is composed of the LSN's that are attributed to a loser transaction. In our case the UNDO log record set will be:
 \begin{verbatim}
-UndoLogRecords ={9,8,5,4,3}
+UndoLogRecords = {9,8,5,4,3}
 \end{verbatim}
 
 \item %question 6
-When building the log after a crash we must rollback the transactions that haven't committed (loser transactions).
- 
+When building the log after a crash we must rollback the transactions that haven't committed (loser transactions). Thus, we must add CLR records to the log to undo the modifications that a loser transaction has made. the log table after the recovery procedure will look like this:
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{LSN} & \textbf{LOG}         \\ \hline
+1            & begin CKPT           \\ \hline
+2            & end CKPT             \\ \hline
+3            & update: T1 writes P2 \\ \hline
+4            & update: T1 writes P1 \\ \hline
+5            & update: T2 writes P5 \\ \hline
+6            & update: T3 writes P3 \\ \hline
+7            & T3 commit            \\ \hline
+8            & update: T2 writes P5 \\ \hline
+9            & update: T2 writes P3 \\ \hline
+10           & T3 end               \\ \hline
+\textbf{X}   & \textbf{CRASH}       \\ \hline
+11           & CLR: Undo T2 LSN 9   \\ \hline
+12           & CLR: Undo T2 LSN 8   \\ \hline
+13           & CLR: Undo T2 LSN 5   \\ \hline
+14           & T2 End               \\ \hline
+15           & CLR: Undo T1 LSN 4   \\ \hline
+16           & CLR: Undo T1 LSN 3   \\ \hline
+17           & T1 End               \\ \hline
+\end{tabular}
+\caption{Log after Recovery}
+\label{Log after Recovery}
+\end{center}
+\end{table}
 \end{enumerate}
+To add the CLR records we must keep track of the last LSN's of the loser transactions. We choose the largest LSN ( in out case 9) and we observe that the record is an \emph{update}. We then undo the update and write a CLR (Compensation Log Record) to record that we did the rollback. Afterwards we update the CLR's prevLSN with the last LSN of the transaction (in our example here, we set the prevLSN to 8). We apply this algorithm until we have no more loser transaction updates to undo. \\
+
 
 \section*{Programming Task}
-
-
-
 
 \subsection*{Testing}
 
