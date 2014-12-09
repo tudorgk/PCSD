@@ -195,26 +195,108 @@ To add the CLR records we must keep track of the last LSN's of the loser transac
 
 \subsection*{Questions for Discussion on the Performance Measurements}
 
-We initialize the bookstore with 50 books. The number of books that clients can buy is set to 5, while the number of book copies is set to 1. After some tests it was clear that since the probability of buying a book was higher than the one for adding books or book copies then as the number of concurrent clients increased, the goodput was steadily decreasing. As a result, we set the variable numAddCopies to 8 (a value eight times higher than the numBookCopiesToBuy) so that we can make sure that the sale misses are minimized.  The variable numBooksToAdd was set to 5, which is the same with numBooksToBuy, test whether the sale misses increased or not. Finally, the variable numBooksWithLeastCopies was also set to 5 for the same reason as before.\\
+We initialize the bookstore with 50 books. The number of books that clients can buy is set to 5, while the number of book copies is set to 1. After some tests it was clear that since the probability of buying a book was higher than the one for adding books or book copies then as the number of concurrent clients increased, the "goodput" was steadily decreasing. As a result, we set the variable numAddCopies to 8 (a value eight times higher than the numBookCopiesToBuy) so that we can make sure that the sale misses are minimized.  The variable numBooksToAdd was set to 5, which is the same with numBooksToBuy, test whether the sale misses increased or not. Finally, the variable numBooksWithLeastCopies was also set to 5 for the same reason as before.\\
 
-We ran the tests in a Macbook Pro with 2 Ghz Intel core i7(8 threads) and 8GB of RAM. The testing was done for 1 and up to 10 concurrent clients in both local and through RPC. \\
+We ran the tests in a Macbook Pro with 2Ghz Intel core i7(8 threads) and 8GB of RAM. The testing was done for 1 and up to 10 concurrent clients in both local and through RPC. \\
+
+We tested the the bookstore for multiple values of numEditorPicksToGet, numAddCopies and numBooksToAdd. We did not change the number of warmUpRuns or numActualRuns so that we could have a better idea of the impact that these changes had on the final results.\\
+
+Below each group of graphs we give the specific workload configurations that we used.\\
 
 The tests were done locally and using proxies that connected to the CertainBookStore server. We defined each test by "goodput" and latency. The graphs on the left are the graphical representation of the "goodput" and throughput and the graphs on the right represent the latencies for each number of clients. Our tests simulate between 1 and 10 clients that interact with the store concurrently. We decided to separate the plots between the local and remote environment because the differences between the values were too high.\\
 
-The latency plots came out as we expected. Both in the local and remote tests the latency increased steadily (with minor deviations) when the number of clients increased. This increase of clients added an overhead to the response time of each request. The throughput however
+The latency plots came out as we expected. Both in the local and remote tests the latency increased steadily (with minor deviations) when the number of clients increased. This increase of clients added an overhead to the response time of each request.\\
 
-\subsubsection*{\nth{1} Test}
+The throughput has a different pattern. In the local tests we observed that the successful throughput peaked when the number of threads was in the 4-6 range. The throughput steadily declines after this mark until it reaches almost the same levels as using one client. However, the remote tests perform very differently.\\
 
-\begin{figure}[ht!]
+\begin{figure}[ht]
 \centering
  \includegraphics[scale=.33]{graphs/graph1-goodput}
  \includegraphics[scale=.33]{graphs/graph1-latency}
 \caption{Test 1: Local goodput/throughput and latency \label{overflow}}
 \end{figure}
 
+\begin{figure}[ht]
+\centering
+ \includegraphics[scale=.33]{graphs/graph2-goodput}
+ \includegraphics[scale=.33]{graphs/graph2-latency}
+\caption{Test 1: Remote goodput/throughput and latency \label{overflow}}
+\end{figure}
+
+\begin{verbatim}
+private int numBooksToBuy = 5;
+private int numBookCopiesToBuy = 1;
+private int numEditorPicksToGet = 10;
+private int numAddCopies = 8;
+private int numBooksToAdd = 5;
+private int numBooksWithLeastCopies = 5;
+private int warmUpRuns = 100;
+private int numActualRuns = 500;
+private float percentRareStockManagerInteraction = 10f;
+private float percentFrequentStockManagerInteraction = 30f;
+\end{verbatim}
 
 
+\begin{figure}[ht]
+\centering
+ \includegraphics[scale=.33]{graphs/graph3-goodput}
+ \includegraphics[scale=.33]{graphs/graph3-latency}
+\caption{Test 2: Local goodput/throughput and latency \label{overflow}}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+ \includegraphics[scale=.33]{graphs/graph4-goodput}
+ \includegraphics[scale=.33]{graphs/graph4-latency}
+\caption{Test 2: Remote goodput/throughput and latency \label{overflow}}
+\end{figure}
+
+\begin{verbatim}
+private int numBooksToBuy = 5;
+private int numBookCopiesToBuy = 1;
+private int numEditorPicksToGet = 5;
+private int numAddCopies = 5;
+private int numBooksToAdd = 3;
+private int numBooksWithLeastCopies = 5;
+private int warmUpRuns = 100;
+private int numActualRuns = 500;
+private float percentRareStockManagerInteraction = 10f;
+private float percentFrequentStockManagerInteraction = 30f;
+\end{verbatim}
+
+\begin{figure}[ht]
+\centering
+ \includegraphics[scale=.33]{graphs/graph5-goodput}
+ \includegraphics[scale=.33]{graphs/graph5-latency}
+\caption{Test 3: Local goodput/throughput and latency \label{overflow}}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+ \includegraphics[scale=.33]{graphs/graph6-goodput}
+ \includegraphics[scale=.33]{graphs/graph6-latency}
+\caption{Test 3: Remote goodput/throughput and latency \label{overflow}}
+\end{figure}
+
+\begin{verbatim}
+private int numBooksToBuy = 3;
+private int numBookCopiesToBuy = 2;
+private int numEditorPicksToGet = 5;
+private int numAddCopies = 6;
+private int numBooksToAdd = 5;
+private int numBooksWithLeastCopies = 5;
+private int warmUpRuns = 100;
+private int numActualRuns = 500;
+private float percentRareStockManagerInteraction = 10f;
+private float percentFrequentStockManagerInteraction = 30f;
+\end{verbatim}
  
-How reliable are the metrics and the workloads for predicting the performance of the bookstore? Are the metrics well chosen? What additional metrics would you choose to demonstrate the performance of the bookstore?\\
+According to the theory, a performance metric is considered reliable if a system A outperforms a system B when the corresponding values of the metric for both systems indicate that system A should outperform system B. \\
+
+Based on the graphs we can safely infer that latency is a reliable metric as we can see that as we increase the number of concurrent clients, the latency does too. As for for the throughput we cannot say that it is a reliable metric. As we can see from the graphs there is no correlation between the number of clients and throughput, even after configuring the workload metrics. \\
+
+An additional metric that could be used to demonstrate the performance of the book-store is the Execution time. Since it can give precise results concerning the time it took for the system to execute a given program or a unit test. This way, as the theory says, we can compare time directly, or use them to derive appropriate rates. \\
+
+Another metric that could be used is the Speedup metric. Although, it is defined in terms of throughput, it is often calculated directly from execution times. As a result, we can safely say that it is a reliable metric for our system. \\
 
 \end{document}               % End of document.
