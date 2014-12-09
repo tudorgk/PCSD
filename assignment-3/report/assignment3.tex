@@ -193,21 +193,28 @@ To add the CLR records we must keep track of the last LSN's of the loser transac
 
 \section*{Programming Task}
 
-\subsection*{Testing}
+\subsection*{Questions for Discussion on the Performance Measurements}
+
+We initialize the bookstore with 50 books. The number of books that clients can buy is set to 5, while the number of book copies is set to 1. After some tests it was clear that since the probability of buying a book was higher than the one for adding books or book copies then as the number of concurrent clients increased, the goodput was steadily decreasing. As a result, we set the variable numAddCopies to 8 (a value eight times higher than the numBookCopiesToBuy) so that we can make sure that the sale misses are minimized.  The variable numBooksToAdd was set to 5, which is the same with numBooksToBuy, test whether the sale misses increased or not. Finally, the variable numBooksWithLeastCopies was also set to 5 for the same reason as before.\\
+
+We ran the tests in a Macbook Pro with 2 Ghz Intel core i7(8 threads) and 8GB of RAM. The testing was done for 1 and up to 10 concurrent clients in both local and through RPC. \\
+
+The tests were done locally and using proxies that connected to the CertainBookStore server. We defined each test by "goodput" and latency. The graphs on the left are the graphical representation of the "goodput" and throughput and the graphs on the right represent the latencies for each number of clients. Our tests simulate between 1 and 10 clients that interact with the store concurrently. We decided to separate the plots between the local and remote environment because the differences between the values were too high.\\
+
+The latency plots came out as we expected. Both in the local and remote tests the latency increased steadily (with minor deviations) when the number of clients increased. This increase of clients added an overhead to the response time of each request. The throughput however
+
+\subsubsection*{\nth{1} Test}
+
+\begin{figure}[ht!]
+\centering
+ \includegraphics[scale=.33]{graphs/graph1-goodput}
+ \includegraphics[scale=.33]{graphs/graph1-latency}
+\caption{Test 1: Local goodput/throughput and latency \label{overflow}}
+\end{figure}
 
 
 
-\subsection*{Questions for Discussion on the Performance Measure-
-ments}
-
-\subsubsection{ Discuss in detail the setup you have created for your experiments. In particular, document your data generation procedures, hardware employed, measurement procedures (e.g., number of repetitions, statistics used such as average or deviation), and any other considerations you made. In the evaluation of this question, we will consider not only your thoroughness, but also whether you provide a brief justification/rationale for your decisions.}
-
-
-
-\subsubsection*{ Show and explain the plots for throughput and latency that you obtained. As described above, we expect two plots: one for throughput and one for latency. Each plot should include two curves: one for executions in the same address space, and one for executions across address spaces. Describe the trends observed and any other effects. Explain why you observe these trends and how much that matches your Expectations. }
-
-
-\subsubsection*{How reliable are the metrics and the workloads for predicting the performance of the bookstore? Are the metrics well chosen? What additional metrics would you choose to demonstrate the performance of the bookstore?}
-
+ 
+How reliable are the metrics and the workloads for predicting the performance of the bookstore? Are the metrics well chosen? What additional metrics would you choose to demonstrate the performance of the bookstore?\\
 
 \end{document}               % End of document.
