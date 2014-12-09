@@ -62,10 +62,11 @@ Sokratis Siozos - Drosos}      % Declares the author's name.
 
 \subsubsection*{1.In a system implementing force and no-steal, is it necessary to implement a scheme for redo? What about a scheme for undo? Explain why.}
 
-In a system like this, we do not have to implement a scheme for redo because the force approach is used, which according to the theory means that we do not have to redo the changes of a committed transaction if there is a subsequent crash. As a result, all these changes are guaranteed to have been written to disk at the time the data has been commited. \\
+In a system like this, we do not have to implement a scheme for redo because the force approach is used, which according to the theory means that we do not have to redo the changes of a committed transaction if there is a subsequent crash. As a result, all these changes are guaranteed to have been written to disk at the time the data has been committed. \\
 
-If a no-steal approach is used, we also do not have to undo the changes of an aborted transaction (because these changes have not been written to disk),\\
+If a no-steal approach is used, we also do not have to undo the changes of an aborted transaction (because these changes have not been written to disk). The no-steal approach assumes that all pages modified by ongoing transactions can be accommodated in the buffer pool, and in the presence of large transactions (typically run in batch mode, e.g., payroll processing), this assumption is unrealistic. \\
 
+To implement a scheme for undo we need to have steal approach. Thus, if a frame is dirty and chosen for replacement, the page it contains is written to disk even if the modifying transaction is still active. 
 
 \subsubsection*{2.  What is the difference between nonvolatile and stable storage? What types of failures are survived by each type of storage?}
 
