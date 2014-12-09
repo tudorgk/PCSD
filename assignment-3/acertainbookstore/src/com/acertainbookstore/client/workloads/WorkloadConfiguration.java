@@ -10,11 +10,11 @@ import com.acertainbookstore.interfaces.StockManager;
  * 
  */
 public class WorkloadConfiguration {
-	private int numBooksToBuy = 5;
-	private int numBookCopiesToBuy = 1;
+	private int numBooksToBuy = 3;
+	private int numBookCopiesToBuy = 2;
 	private int numEditorPicksToGet = 5;
-	private int numAddCopies = 5;
-	private int numBooksToAdd = 3;
+	private int numAddCopies = 6;
+	private int numBooksToAdd = 5;
 	private int numBooksWithLeastCopies = 5;
 	private int warmUpRuns = 100;
 	private int numActualRuns = 500;

@@ -89,7 +89,7 @@ public class CertainWorkload {
 
 	public static void runLocalTests(int numConcurrentWorkloadThreads) throws Exception {
 		String serverAddress = "http://localhost:8081";
-		boolean localTest = false;
+		boolean localTest = true;
 		List<WorkerRunResult> workerRunResults = new ArrayList<WorkerRunResult>();
 		List<Future<WorkerRunResult>> runResults = new ArrayList<Future<WorkerRunResult>>();
 
