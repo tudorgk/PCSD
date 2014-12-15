@@ -32,7 +32,7 @@ public class MasterCertainBookStore implements ReplicatedBookStore,
 	private long snapShotId = 0;
 	private Replicator replicator = null;
 	private Set<String> slaveServers;
-	private int maxReplicatorThreads = 10;
+	private int maxReplicatorThreads = 2;
 	private String filePath = "server.properties";
 
 	public MasterCertainBookStore() throws BookStoreException {
@@ -81,6 +81,7 @@ public class MasterCertainBookStore implements ReplicatedBookStore,
 				e.printStackTrace();
 			} catch (ExecutionException e) {
 				// This should never be thrown
+				System.out.println("Execution exception");
 				e.printStackTrace();
 			}
 		}
