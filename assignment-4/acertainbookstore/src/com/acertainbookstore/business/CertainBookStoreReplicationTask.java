@@ -38,7 +38,7 @@ public class CertainBookStoreReplicationTask implements
 		ContentExchange exchange = new ContentExchange();
 		//add a replication message tag
 		String urlString = url + "/"
-				+ BookStoreMessageTag.REPLICATE;
+				+ request.getMessageType();
 		exchange.setMethod("POST");
 		exchange.setURL(urlString);
 		exchange.setRequestContent(requestContent);

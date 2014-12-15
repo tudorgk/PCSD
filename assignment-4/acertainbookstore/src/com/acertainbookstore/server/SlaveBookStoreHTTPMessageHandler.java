@@ -76,6 +76,7 @@ public class SlaveBookStoreHTTPMessageHandler extends AbstractHandler {
 				} catch (BookStoreException ex) {
 					bookStoreResponse.setException(ex);
 				}
+
 				response.getWriter().println(
 						BookStoreUtility
 								.serializeObjectToXMLString(bookStoreResponse));
