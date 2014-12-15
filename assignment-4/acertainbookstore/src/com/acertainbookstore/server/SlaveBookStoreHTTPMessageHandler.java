@@ -139,7 +139,7 @@ public class SlaveBookStoreHTTPMessageHandler extends AbstractHandler {
 				break;
 
 			case REMOVEBOOKS:
-				String xml = BookStoreUtility
+				xml = BookStoreUtility
 						.extractPOSTDataFromRequest(request);
 
 				Set<Integer> bookSet = (Set<Integer>) BookStoreUtility
