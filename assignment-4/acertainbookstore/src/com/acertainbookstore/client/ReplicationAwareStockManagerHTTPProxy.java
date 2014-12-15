@@ -5,10 +5,7 @@ package com.acertainbookstore.client;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 import org.eclipse.jetty.client.ContentExchange;
 import org.eclipse.jetty.client.HttpClient;
@@ -97,7 +94,14 @@ public class ReplicationAwareStockManagerHTTPProxy implements StockManager {
 	}
 
 	public String getReplicaAddress() {
-		return ""; // TODO
+		int rand = new Random().nextInt(slaveAddresses.size());
+		int i = 0;
+		for(String address : slaveAddresses){
+			if (rand == i++){
+				return address;
+			}
+		}
+		return this.getMasterServerAddress();
 	}
 
 	public String getMasterServerAddress() {

@@ -7,10 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 import org.eclipse.jetty.client.ContentExchange;
 import org.eclipse.jetty.client.HttpClient;
@@ -101,7 +98,14 @@ public class ReplicationAwareBookStoreHTTPProxy implements BookStore {
 	}
 
 	public String getReplicaAddress() {
-		return ""; // TODO
+		int rand = new Random().nextInt(slaveAddresses.size());
+		int i = 0;
+		for(String addr : slaveAddresses){
+			if (rand == i++){
+				return addr;
+			}
+		}
+		return this.getMasterServerAddress();
 	}
 
 	public String getMasterServerAddress() {
