@@ -43,6 +43,7 @@ public class CertainBookStoreReplicator implements Replicator {
 
 		for(String slave : slaveServers){
 			futureTask = executorService.submit(new CertainBookStoreReplicationTask(request,slave,client));
+			System.out.println(futureTask);
 			results.add(futureTask);
 		}
 		return results;
