@@ -33,20 +33,21 @@ public class CertainBookStoreReplicationTask implements
 
 		// TODO Auto-generated method stub
 		String listISBNsxmlString = BookStoreUtility
-				.serializeObjectToXMLString(request);
+				.serializeObjectToXMLString(request.getDataSet());
 		Buffer requestContent = new ByteArrayBuffer(listISBNsxmlString);
 
 		ContentExchange exchange = new ContentExchange();
 		//add a replication message tag
-		String urlString = url + "/"
+		String urlString = url
 				+ request.getMessageType();
 		exchange.setMethod("POST");
 		exchange.setURL(urlString);
 		exchange.setRequestContent(requestContent);
 
-		System.out.printf(request.getMessageType().toString());
+		System.out.println("Message tag: " + request.getMessageType().toString());
+		System.out.println("Client:" + this.client);
 
-		try {
+		try{
 			BookStoreUtility.SendAndRecv(this.client, exchange);
 		} catch (BookStoreException e) {
 			return new ReplicationResult(url, false);

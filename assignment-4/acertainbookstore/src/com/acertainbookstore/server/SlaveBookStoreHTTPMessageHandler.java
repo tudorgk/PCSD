@@ -161,7 +161,7 @@ public class SlaveBookStoreHTTPMessageHandler extends AbstractHandler {
 
 			case REMOVEALLBOOKS:
 				xml = BookStoreUtility.extractPOSTDataFromRequest(request);
-
+				System.out.println("REMOVEALLBOOKS received");
 				bookStoreResponse = new BookStoreResponse();
 				try {
 					bookStoreResponse.setResult(myBookStore.removeAllBooks());
