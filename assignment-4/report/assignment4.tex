@@ -115,11 +115,11 @@ public String getReplicaAddress() {
 \end{center}
 \end{figure}
 
-The latency hiding is done by not having to wait for the replication process to finish. We do this by sending the replication request to the slave servers and constructing a list of Future objects. A Future represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation. \\ 
+The latency hiding is achieved by not having to wait for the replication process to finish. We do this by sending the replication request to the slave servers and constructing a list of Future objects. A Future represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation. \\ 
 
 Fail-stop subsystems require that the higher-level subsystem take some additional measure to discover the failure, for example by setting a timer and responding to its expiration. A problem with fail-stop design is that it can be difficult to distinguish a stopped subsystem from one that is merely running more slowly than expected. This problem is particularly acute in asynchronous systems.\footnote{Principles of Computer System Design (PCSD) - DIKU Course Compendium, p.251, 2013/2014} The waitForSlaveUpdates method in the MasterCertainBookStore class actually handles the failed slaves by analyzing their response and removing them from the list when necessary, thus implementing a fail-stop model. \\ 
 
-The Replicator basically is an HttpClient that sends replication requests  from the Master Server to the Salve Servers. We used and ExecutorService for handling the asynchronous communication and by adding tasks to it's thread pool of executors.\\
+The Replicator is basically an HttpClient that sends replication requests  from the Master Server to the Slave Servers. We used an ExecutorService for handling the asynchronous communication and by adding tasks to its thread pool of executors.\\
 
 \begin{figure}[htbp]
 \begin{center}
