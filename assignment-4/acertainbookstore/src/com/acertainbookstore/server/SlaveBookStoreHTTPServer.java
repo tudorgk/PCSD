@@ -17,7 +17,7 @@ public class SlaveBookStoreHTTPServer {
 	 */
 	public static void main(String[] args) {
 		SlaveCertainBookStore bookStore = new SlaveCertainBookStore();
-		int listen_on_port = 8082;
+		int listen_on_port = 8083;
 		SlaveBookStoreHTTPMessageHandler handler = new SlaveBookStoreHTTPMessageHandler(
 				bookStore);
 		String server_port_string = System

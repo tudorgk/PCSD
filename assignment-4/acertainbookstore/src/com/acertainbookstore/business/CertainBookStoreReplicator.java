@@ -16,38 +16,37 @@ import org.eclipse.jetty.util.thread.QueuedThreadPool;
  */
 public class CertainBookStoreReplicator implements Replicator {
    	private ExecutorService executorService;
-	private HttpClient client;
+	private HttpClient replicationClient;
 
 	public CertainBookStoreReplicator(int maxReplicatorThreads){
 		// create an executor service for the requests
 		executorService = Executors.newFixedThreadPool(maxReplicatorThreads);
 
-		//instantiate a client to make the requests
-		client = new HttpClient();
-		client.setConnectorType(HttpClient.CONNECTOR_SELECT_CHANNEL);
-		client.setMaxConnectionsPerAddress(maxReplicatorThreads);
-		client.setThreadPool(new QueuedThreadPool(maxReplicatorThreads));
-		client.setTimeout(BookStoreClientConstants.CLIENT_MAX_TIMEOUT_MILLISECS);
+		replicationClient = new HttpClient();
+		replicationClient.setConnectorType(HttpClient.CONNECTOR_SELECT_CHANNEL);
+		replicationClient.setMaxConnectionsPerAddress(BookStoreClientConstants.CLIENT_MAX_CONNECTION_ADDRESS);
+		replicationClient.setThreadPool(new QueuedThreadPool(BookStoreClientConstants.CLIENT_MAX_THREADSPOOL_THREADS));
+		replicationClient.setTimeout(BookStoreClientConstants.CLIENT_MAX_TIMEOUT_MILLISECS);
+
 		try {
-			client.start();
+			replicationClient.start();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	public List<Future<ReplicationResult>> replicate(Set<String> slaveServers,
-			ReplicationRequest request) {
-		CertainBookStoreReplicationTask rep;
-		FutureTask<ReplicationResult> futureTask;
+													 ReplicationRequest request) {
 		List<Future<ReplicationResult>> results = new ArrayList<Future<ReplicationResult>>();
 
-		for( String addr : slaveServers){
-			rep = new CertainBookStoreReplicationTask(request, addr, client);
-			futureTask = new FutureTask<ReplicationResult>(rep);
-			executorService.execute(futureTask);
-			results.add(futureTask);
+		for (String server : slaveServers)
+		{
+			CertainBookStoreReplicationTask task =
+					new CertainBookStoreReplicationTask(server, request, replicationClient);
+			results.add(executorService.submit(task));
 		}
 
-		return results;	}
+		return results;
+	}
 
 }

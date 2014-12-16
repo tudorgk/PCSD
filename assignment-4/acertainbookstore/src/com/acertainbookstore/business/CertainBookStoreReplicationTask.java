@@ -2,13 +2,15 @@ package com.acertainbookstore.business;
 
 import com.acertainbookstore.utils.BookStoreException;
 import com.acertainbookstore.utils.BookStoreMessageTag;
-import com.acertainbookstore.utils.BookStoreResult;
 import com.acertainbookstore.utils.BookStoreUtility;
 import org.eclipse.jetty.client.ContentExchange;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.io.Buffer;
 import org.eclipse.jetty.io.ByteArrayBuffer;
+import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
+
+import java.util.Set;
 import java.util.concurrent.Callable;
 
 /**
@@ -18,36 +20,37 @@ import java.util.concurrent.Callable;
 public class CertainBookStoreReplicationTask implements
 		Callable<ReplicationResult> {
 
+	private String slaveServer;
 	private ReplicationRequest request;
-	private String url;
-	private HttpClient client;
+	private HttpClient httpClient;
 
 
-	public CertainBookStoreReplicationTask(ReplicationRequest request, String url, HttpClient client) {
+	public CertainBookStoreReplicationTask(String slaveServer, ReplicationRequest request, HttpClient httpClient) {
+		this.slaveServer = slaveServer;
 		this.request = request;
-		this.url = url;
-		this.client = client;
+		this.httpClient = httpClient;
 	}
+
 	@Override
 	public ReplicationResult call() throws Exception {
-
-		String listISBNsxmlString = BookStoreUtility
-				.serializeObjectToXMLString(request);
-		Buffer requestContent = new ByteArrayBuffer(listISBNsxmlString);
-
+		BookStoreMessageTag messageTag = request.getMessageType();
+		String xmlString = BookStoreUtility.serializeObjectToXMLString(request.getDataSet());
+		Buffer requestContent = new ByteArrayBuffer(xmlString);
 		ContentExchange exchange = new ContentExchange();
-		String urlString = url + "/"
-				+ request.getMessageType();
+		String urlString = slaveServer + messageTag;
+
 		exchange.setMethod("POST");
 		exchange.setURL(urlString);
 		exchange.setRequestContent(requestContent);
 
 		try {
-			BookStoreUtility.SendAndRecv(this.client, exchange);
+			BookStoreUtility.SendAndRecv(httpClient, exchange);
 		} catch (BookStoreException e) {
-			return new ReplicationResult(url, false);
+			return new ReplicationResult(slaveServer, false);
 		}
-		return new ReplicationResult(url, true);
+		// TODO: Do I need to worry about snapshotIDs here?
+		return new ReplicationResult(slaveServer, true);
+
 	}
 
-}
+	}
