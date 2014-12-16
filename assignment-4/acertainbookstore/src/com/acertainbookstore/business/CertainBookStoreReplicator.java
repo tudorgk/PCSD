@@ -26,7 +26,7 @@ public class CertainBookStoreReplicator implements Replicator {
 		replicationClient.setConnectorType(HttpClient.CONNECTOR_SELECT_CHANNEL);
 		replicationClient.setMaxConnectionsPerAddress(BookStoreClientConstants.CLIENT_MAX_CONNECTION_ADDRESS);
 		replicationClient.setThreadPool(new QueuedThreadPool(BookStoreClientConstants.CLIENT_MAX_THREADSPOOL_THREADS));
-		replicationClient.setTimeout(BookStoreClientConstants.CLIENT_MAX_TIMEOUT_MILLISECS);
+		replicationClient.setTimeout(BookStoreClientConstants.CLIENT_MAX_TIMEOUT_MILLISECS	);
 
 		try {
 			replicationClient.start();

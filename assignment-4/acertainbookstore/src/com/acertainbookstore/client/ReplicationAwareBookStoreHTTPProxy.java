@@ -38,6 +38,9 @@ public class ReplicationAwareBookStoreHTTPProxy implements BookStore {
 	private String masterAddress;
 	private String filePath = "proxy.properties";
 	private volatile long snapshotId = 0;
+	Queue<String> loadBalanceQueue = new PriorityQueue<String>();
+
+
 
 	public long getSnapshotId() {
 		return snapshotId;
@@ -73,6 +76,9 @@ public class ReplicationAwareBookStoreHTTPProxy implements BookStore {
 																					// request
 																					// expires
 		client.start();
+
+		//add the slave addresses to the queue
+		loadBalanceQueue.addAll(slaveAddresses);
 	}
 
 	private void initializeReplicationAwareMappings() throws IOException {
@@ -98,14 +104,9 @@ public class ReplicationAwareBookStoreHTTPProxy implements BookStore {
 	}
 
 	public String getReplicaAddress() {
-		int rand = new Random().nextInt(slaveAddresses.size());
-		int i = 0;
-		for(String addr : slaveAddresses){
-			if (rand == i++){
-				return addr;
-			}
-		}
-		return this.getMasterServerAddress();
+		String address = loadBalanceQueue.poll();
+		loadBalanceQueue.add(address);
+		return address;
 	}
 
 	public String getMasterServerAddress() {

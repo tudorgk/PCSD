@@ -36,6 +36,7 @@ public class ReplicationAwareStockManagerHTTPProxy implements StockManager {
 	private String masterAddress;
 	private String filePath = "proxy.properties";
 	private long snapshotId = 0;
+	Queue<String> loadBalanceQueue = new PriorityQueue<String>();
 
 	/**
 	 * Initialize the client object
@@ -63,6 +64,7 @@ public class ReplicationAwareStockManagerHTTPProxy implements StockManager {
 		// request
 		// expires
 		client.start();
+		loadBalanceQueue.addAll(slaveAddresses);
 	}
 
 	private void initializeReplicationAwareMappings() throws IOException {
@@ -94,14 +96,9 @@ public class ReplicationAwareStockManagerHTTPProxy implements StockManager {
 	}
 
 	public String getReplicaAddress() {
-		int rand = new Random().nextInt(slaveAddresses.size());
-		int i = 0;
-		for(String address : slaveAddresses){
-			if (rand == i++){
-				return address;
-			}
-		}
-		return this.getMasterServerAddress();
+		String address = loadBalanceQueue.poll();
+		loadBalanceQueue.add(address);
+		return address;
 	}
 
 	public String getMasterServerAddress() {
