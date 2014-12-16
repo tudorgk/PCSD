@@ -49,7 +49,6 @@ public class CertainBookStoreReplicationTask implements
 		} catch (BookStoreException e) {
 			return new ReplicationResult(slaveServer, false);
 		}
-		// TODO: Do I need to worry about snapshotIDs here?
 		return new ReplicationResult(slaveServer, true);
 
 	}
