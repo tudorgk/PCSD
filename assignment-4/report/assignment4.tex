@@ -99,7 +99,7 @@ The Three-phase commit protocol\footnote{\url{http://www.wikiwand.com/en/Three-p
 \subsection*{Questions for Discussion on the Replication mechanism}
 
 \begin{itemize}
-\item[1] In our implementation we decided to use Queue for load balancing. When we get the replicated address in he StockManager proxy and BookStore proxy we take a replicated store address from the beginning of the quest and add it again. This way we ensure that the load is balanced evenly through the replicated stores.\\
+\item[1] In our implementation we decided to use Queue for load balancing. When we get the replicated address in he \emph{StockManager} proxy and \emph{BookStore} proxy we take a replicated store address from the beginning of the quest and add it again. This way we ensure that the load is balanced evenly through the replicated stores.\\
 
 \begin{figure}[htbp]
 \begin{center}
@@ -115,11 +115,11 @@ public String getReplicaAddress() {
 \end{center}
 \end{figure}
 
-The latency hiding is achieved by not having to wait for the replication process to finish. We do this by sending the replication request to the slave servers and constructing a list of Future objects. A Future represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation. \\ 
+The latency hiding is achieved by not having to wait for the replication process to finish. We do this by sending the replication request to the slave servers and constructing a list of Future objects. A \emph{Future} represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation. \\ 
 
-Fail-stop subsystems require that the higher-level subsystem take some additional measure to discover the failure, for example by setting a timer and responding to its expiration. A problem with fail-stop design is that it can be difficult to distinguish a stopped subsystem from one that is merely running more slowly than expected. This problem is particularly acute in asynchronous systems.\footnote{Principles of Computer System Design (PCSD) - DIKU Course Compendium, p.251, 2013/2014} The waitForSlaveUpdates method in the MasterCertainBookStore class actually handles the failed slaves by analyzing their response and removing them from the list when necessary, thus implementing a fail-stop model. \\ 
+Fail-stop subsystems require that the higher-level subsystem take some additional measure to discover the failure, for example by setting a timer and responding to its expiration. A problem with fail-stop design is that it can be difficult to distinguish a stopped subsystem from one that is merely running more slowly than expected. This problem is particularly acute in asynchronous systems.\footnote{Principles of Computer System Design (PCSD) - DIKU Course Compendium, p.251, 2013/2014} The \emph{waitForSlaveUpdates} method in the \emph{MasterCertainBookStore} class actually handles the failed slaves by analysing their response and removing them from the list when necessary, thus implementing a fail-stop model. \\ 
 
-The Replicator is basically an HttpClient that sends replication requests  from the Master Server to the Slave Servers. We used an ExecutorService for handling the asynchronous communication and by adding tasks to its thread pool of executors.\\
+The \emph{Replicator} is basically an \emph{HttpClient} that sends replication requests  from the Master Server to the Slave Servers. We used an \emph{ExecutorService} for handling the asynchronous communication and by adding tasks to its thread pool of executors.\\
 
 \begin{figure}[htbp]
 \begin{center}
@@ -136,10 +136,11 @@ results.add(executorService.submit(task));
 
 %question 2
 
-\item[2] The current replication mechanism for our Books Store is ensuring that the Master does all the updating and sends replication requests to the Slave to modify their data store accordingly. This ensures that the Book Store service can handle multiple concurrent requests when reading the data from the database replicated on each slave. The bottleneck in our case is the Master Server because it handles all the updating requests for the store. The main disadvantage when implementing the current replication mechanism is the overhead that it produces, because the replicator on the Master server must ensure that all of the Slaves have completed their updates. If an update is not successful then the slave server that handled the request is discarded from the slave server list. It also adds more complexity to the service and it could be relatively hard to maintain consistency throughout the servers. \\
+\item[2] The current replication mechanism for our Books Store is ensuring that the Master does all the updating and sends replication requests to the Slave to modify their data store accordingly. This ensures that the Book Store service can handle multiple concurrent requests when reading the data from the database replicated on each slave. The bottleneck in our case is the \emph{Master} Server because it handles all the updating requests for the store. The main disadvantage when implementing the current replication mechanism is the overhead that it produces, because the \emph{Replicator} on the Master server must ensure that all of the Slaves have completed their updates. If an update is not successful then the slave server that handled the request is discarded from the slave server list. It also adds more complexity to the service and it could be relatively hard to maintain consistency throughout the servers. 
 
-\item[3] Each time a client sends a read request to the ReplicationAwayHTTPProxies, then the proxy keeps asking for a new result with a snapshotID that is not lower than the current snapshotID that the client has. This way the proxy makes sure that a client read does not go back in time. Apart from this mechanism, the client cannot affect somehow the result, since everything about the snapshots consistency is handled by the proxies.
-\item[4]
+\item[3] Each time a client sends a read request to the \emph{ReplicationAwayHTTPProxies}, then the proxy keeps asking for a new result with a \emph{snapshotID} that is not lower than the current \emph{snapshotID} that the client has. This way the proxy makes sure that a client read does not go back in time. Apart from this mechanism, the client cannot affect somehow the result, since everything about the snapshots consistency is handled by the proxies.
+
+\item[4] In case a network partition separated a subset of the slaves from the master, then there would be inconsistencies concerning the snapshots. In detail, if a write request was given from the \emph{Proxy} to our system, then the master would not be able to replicate the results to the separated slaves. As a result, the snapshots of this subset of slaves would be older than the one that the master currently has.
 
  
 
