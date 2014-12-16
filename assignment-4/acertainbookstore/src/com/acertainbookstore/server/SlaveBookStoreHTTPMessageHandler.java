@@ -68,8 +68,9 @@ public class SlaveBookStoreHTTPMessageHandler extends AbstractHandler {
 		} else {
 
 			// Write requests should not be handled
+			System.out.println("Message tag:" + messageTag);
 			switch (messageTag) {
-
+			
 				case LISTBOOKS:
 					bookStoreResponse = new BookStoreResponse();
 					try {
