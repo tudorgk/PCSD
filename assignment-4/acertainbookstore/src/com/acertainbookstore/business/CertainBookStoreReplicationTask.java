@@ -37,6 +37,7 @@ public class CertainBookStoreReplicationTask implements
 		String xmlString = BookStoreUtility.serializeObjectToXMLString(request.getDataSet());
 		Buffer requestContent = new ByteArrayBuffer(xmlString);
 		ContentExchange exchange = new ContentExchange();
+
 		String urlString = slaveServer + messageTag;
 
 		exchange.setMethod("POST");

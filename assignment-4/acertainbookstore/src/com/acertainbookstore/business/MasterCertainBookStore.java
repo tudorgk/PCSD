@@ -75,6 +75,7 @@ public class MasterCertainBookStore implements ReplicatedBookStore,
 				// block until the future result is available
 				System.out.println("Waiting for slave");
 				slaveServers.add(slaveServer.get());
+				System.out.println("Done waiting");
 				// the exceptions are being ignored without over complicating
 				// failure modes, startup and recovery
 			} catch (InterruptedException e) {
