@@ -31,20 +31,16 @@ public class CertainBookStoreReplicationTask implements
 	@Override
 	public ReplicationResult call() throws Exception {
 
-		// TODO Auto-generated method stub
 		String listISBNsxmlString = BookStoreUtility
 				.serializeObjectToXMLString(request);
 		Buffer requestContent = new ByteArrayBuffer(listISBNsxmlString);
 
 		ContentExchange exchange = new ContentExchange();
-		//add a replication message tag
 		String urlString = url + "/"
-				+ request.getMessageType();
+				+ BookStoreMessageTag.REPLICATE;
 		exchange.setMethod("POST");
 		exchange.setURL(urlString);
 		exchange.setRequestContent(requestContent);
-
-		System.out.printf(request.getMessageType().toString());
 
 		try {
 			BookStoreUtility.SendAndRecv(this.client, exchange);

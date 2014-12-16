@@ -32,7 +32,7 @@ public class MasterCertainBookStore implements ReplicatedBookStore,
 	private long snapShotId = 0;
 	private Replicator replicator = null;
 	private Set<String> slaveServers;
-	private int maxReplicatorThreads = 10;
+	private int maxReplicatorThreads = 2;
 	private String filePath = "server.properties";
 
 	public MasterCertainBookStore() throws BookStoreException {

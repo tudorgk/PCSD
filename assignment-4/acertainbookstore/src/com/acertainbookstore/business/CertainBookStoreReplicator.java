@@ -37,16 +37,17 @@ public class CertainBookStoreReplicator implements Replicator {
 
 	public List<Future<ReplicationResult>> replicate(Set<String> slaveServers,
 			ReplicationRequest request) {
-
-		Future futureTask;
+		CertainBookStoreReplicationTask rep;
+		FutureTask<ReplicationResult> futureTask;
 		List<Future<ReplicationResult>> results = new ArrayList<Future<ReplicationResult>>();
 
-		for(String slave : slaveServers){
-			futureTask = executorService.submit(new CertainBookStoreReplicationTask(request,slave,client));
-			System.out.println(futureTask);
+		for( String addr : slaveServers){
+			rep = new CertainBookStoreReplicationTask(request, addr, client);
+			futureTask = new FutureTask<ReplicationResult>(rep);
+			executorService.execute(futureTask);
 			results.add(futureTask);
 		}
-		return results;
-	}
+
+		return results;	}
 
 }
