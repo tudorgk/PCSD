@@ -95,5 +95,44 @@ The Three-phase commit protocol\footnote{\url{http://www.wikiwand.com/en/Three-p
 \caption{Three-phase commit protocol \label{overflow}}
 \end{figure}
 
+\section*{Programming Task}
+\subsection*{Questions for Discussion on the Replication mechanism}
+
+%question 1
+In our implementation we decided to use Queue for load balancing. When we get the replicated address in he StockManager proxy and BookStore proxy we take a replicated store address from the beginning of the quest and add it again. This way we ensure that the load is balanced evenly through the replicated stores.\\
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+public String getReplicaAddress() {
+		String address = loadBalanceQueue.poll();
+		loadBalanceQueue.add(address);
+		return address;
+	}
+\end{lstlisting}
+\caption{getReplicaAddress method}
+\label{getReplicaAddress method}
+\end{center}
+\end{figure}
+
+The latency hiding is done by not having to wait for the replication process to finish. We do this by sending the replication request to the slave servers and constructing a list of Future objects. A Future represents the result of an asynchronous computation. Methods are provided to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation. \\ 
+
+Fail-stop subsystems require that the higher-level subsystem take some additional measure to discover the failure, for example by setting a timer and responding to its expiration. A problem with fail-stop design is that it can be difficult to distinguish a stopped subsystem from one that is merely running more slowly than expected. This problem is particularly acute in asynchronous systems.\footnote{Principles of Computer System Design (PCSD) - DIKU Course Compendium, p.251, 2013/2014} The waitForSlaveUpdates method in the MasterCertainBookStore class actually handles the failed slaves by analyzing their response and removing them from the list when necessary, thus implementing a fail-stop model. \\ 
+
+The Replicator basically is an HttpClient that sends replication requests  from the Master Server to the Salve Servers. We used and ExecutorService for handling the asynchronous communication and by adding tasks to it's thread pool of executors.\\
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+CertainBookStoreReplicationTask task = 
+	new CertainBookStoreReplicationTask(server, request, replicationClient);
+results.add(executorService.submit(task));
+\end{lstlisting}
+\caption{Adding a Task to the Executor Service}
+\label{Adding a Task to the Executor Service}
+\end{center}
+\end{figure}
+
+
 
 \end{document}               % End of document.
