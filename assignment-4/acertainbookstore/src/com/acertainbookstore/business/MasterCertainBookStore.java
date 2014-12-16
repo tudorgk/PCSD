@@ -73,6 +73,7 @@ public class MasterCertainBookStore implements ReplicatedBookStore,
 		for (Future<ReplicationResult> slaveServer : replicatedSlaveFutures) {
 			try {
 				// block until the future result is available
+				System.out.println("Waiting for slave");
 				slaveServers.add(slaveServer.get());
 				// the exceptions are being ignored without over complicating
 				// failure modes, startup and recovery
@@ -81,6 +82,7 @@ public class MasterCertainBookStore implements ReplicatedBookStore,
 				e.printStackTrace();
 			} catch (ExecutionException e) {
 				// This should never be thrown
+				System.out.println("Execution exception");
 				e.printStackTrace();
 			}
 		}

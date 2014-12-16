@@ -107,6 +107,7 @@ public class SlaveCertainBookStore implements ReplicatedReadOnlyBookStore,
 
 	public BookStoreResult removeAllBooks() throws BookStoreException {
 		
+		System.out.println("REMOVING BOOKS");
 		bookStore.removeAllBooks(); // If this fails it will throw an
 									// exception
 		snapshotId++;
