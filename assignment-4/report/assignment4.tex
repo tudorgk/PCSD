@@ -133,11 +133,17 @@ results.add(executorService.submit(task));
 \end{center}
 \end{figure}
 
-\item[2]
+
+%question 2
+
+\item[2] The current replication mechanism for our Books Store is ensuring that the Master does all the updating and sends replication requests to the Slave to modify their data store accordingly. This ensures that the Book Store service can handle multiple concurrent requests when reading the data from the database replicated on each slave. The bottleneck in our case is the Master Server because it handles all the updating requests for the store. The main disadvantage when implementing the current replication mechanism is the overhead that it produces, because the replicator on the Master server must ensure that all of the Slaves have completed their updates. If an update is not successful then the slave server that handled the request is discarded from the slave server list. It also adds more complexity to the service and it could be relatively hard to maintain consistency throughout the servers. \\
+
 \item[3]
 \item[4]
+
+ 
+
 \end{itemize}
-%question 1
 
 
 
