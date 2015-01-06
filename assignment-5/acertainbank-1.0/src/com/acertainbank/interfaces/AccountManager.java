@@ -1,4 +1,8 @@
-package com.acertainbank;
+package com.acertainbank.interfaces;
+
+import com.acertainbank.exceptions.InexistentAccountException;
+import com.acertainbank.exceptions.InexistentBranchException;
+import com.acertainbank.exceptions.NegativeAmountException;
 
 /**
  * This interface defines the operations that are used
@@ -18,11 +22,11 @@ public interface AccountManager {
 	 * @param branchId Branch where the account resides.
 	 * @param accountId	Account to be credited.
 	 * @param amount Amount with which to credit the account.
-	 * @throws InexistentBranchException If the branch does not exist
+	 * @throws com.acertainbank.exceptions.InexistentBranchException If the branch does not exist
 	 * in the system.
-	 * @throws InexistentAccountException If the account does not exist
+	 * @throws com.acertainbank.exceptions.InexistentAccountException If the account does not exist
 	 * in the system.
-	 * @throws NegativeAmountException If the amount used is negative.
+	 * @throws com.acertainbank.exceptions.NegativeAmountException If the amount used is negative.
 	 */
 	void credit (int branchId, int accountId, double amount) throws InexistentBranchException, InexistentAccountException, NegativeAmountException;
 	
