@@ -1,0 +1,152 @@
+% This is a sample LaTeX input file.  (Version of 12 August 2004.)
+%
+% A '%' character causes TeX to ignore all remaining text on the line,
+% and is used for comments like this one.
+
+\documentclass{article}      % Specifies the document class
+
+\def\Course{Principles of Computer System Design}
+\def\Exam{Exam}
+\def\Studentname{Tudor Dragan (xlq880)}
+\def\Sub_date{\today}
+                             % The preamble begins here.
+%\title{\bf Principles of Computer Systems Design\\ {\Large Exam}}  % Declares the document's title.
+%\author{Tudor Dragan\\}
+
+\title{\Course\\\Exam}
+\author{\Studentname}
+\date{\Sub_date}      % Deleting this command produces today's date.
+
+\usepackage{verbatimbox}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[]{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{moreverb}
+\usepackage{hyperref}
+\usepackage[T1]{fontenc} % font
+\usepackage{program}
+\usepackage[top=1.5in, bottom=1.5in, left=1.4in, right=1.4in]{geometry}
+\usepackage[super]{nth}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lhead{\textbf{\Course}}
+\rhead{\Exam~(Submission: \Sub_date)}
+
+\cfoot{}
+\lfoot{\Studentname}
+\rfoot{\thepage\ of \pageref{LastPage}}
+\pagestyle{fancy}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+\lstset{frame=tb,
+      language=Java,
+      aboveskip=3mm,
+      belowskip=3mm,
+      showstringspaces=false,
+      columns=flexible,
+      basicstyle={\small\ttfamily},
+      numbers=none,
+      numberstyle=\tiny\color{gray},
+      keywordstyle=\color{blue},
+      commentstyle=\color{dkgreen},
+      stringstyle=\color{mauve},
+      breakatwhitespace=true
+      tabsize=3
+}
+\newcommand{\ip}[2]{(#1, #2)}
+                             % Defines \ip{arg1}{arg2} to mean
+                             % (arg1, arg2).
+
+%\newcommand{\ip}[2]{\langle #1 | #2\rangle}
+                             % This is an alternative definition of
+                             % \ip that is commented out.
+
+\begin{document}             % End of preamble and beginning of text.
+
+\maketitle                   % Produces the title.
+
+
+\section*{Question 1: Data Processing} 
+
+\subsection* {1. Sort-based external memory algorithm}
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+//TODO: Insert pseudocode here
+\end{lstlisting}
+\caption{Sort-based external memory algorithm}
+\label{Sort-based external memory algorithm}
+\end{center}
+\end{figure}
+
+For this part of the exam we must implement an algorithm that first applies an aggregated function (in our case the \emph{count} function) on the table \emph{friends}, and then combine the results to write up the table that consists of (uid, networh, nrOfFriends). In order to implement this, we use a modified multi-way external sorting algorithm based on merge-sort.\\
+
+I made the following assumptions:
+\begin{enumerate}
+\item
+We don't have any indices on the tables so the entries are not in sorted order in any of the two tables.
+\item  
+The friends table has only uni-directional relations, in the sense that Person1 can be friends with Person2 but it's not requested that Person2 has to be friends with Person1. (Person1 has 1 friend and Person2 has 0 friends.)
+\item
+The table with the biggest number of records has \emph{N} records.
+\item
+We know that the main memory can hold \begin{math}\sqrt{N}\end{math} records. If we read B records at a time in memory, the number of runs will be \begin{math}N/B\end{math}.
+\item 
+Number of passes in Phase 2 is P then: \begin{math}B(B-1)^P = N\end{math}\\
+ \end{enumerate}
+
+First I build the table with the aggregate count function for the friends table by altering the way that we merge the pages on a pass. I will explain how it is done in the following paragraphs on a concrete example:
+
+\begin{enumerate}
+\item 
+Every entry in the friends table has this form : ($uid1$, $uid2$). The input is split up in multiple blocks. Let us assume that we have a block that has these following ($uid1$, $uid2$) relations:
+(3,7) (1,4) (2,3) (2,5) (1,3) (1,2) (2,4) (3,1)
+\item
+In order to calculate the number of friends for each user, I will sort records with the form ($uid1$, $friendCount$). because every record in the \emph{friends} table essentially means 1 friend added, when reading in the first phase, the $friendCount$ is 1. So we will have initially tuples with the form ($uid$, 1) that need to be sorted by \emph{uid}. We assume that the buffer page number is 4. So after the first phase we will have [(3,1) (1,1) (2,1) (2,1)] [(1,1) (1,1) (2,1) (3,1)]. 
+\item
+The next pass will be [(1,1) (2,2) (3,1)] [(1,2) (2,1) (3,1)], Then we combine the values by adding up the number of friends by comparing the heads of the lists (the heads contain the smallest $uid$) and add up or write to disk the smallest one $uid$ with the friend count.
+\item
+Finally we will have [(1,3) (2,3) (3,2)].
+\item 
+This will continue until all the pages buffers are empty and have no more data to fill them up with. 
+\end{enumerate}
+
+After we create the number of friends table that has entries sorted by $uid$, we sort the user table We sort the users by uid because we would like to split both sorted inputs into blocks and combine the result to output the (uid, networh, nrOfFriends) form.  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection* {2. Hash-based external memory algorithm}
+\subsection* {3. I/O costs}
+
+\end{document}               % End of document.
