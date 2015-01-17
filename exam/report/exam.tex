@@ -88,7 +88,7 @@
 \end{center}
 \end{figure}
 
-For this part of the exam we must implement an algorithm that first applies an aggregated function (in our case the \emph{count} function) on the table \emph{friends}, and then combine the results to write up the table that consists of (uid, networh, nrOfFriends). In order to implement this, we use a modified multi-way external sorting algorithm based on merge-sort.\\
+For this part of the exam we must implement an algorithm that first applies an aggregated function (in our case the \emph{count} function) on the table \emph{friends}, and then combine the results to write up the table that consists of (uid, networh, nrOfFriends). In order to achieve this, I used a modified sort-merge join algorithm.\\
 
 I made the following assumptions:
 \begin{enumerate}
@@ -120,33 +120,80 @@ Finally we will have [(1,3) (2,3) (3,2)].
 This will continue until all the pages buffers are empty and have no more data to fill them up with. 
 \end{enumerate}
 
-After we create the number of friends table that has entries sorted by $uid$, we sort the user table We sort the users by uid because we would like to split both sorted inputs into blocks and combine the result to output the (uid, networh, nrOfFriends) form.  
+After we create the number of friends table that has entries sorted by $uid$, we sort the $user$ table We sort the users by uid because we would like to split both sorted inputs into blocks and combine the result to (uid, networh, nrOfFriends) output form. Because we have space in memory for \begin{math}\sqrt{N}\end{math} records, each buffer block should have a size of \begin{math}\sqrt{N}/2\end{math}. We compare the heads of the lists, because they always have the smallest possible id and merge the values together. We continue filling up the buffers and stop when there are no more entries to compare.
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \subsection* {2. Hash-based external memory algorithm}
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+//TODO: Insert pseudocode here
+\end{lstlisting}
+\caption{Hash-based external memory algorithm}
+\label{Hash-based external memory algorithm}
+\end{center}
+\end{figure}
+
+The hash-based algorithm is very similar to the \emph{GRACE hash join algorithm} with a slight modification that increments a counter for displaying the number of friends for each user. We make the following assumptions:
+
+\begin{enumerate}
+\item 
+There are B-1 buckets, with B main memory buffers. These buckets will hold \begin{math}\sqrt{N}/2\end{math} records, where N is the highest of U and F. 
+\item
+The hashtable in the second phase is smaller than B-1 pages.
+\end{enumerate}
+
+We first partition both relations U (user table) and F (friend table) via a hash function into B-1 buckets. We read one partition at a time. We iterate through it and place the record in one of the buckets by the hashing the join attribute (in our case the $uid$). Then we can be sure that if tuples of U and F join, they will wind up in corresponding buckets $U_i$ and $F_i$ for some \emph{i}. After this phase we read a bucket of $U$ from disk and hash it using another function and construct the hash table in memory. Then we load in an buffer for $S_i$ and iterate through it. When we match the $uid$, we increment the $numberOfFriends$ counter in the hash table. When the buffer is empty, we write to disk the hash table with $(uid, networth, numberOfFriends)$ and load the next entries in the buffer.\\
+
 \subsection* {3. I/O costs}
+
+
+\subsubsection* {Sort-merge algorithm}
+
+For the sort-merge algortihm the "expected" cost is:
+\begin{equation}
+Sort_U + Sort_F + (Pages_U + Pages_F)
+\end{equation}
+
+\subsubsection* {Hash-based algorithm}
+
+\section* {Question 2: Distributed Transaction}
+
+\subsection* {1. Local wait-for-graphs}
+Conflict-serializability is defined by equivalence to a serial schedule (no overlapping transactions) with the same transactions, such that both schedules have the same sets of respective chronologically ordered pairs of conflicting operations (same precedence relations of respective conflicting operations).\\
+
+A schedule is conflict-serializable if and only if it's precedence graph has no cycles. This is a graph of nodes and vertices, where the nodes are the transaction names and the vertices are attribute collisions. The local waits-for graphs on each node are:\\
+
+
+\begin{figure}[ht]
+\centering
+
+{%
+\setlength{\fboxsep}{5pt}%
+\fbox{\includegraphics[scale=.3]{img/local-graph-1}}%
+\fbox{\includegraphics[scale=.3]{img/local-graph-2}}%
+\fbox{\includegraphics[scale=.3]{img/local-graph-3}}%
+}%
+
+\caption{Local wait-for-graph for Node 1, Node 2 and Node 3 \label{overflow}}
+\end{figure}
+
+As we can see the graphs have no cycles, proving that there are no local deadlocks.\\
+
+\subsection* {2. Global wait-for-graph}
+
+When constructing the global wait-for-graph we set up the pages that are being modified on each machine. If we have a cycle in the global graph, it means that we have conflicts and must abort the transactions. Below we have the global wait-for-graph: \\
+
+\begin{figure}[ht]
+\centering
+
+{%
+\setlength{\fboxsep}{5pt}%
+\fbox{\includegraphics[scale=.3]{img/global-graph}}%
+}%
+\caption{Global wait-for-graph\label{overflow}}
+\end{figure}
+
+As we can see we have cycle between  $X -> T1 -> C -> T3 -> B -> T2 -> X$. To remove the deadlock within the system we must abort modifications that are being don on $X$, $C$ and $B$.
 
 \end{document}               % End of document.
