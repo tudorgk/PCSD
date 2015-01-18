@@ -138,12 +138,12 @@ public class FarmUtility {
      * @throws java.lang.Exception
      */
     public static FarmResult SendAndRecv(HttpClient client,
-                                              ContentExchange exchange) throws AttributeOutOfBoundsException,PrecisionFarmingException {
+                                              ContentExchange exchange) throws Exception{
         int exchangeState;
         try {
             client.send(exchange);
         } catch (IOException ex) {
-            throw new AttributeOutOfBoundsException(
+            throw new Exception(
                     FarmClientConstants.strERR_CLIENT_REQUEST_SENDING, ex);
         }
 
@@ -151,7 +151,7 @@ public class FarmUtility {
             exchangeState = exchange.waitForDone(); // block until the response
             // is available
         } catch (InterruptedException ex) {
-            throw new AttributeOutOfBoundsException(
+            throw new Exception(
                     FarmClientConstants.strERR_CLIENT_REQUEST_SENDING, ex);
         }
 
@@ -164,25 +164,25 @@ public class FarmUtility {
                     throw new AttributeOutOfBoundsException(
                             FarmClientConstants.strERR_CLIENT_RESPONSE_DECODING);
                 }
-                AttributeOutOfBoundsException ex = farmResponse.getException();
+                Exception ex = farmResponse.getException();
                 if (ex != null) {
                     throw ex;
                 }
                 return farmResponse .getResult();
 
             } catch (UnsupportedEncodingException ex) {
-                throw new AttributeOutOfBoundsException(
+                throw new Exception(
                         FarmClientConstants.strERR_CLIENT_RESPONSE_DECODING,
                         ex);
             }
         } else if (exchangeState == HttpExchange.STATUS_EXCEPTED) {
-            throw new AttributeOutOfBoundsException(
+            throw new Exception(
                     FarmClientConstants.strERR_CLIENT_REQUEST_EXCEPTION);
         } else if (exchangeState == HttpExchange.STATUS_EXPIRED) {
-            throw new AttributeOutOfBoundsException(
+            throw new Exception(
                     FarmClientConstants.strERR_CLIENT_REQUEST_TIMEOUT);
         } else {
-            throw new AttributeOutOfBoundsException(
+            throw new Exception(
                     FarmClientConstants.strERR_CLIENT_UNKNOWN);
         }
     }

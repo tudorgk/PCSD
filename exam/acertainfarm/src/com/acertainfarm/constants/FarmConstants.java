@@ -31,4 +31,7 @@ public final class FarmConstants {
 
     public static final String PROPERTY_KEY_LOCAL_TEST = "localtest";
     public static final String PROPERTY_KEY_SERVER_PORT = "port";
+
+    public static final String SENDER_KEY_TIMESTAMP = "time";
+    public static final String SENDER_KEY_EVENTLIST = "events";
 }

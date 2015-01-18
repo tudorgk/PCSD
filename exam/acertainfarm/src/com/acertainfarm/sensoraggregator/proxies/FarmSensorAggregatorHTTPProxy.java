@@ -1,4 +1,4 @@
-package com.acertainfarm.sensoraggregator.proxy;
+package com.acertainfarm.sensoraggregator.proxies;
 
 import com.acertainfarm.constants.FarmClientConstants;
 import com.acertainfarm.data.Measurement;
@@ -58,7 +58,11 @@ public class FarmSensorAggregatorHTTPProxy implements SensorAggregator{
         Buffer requestContent = new ByteArrayBuffer(listMeasurementsxmlString);
         exchange.setRequestContent(requestContent);
 
-        FarmUtility.SendAndRecv(this.client, exchange);
+        try {
+            FarmUtility.SendAndRecv(this.client, exchange);
+        } catch (Exception e) {
+            throw new PrecisionFarmingException(e);
+        }
     }
 
     public void stop() {

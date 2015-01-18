@@ -1,17 +1,19 @@
 package com.acertainfarm.sensoraggregator.server;
 
+import com.acertainfarm.constants.FarmConstants;
 import com.acertainfarm.data.Event;
 import com.acertainfarm.data.Measurement;
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
 import com.acertainfarm.exceptions.PrecisionFarmingException;
 import com.acertainfarm.sensoraggregator.interfaces.SensorAggregator;
-import com.acertainfarm.sensoraggregator.proxy.FarmSensorAggregatorSenderProxy;
+import com.acertainfarm.sensoraggregator.sender.FarmSensorAggregatorSender;
+import com.acertainfarm.sensoraggregator.sender.SenderRequest;
+import com.acertainfarm.sensoraggregator.sender.SenderResult;
+import com.acertainfarm.utils.FarmMessageTag;
 import com.acertainfarm.utils.FarmUtility;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * Created by tudorgk on 17/1/15.
@@ -20,9 +22,10 @@ public class FarmSensorAggregator implements SensorAggregator {
 
     private ConcurrentMap<Integer, List<Measurement>> measurementsMap = null;
     private Date lastFieldStatusUpdate = null;
-    private FarmSensorAggregatorSenderProxy sender = null;
+    private FarmSensorAggregatorSender sender = null;
     private String filePath = "aggregator.config"; //we will need this to get the field status
                                                     // server address and other fields
+    private String fieldUpdateServerAddress = "http://localhost:8082/fieldstatus"; //TODO:check address
     private int numberOfFields = 10;
 
     public FarmSensorAggregator (){
@@ -37,7 +40,7 @@ public class FarmSensorAggregator implements SensorAggregator {
 
         //init the sender (just a client that sends
         // the avg measurements to the field status server
-        sender = new FarmSensorAggregatorSenderProxy();
+        sender = new FarmSensorAggregatorSender();
 
         //TODO: get the field status url from the config file
     }
@@ -93,20 +96,40 @@ public class FarmSensorAggregator implements SensorAggregator {
                 //add the avg measurement to the list
                 measurementsToSend.add(new Event(key,tempSum/i,humiditySum/i));
 
-                //remove the list from the measurements map
-                measurementsMap.remove(key);
             }
 
-            //send it the sender
-            sender.prepareForSending(currentTime,measurementsToSend);
 
-            //add the measurements to the map
+            //TODO: Sender - Send payload - Needs testing!
+            //send the payload to the field update server
+
+            Map payload = new HashMap();
+            payload.put(FarmConstants.SENDER_KEY_TIMESTAMP, currentTime.getTime());
+            payload.put(FarmConstants.SENDER_KEY_EVENTLIST, measurementsToSend);
+            SenderRequest request = new SenderRequest(payload, FarmMessageTag.UPDATE);
+
+            Future<SenderResult> response = sender.sendUpdateWithPayload(fieldUpdateServerAddress, request);
+
+            //wait for confirmation
+            waitForSenderConfirmation(response);
+
+            //clear the measurements map
+            measurementsMap.clear();
+
+
+            //add the new measurements to the map
             addMeasurementBatchToMap(measurements);
 
         }else {
             //the time period has not passed
             //add the values to the list
             addMeasurementBatchToMap(measurements);
+
+//            //TODO: Just to prove a point
+//            List<Event> toSend = new ArrayList<Event>();
+//            toSend.add(new Event(1, 42, 42));
+//            toSend.add(new Event(3,22,22));
+//            //send it the sender
+//            sender.prepareForSending(currentTime,toSend);
         }
 
     }
@@ -130,5 +153,27 @@ public class FarmSensorAggregator implements SensorAggregator {
         measurementsMap.clear();
     }
 
+    public synchronized void waitForSenderConfirmation(Future<SenderResult> response){
+        SenderResult result = null;
+        try {
+            // block until the future result is available
+            System.out.println("Waiting for slave");
+            result = response.get();
+            System.out.println("Done waiting");
+            // the exceptions are being ignored without over complicating
+            // failure modes, startup and recovery
+        } catch (InterruptedException e) {
+            // Current thread was interrupted
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            // This should never be thrown
+            System.out.println("Execution exception");
+            e.printStackTrace();
+        }
 
+        if (!result.isSendingSuccessful()){
+            System.out.println("Sending failed! Field Update Server is down!");
+        }
+
+    }
 }

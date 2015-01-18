@@ -1,6 +1,6 @@
 package com.acertainfarm.tests;
 
-import com.acertainfarm.sensoraggregator.proxy.FarmSensorAggregatorHTTPProxy;
+import com.acertainfarm.sensoraggregator.proxies.FarmSensorAggregatorHTTPProxy;
 import com.acertainfarm.constants.FarmConstants;
 import com.acertainfarm.data.Measurement;
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;

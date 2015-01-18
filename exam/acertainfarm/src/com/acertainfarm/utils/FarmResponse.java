@@ -6,24 +6,24 @@ import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
  * Created by tudorgk on 17/1/15.
  */
 public class FarmResponse {
-    private AttributeOutOfBoundsException exception = null;
+    private Exception exception = null;
     private FarmResult result = null;
 
     public FarmResponse() {
 
     }
 
-    public FarmResponse(AttributeOutOfBoundsException exception,
+    public FarmResponse(Exception exception,
                              FarmResult result) {
         this.setException(exception);
         this.setResult(result);
     }
 
-    public AttributeOutOfBoundsException getException() {
+    public Exception getException() {
         return exception;
     }
 
-    public void setException(AttributeOutOfBoundsException exception) {
+    public void setException(Exception exception) {
         this.exception = exception;
     }
 

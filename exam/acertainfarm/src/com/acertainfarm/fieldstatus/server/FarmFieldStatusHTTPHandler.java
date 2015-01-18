@@ -1,9 +1,6 @@
 package com.acertainfarm.fieldstatus.server;
 
 import com.acertainfarm.data.Event;
-import com.acertainfarm.data.Measurement;
-import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
-import com.acertainfarm.exceptions.PrecisionFarmingException;
 import com.acertainfarm.utils.FarmMessageTag;
 import com.acertainfarm.utils.FarmResponse;
 import com.acertainfarm.utils.FarmUtility;
@@ -64,6 +61,19 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
                     String xml = FarmUtility.extractPOSTDataFromRequest(httpServletRequest);
 
                     System.out.println(xml);
+
+                    Map<String,Object> payload = (Map<String,Object>) FarmUtility
+                            .deserializeXMLStringToObject(new String(xml));
+
+                    long timePeriod = ((Number)payload.get("time")).longValue();
+
+                    System.out.println("handle - timePeriod: " + timePeriod);
+
+                    List<Event> eventList = (List<Event>)payload.get("events");
+
+                    System.out.println("handle - eventList: " + eventList.toString());
+
+
 
 //                    List<Measurement> newMeasurementList = (List<Measurement>) FarmUtility
 //                            .deserializeXMLStringToObject(new String(xml));
