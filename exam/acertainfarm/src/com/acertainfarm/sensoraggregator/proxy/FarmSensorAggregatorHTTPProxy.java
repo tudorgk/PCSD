@@ -1,4 +1,4 @@
-package com.acertainfarm.clients;
+package com.acertainfarm.sensoraggregator.proxy;
 
 import com.acertainfarm.constants.FarmClientConstants;
 import com.acertainfarm.data.Measurement;
@@ -18,11 +18,11 @@ import java.util.List;
 /**
  * Created by tudorgk on 17/1/15.
  */
-public class FarmFieldStatusAccessPointHTTPProxy implements SensorAggregator{
+public class FarmSensorAggregatorHTTPProxy implements SensorAggregator{
     protected HttpClient client;
     protected String serverAddress;
 
-    public FarmFieldStatusAccessPointHTTPProxy(String serverAddress) throws Exception{
+    public FarmSensorAggregatorHTTPProxy(String serverAddress) throws Exception{
         setServerAddress(serverAddress);
         client = new HttpClient();
         client.setConnectorType(HttpClient.CONNECTOR_SELECT_CHANNEL);
