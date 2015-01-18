@@ -1,6 +1,8 @@
 package com.acertainfarm.utils;
 
 import com.acertainfarm.constants.FarmClientConstants;
+import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
+import com.acertainfarm.exceptions.PrecisionFarmingException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import org.eclipse.jetty.client.ContentExchange;
@@ -136,12 +138,12 @@ public class FarmUtility {
      * @throws java.lang.Exception
      */
     public static FarmResult SendAndRecv(HttpClient client,
-                                              ContentExchange exchange) throws Exception {
+                                              ContentExchange exchange) throws AttributeOutOfBoundsException,PrecisionFarmingException {
         int exchangeState;
         try {
             client.send(exchange);
         } catch (IOException ex) {
-            throw new Exception(
+            throw new AttributeOutOfBoundsException(
                     FarmClientConstants.strERR_CLIENT_REQUEST_SENDING, ex);
         }
 
@@ -149,7 +151,7 @@ public class FarmUtility {
             exchangeState = exchange.waitForDone(); // block until the response
             // is available
         } catch (InterruptedException ex) {
-            throw new Exception(
+            throw new AttributeOutOfBoundsException(
                     FarmClientConstants.strERR_CLIENT_REQUEST_SENDING, ex);
         }
 
@@ -159,28 +161,28 @@ public class FarmUtility {
                         .deserializeXMLStringToObject(exchange
                                 .getResponseContent().trim());
                 if (farmResponse  == null) {
-                    throw new Exception(
+                    throw new AttributeOutOfBoundsException(
                             FarmClientConstants.strERR_CLIENT_RESPONSE_DECODING);
                 }
-                Exception ex = farmResponse .getException();
+                AttributeOutOfBoundsException ex = farmResponse.getException();
                 if (ex != null) {
                     throw ex;
                 }
                 return farmResponse .getResult();
 
             } catch (UnsupportedEncodingException ex) {
-                throw new Exception(
+                throw new AttributeOutOfBoundsException(
                         FarmClientConstants.strERR_CLIENT_RESPONSE_DECODING,
                         ex);
             }
         } else if (exchangeState == HttpExchange.STATUS_EXCEPTED) {
-            throw new Exception(
+            throw new AttributeOutOfBoundsException(
                     FarmClientConstants.strERR_CLIENT_REQUEST_EXCEPTION);
         } else if (exchangeState == HttpExchange.STATUS_EXPIRED) {
-            throw new Exception(
+            throw new AttributeOutOfBoundsException(
                     FarmClientConstants.strERR_CLIENT_REQUEST_TIMEOUT);
         } else {
-            throw new Exception(
+            throw new AttributeOutOfBoundsException(
                     FarmClientConstants.strERR_CLIENT_UNKNOWN);
         }
     }

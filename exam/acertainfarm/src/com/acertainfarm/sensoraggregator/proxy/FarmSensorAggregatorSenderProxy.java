@@ -1,4 +1,4 @@
-package com.acertainfarm.sensoraggregator.server;
+package com.acertainfarm.sensoraggregator.proxy;
 
 import com.acertainfarm.constants.FarmClientConstants;
 import com.acertainfarm.data.Event;
@@ -17,11 +17,11 @@ import java.util.concurrent.Future;
 /**
  * Created by tudorgk on 17/1/15.
  */
-public class FarmSensorAggregatorSender implements Sender {
+public class FarmSensorAggregatorSenderProxy implements Sender {
     private ExecutorService executorService;
     private HttpClient replicationClient;
 
-    public FarmSensorAggregatorSender(){
+    public FarmSensorAggregatorSenderProxy(){
         // create an executor service for the requests
         executorService = Executors.newFixedThreadPool(1);
 
@@ -41,7 +41,7 @@ public class FarmSensorAggregatorSender implements Sender {
 
     @Override
     public List<Future<String>> prepareForSending(Date timePeriod, List<Event> avgMeasurements) {
-        //this will send the avg measurements to the Field Status Server
+        //TODO: this will send the avg measurements to the Field Status Server
         return null;
     }
 }

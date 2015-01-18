@@ -2,16 +2,15 @@ package com.acertainfarm.sensoraggregator.server;
 
 import com.acertainfarm.data.Event;
 import com.acertainfarm.data.Measurement;
-import com.acertainfarm.data.SensorAggregatorMeasurement;
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
 import com.acertainfarm.exceptions.PrecisionFarmingException;
-import com.acertainfarm.sensoraggregator.interfaces.Sender;
 import com.acertainfarm.sensoraggregator.interfaces.SensorAggregator;
+import com.acertainfarm.sensoraggregator.proxy.FarmSensorAggregatorSenderProxy;
 import com.acertainfarm.utils.FarmUtility;
-import org.eclipse.jetty.server.Request;
 
 import java.util.*;
-import java.util.concurrent.Future;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,9 +18,9 @@ import java.util.concurrent.TimeUnit;
  */
 public class FarmSensorAggregator implements SensorAggregator {
 
-    private Map<Integer, List<Measurement>> measurementsMap = null;
+    private ConcurrentMap<Integer, List<Measurement>> measurementsMap = null;
     private Date lastFieldStatusUpdate = null;
-    private FarmSensorAggregatorSender sender = null;
+    private FarmSensorAggregatorSenderProxy sender = null;
     private String filePath = "aggregator.config"; //we will need this to get the field status
                                                     // server address and other fields
     private int numberOfFields = 10;
@@ -31,14 +30,14 @@ public class FarmSensorAggregator implements SensorAggregator {
         if (measurementsMap == null){
             //initialize the map
             //caution! the map has no initialized lists
-            measurementsMap = new HashMap<Integer, List<Measurement>>();
+            measurementsMap = new ConcurrentHashMap<Integer, List<Measurement>>();
         }
 
         lastFieldStatusUpdate = new Date();
 
         //init the sender (just a client that sends
         // the avg measurements to the field status server
-        sender = new FarmSensorAggregatorSender();
+        sender = new FarmSensorAggregatorSenderProxy();
 
         //TODO: get the field status url from the config file
     }

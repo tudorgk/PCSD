@@ -1,27 +1,29 @@
 package com.acertainfarm.utils;
 
+import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
+
 /**
  * Created by tudorgk on 17/1/15.
  */
 public class FarmResponse {
-    private Exception exception = null;
+    private AttributeOutOfBoundsException exception = null;
     private FarmResult result = null;
 
     public FarmResponse() {
 
     }
 
-    public FarmResponse(Exception exception,
+    public FarmResponse(AttributeOutOfBoundsException exception,
                              FarmResult result) {
         this.setException(exception);
         this.setResult(result);
     }
 
-    public Exception getException() {
+    public AttributeOutOfBoundsException getException() {
         return exception;
     }
 
-    public void setException(Exception exception) {
+    public void setException(AttributeOutOfBoundsException exception) {
         this.exception = exception;
     }
 
