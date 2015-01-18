@@ -42,6 +42,8 @@ public class FarmSensorAggregatorSenderProxy implements Sender {
     @Override
     public List<Future<String>> prepareForSending(Date timePeriod, List<Event> avgMeasurements) {
         //TODO: this will send the avg measurements to the Field Status Server
+        System.out.println("time:" + timePeriod.toString() + avgMeasurements.toString());
+
         return null;
     }
 }

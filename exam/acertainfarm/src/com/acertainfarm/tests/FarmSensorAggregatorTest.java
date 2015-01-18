@@ -1,14 +1,16 @@
 package com.acertainfarm.tests;
 
+import com.acertainfarm.sensoraggregator.proxy.FarmSensorAggregatorHTTPProxy;
+import com.acertainfarm.constants.FarmConstants;
+import com.acertainfarm.data.Measurement;
+import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
+import com.acertainfarm.exceptions.PrecisionFarmingException;
+import com.acertainfarm.sensoraggregator.interfaces.SensorAggregator;
 import com.acertainfarm.sensoraggregator.server.FarmSensorAggregator;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -17,7 +19,8 @@ import static org.junit.Assert.fail;
  * Created by tudorgk on 18/1/15.
  */
 public class FarmSensorAggregatorTest {
-    private static FarmSensorAggregator sensorAggregator;
+    private static SensorAggregator sensorAggregator;
+    private static boolean localTest = false;
 
     @BeforeClass
     public static void setUpBeforeClass() {
@@ -26,43 +29,95 @@ public class FarmSensorAggregatorTest {
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        try {
+            String localTestProperty = System
+                    .getProperty(FarmConstants.PROPERTY_KEY_LOCAL_TEST);
+            localTest = (localTestProperty != null) ? Boolean
+                    .parseBoolean(localTestProperty) : localTest;
+            if (localTest) {
+                sensorAggregator = new FarmSensorAggregator();
+            } else {
+                sensorAggregator = new FarmSensorAggregatorHTTPProxy(
+                        "http://localhost:8081/sensoragg");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
-//    @Before
-//    public void initializeBooks() throws BookStoreException {
-//        Set<StockBook> booksToAdd = new HashSet<StockBook>();
-//        booksToAdd.add(getDefaultBook());
-//        storeManager.addBooks(booksToAdd);
-//    }
-//
-//    @After
-//    public void cleanupBooks() throws BookStoreException {
-//        storeManager.removeAllBooks();
-//    }
-//
-//
-//    @Test
-//    public void testBuyInvalidISBN() throws BookStoreException {
-//        List<StockBook> booksInStorePreTest = storeManager.getBooks();
-//
-//        // Try to buy a book with invalid isbn
-//        HashSet<BookCopy> booksToBuy = new HashSet<BookCopy>();
-//        booksToBuy.add(new BookCopy(TEST_ISBN, 1)); // valid
-//        booksToBuy.add(new BookCopy(-1, 1)); // invalid
-//
-//        // Try to buy the books
-//        try {
-//            client.buyBooks(booksToBuy);
-//            fail();
-//        } catch (BookStoreException ex) {
-//            ;
-//        }
-//
-//        List<StockBook> booksInStorePostTest = storeManager.getBooks();
-//        // Check pre and post state are same
-//        assertTrue(booksInStorePreTest.containsAll(booksInStorePostTest)
-//                && booksInStorePreTest.size() == booksInStorePostTest.size());
-//
-//    }
+    @Before
+    public void initializeSensorAggregator(){
+
+    }
+
+    @After
+    public void cleanupSensorAggregator(){
+
+    }
+
+    public Measurement defaultMeasurement(){
+        return new Measurement(12,4,42,89);
+    }
+
+    public List<Measurement> defaultMeasurementList ()
+    {
+        List<Measurement> defaultList = new ArrayList<Measurement>();
+        defaultList.add(defaultMeasurement());
+        defaultList.add(defaultMeasurement());
+        defaultList.add(defaultMeasurement());
+        defaultList.add(defaultMeasurement());
+        return defaultList;
+    }
+
+    @Test
+    public void testMeasurements () throws AttributeOutOfBoundsException,PrecisionFarmingException{
+
+        Thread client1 = new Thread(new ConcurrentNewMeasurements(defaultMeasurementList()));
+        Thread client2 = new Thread(new ConcurrentNewMeasurements(defaultMeasurementList()));
+
+
+        // run threads
+        client1.start();
+        client2.start();
+
+        // wait
+        try {
+            client1.join();
+            client2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            fail();
+        }
+
+        assertTrue(true);
+
+    }
+
+    class ConcurrentNewMeasurements implements Runnable{
+        List<Measurement> measurementList;
+        public ConcurrentNewMeasurements (List<Measurement> measurementList){
+            this.measurementList = measurementList;
+        }
+
+        @Override
+        public void run() {
+            try {
+                sensorAggregator.newMeasurements(measurementList);
+            } catch (PrecisionFarmingException e) {
+                e.printStackTrace();
+                fail();
+            } catch (AttributeOutOfBoundsException e) {
+                e.printStackTrace();
+                fail();
+            }
+        }
+    }
+
+    @AfterClass
+    public static void tearDownAfterClass() throws AttributeOutOfBoundsException,PrecisionFarmingException {
+
+    }
 }

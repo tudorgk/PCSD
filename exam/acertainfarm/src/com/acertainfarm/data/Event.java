@@ -54,4 +54,9 @@ public final class Event {
 		return avgHumidity;
 	}
 
+
+	@Override
+	public String toString() {
+		return "fieldID = "+ fieldId +"; avgTemp = " + avgTemperature +";avgHum = " + avgHumidity;
+	}
 }

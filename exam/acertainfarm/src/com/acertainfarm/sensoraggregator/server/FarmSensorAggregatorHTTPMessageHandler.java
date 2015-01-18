@@ -34,8 +34,6 @@ public class FarmSensorAggregatorHTTPMessageHandler extends AbstractHandler {
                        HttpServletResponse httpServletResponse) throws IOException, ServletException {
 
         FarmMessageTag messageTag;
-        String numBooksString = null;
-        int numBooks = -1;
         String requestURI;
         FarmResponse farmResponse= null;
 

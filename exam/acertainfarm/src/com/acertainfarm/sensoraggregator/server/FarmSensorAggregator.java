@@ -126,5 +126,9 @@ public class FarmSensorAggregator implements SensorAggregator {
         System.out.println(measurementsMap.toString());
     }
 
+    public synchronized void clearDataStore(){
+        measurementsMap.clear();
+    }
+
 
 }
