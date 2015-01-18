@@ -1,4 +1,4 @@
-package com.acertainfarm.interfaces;
+package com.acertainfarm.fieldstatus.interfaces;
 
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
 import com.acertainfarm.data.Event;

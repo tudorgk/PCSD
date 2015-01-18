@@ -1,4 +1,4 @@
-package com.acertainfarm.interfaces;
+package com.acertainfarm.sensoraggregator.interfaces;
 
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
 import com.acertainfarm.data.Measurement;

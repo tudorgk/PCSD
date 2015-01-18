@@ -1,4 +1,4 @@
-package com.acertainfarm.utils;
+package com.acertainfarm.constants;
 
 /**
  * Created by tudorgk on 17/1/15.
