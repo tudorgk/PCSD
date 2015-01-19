@@ -28,22 +28,25 @@ public class FarmSensorAggregatorSenderTask implements Callable<SenderResult> {
     @Override
     public SenderResult call() throws Exception {
         FarmMessageTag messageTag = request.getMessageType();
-        String xmlString = FarmUtility.serializeObjectToXMLString(request.getPayLoad());
-        Buffer requestContent = new ByteArrayBuffer(xmlString);
-        ContentExchange exchange = new ContentExchange();
-
-        //TODO: Check if the address is correct
-        String urlString = fieldUpdateServerAddress + "/" + messageTag;
-
-        exchange.setMethod("POST");
-        exchange.setURL(urlString);
-        exchange.setRequestContent(requestContent);
-
-        try {
-            FarmUtility.SendAndRecv(httpClient, exchange);
-        } catch (Exception e) {
-            return new SenderResult(fieldUpdateServerAddress, false);
-        }
-        return new SenderResult(fieldUpdateServerAddress, true);
+        System.out.println(request);
+        String xmlString = FarmUtility.serializeObjectToXMLString("pula");
+        System.out.println(xmlString);
+//        Buffer requestContent = new ByteArrayBuffer(xmlString);
+//        ContentExchange exchange = new ContentExchange();
+//
+//        //TODO: Check if the address is correct
+//        String urlString = fieldUpdateServerAddress + "/" + messageTag;
+//
+//        exchange.setMethod("POST");
+//        exchange.setURL(urlString);
+//        exchange.setRequestContent(requestContent);
+//
+//        try {
+//            FarmUtility.SendAndRecv(httpClient, exchange);
+//        } catch (Exception e) {
+//            return new SenderResult(fieldUpdateServerAddress, false);
+//        }
+//        return new SenderResult(fieldUpdateServerAddress, true);
+        return new SenderResult(fieldUpdateServerAddress,false);
     }
 }

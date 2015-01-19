@@ -25,12 +25,6 @@ public class FarmSensorAggregatorTest {
     @BeforeClass
     public static void setUpBeforeClass() {
         try {
-            sensorAggregator = new FarmSensorAggregator();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        try {
             String localTestProperty = System
                     .getProperty(FarmConstants.PROPERTY_KEY_LOCAL_TEST);
             localTest = (localTestProperty != null) ? Boolean

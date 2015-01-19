@@ -62,16 +62,17 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
 
                     System.out.println(xml);
 
-                    Map<String,Object> payload = (Map<String,Object>) FarmUtility
+                    Map<?,?> payload = (Map<?,?>) FarmUtility
                             .deserializeXMLStringToObject(new String(xml));
 
-                    long timePeriod = ((Number)payload.get("time")).longValue();
-
-                    System.out.println("handle - timePeriod: " + timePeriod);
-
-                    List<Event> eventList = (List<Event>)payload.get("events");
-
-                    System.out.println("handle - eventList: " + eventList.toString());
+                    System.out.println(payload);
+//                    long timePeriod = ((Number)payload.get("time")).longValue();
+//
+//                    System.out.println("handle - timePeriod: " + timePeriod);
+//
+//                    List<Event> eventList = (List<Event>)payload.get("events");
+//
+//                    System.out.println("handle - eventList: " + eventList.toString());
 
 
 

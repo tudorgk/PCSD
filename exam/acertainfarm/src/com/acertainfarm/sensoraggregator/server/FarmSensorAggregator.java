@@ -107,10 +107,8 @@ public class FarmSensorAggregator implements SensorAggregator {
             payload.put(FarmConstants.SENDER_KEY_EVENTLIST, measurementsToSend);
             SenderRequest request = new SenderRequest(payload, FarmMessageTag.UPDATE);
 
-            Future<SenderResult> response = sender.sendUpdateWithPayload(fieldUpdateServerAddress, request);
-
             //wait for confirmation
-            waitForSenderConfirmation(response);
+            SenderResult response = sender.sendUpdateWithPayload(fieldUpdateServerAddress, request);
 
             //clear the measurements map
             measurementsMap.clear();
@@ -157,7 +155,7 @@ public class FarmSensorAggregator implements SensorAggregator {
         SenderResult result = null;
         try {
             // block until the future result is available
-            System.out.println("Waiting for slave");
+            System.out.println("Waiting for sender");
             result = response.get();
             System.out.println("Done waiting");
             // the exceptions are being ignored without over complicating

@@ -4,7 +4,12 @@ import com.acertainfarm.constants.FarmClientConstants;
 import com.acertainfarm.constants.FarmConstants;
 import com.acertainfarm.data.Event;
 import com.acertainfarm.sensoraggregator.interfaces.Sender;
+import com.acertainfarm.utils.FarmMessageTag;
+import com.acertainfarm.utils.FarmUtility;
+import org.eclipse.jetty.client.ContentExchange;
 import org.eclipse.jetty.client.HttpClient;
+import org.eclipse.jetty.io.Buffer;
+import org.eclipse.jetty.io.ByteArrayBuffer;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import java.util.Date;
@@ -24,7 +29,7 @@ public class FarmSensorAggregatorSender implements Sender {
 
     public FarmSensorAggregatorSender(){
         // create an executor service for the requests
-        executorService = Executors.newFixedThreadPool(5);
+        executorService = Executors.newFixedThreadPool(1);
 
         senderClient = new HttpClient();
         senderClient.setConnectorType(HttpClient.CONNECTOR_SELECT_CHANNEL);
@@ -39,23 +44,33 @@ public class FarmSensorAggregatorSender implements Sender {
         }
     }
 
-    //TODO: tihs method is obsolete
-    private List<Future<String>> prepareForSending(Date timePeriod, List<Event> avgMeasurements) {
-        //TODO: this will send the avg measurements to the Field Status Server
-        System.out.println("time:" + timePeriod.toString() + avgMeasurements.toString());
-
-        //send a map with time and measurements as keys
-        Map<String, Object> payload = new HashMap<String, Object>();
-
-        payload.put(FarmConstants.SENDER_KEY_TIMESTAMP, timePeriod.getTime());
-        payload.put(FarmConstants.SENDER_KEY_TIMESTAMP, avgMeasurements);
-
-        return null;
-    }
 
     @Override
-    public Future<SenderResult> sendUpdateWithPayload(String fieldUpdateServerAddress, SenderRequest request) {
-        FarmSensorAggregatorSenderTask task = new FarmSensorAggregatorSenderTask(fieldUpdateServerAddress, request, senderClient);
-        return executorService.submit(task);
+    public SenderResult sendUpdateWithPayload(String fieldUpdateServerAddress, SenderRequest request) {
+//        TODO: check what is not working. It worked but i didnt called 'get' on the future object
+//        FarmSensorAggregatorSenderTask task = new FarmSensorAggregatorSenderTask(fieldUpdateServerAddress, request, senderClient);
+//        return executorService.submit(task);
+
+        FarmMessageTag messageTag = request.getMessageType();
+        System.out.println(request);
+        String xmlString = FarmUtility.serializeObjectToXMLString(request.getPayLoad());
+        System.out.println(xmlString);
+        Buffer requestContent = new ByteArrayBuffer(xmlString);
+        ContentExchange exchange = new ContentExchange();
+
+        //TODO: Check if the address is correct
+        String urlString = fieldUpdateServerAddress + "/" + messageTag;
+
+        exchange.setMethod("POST");
+        exchange.setURL(urlString);
+        exchange.setRequestContent(requestContent);
+
+        try {
+            FarmUtility.SendAndRecv(senderClient, exchange);
+        } catch (Exception e) {
+            return new SenderResult(fieldUpdateServerAddress, false);
+        }
+        return new SenderResult(fieldUpdateServerAddress, true);
+
     }
 }
