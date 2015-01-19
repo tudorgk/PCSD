@@ -47,7 +47,7 @@ public class FarmSensorAggregatorSender implements Sender {
 
     @Override
     public SenderResult sendUpdateWithPayload(String fieldUpdateServerAddress, SenderRequest request) {
-//        TODO: check what is not working. It worked but i didnt called 'get' on the future object
+//        DONE: check what is not working. It worked but i didnt called 'get' on the future object
 //        FarmSensorAggregatorSenderTask task = new FarmSensorAggregatorSenderTask(fieldUpdateServerAddress, request, senderClient);
 //        return executorService.submit(task);
 
@@ -58,7 +58,7 @@ public class FarmSensorAggregatorSender implements Sender {
         Buffer requestContent = new ByteArrayBuffer(xmlString);
         ContentExchange exchange = new ContentExchange();
 
-        //TODO: Check if the address is correct
+        //DONE: Check if the address is correct! It's correct
         String urlString = fieldUpdateServerAddress + "/" + messageTag;
 
         exchange.setMethod("POST");

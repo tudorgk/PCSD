@@ -64,7 +64,6 @@ public class FarmFieldStatus implements FieldStatus {
                 aggregatedEventsMap.put(ev.getFieldId(),new TimedEvent(timePeriod,ev));
             }
         }
-
         //TODO: Do not forget about the log manager // write on the log after each update
 
     }

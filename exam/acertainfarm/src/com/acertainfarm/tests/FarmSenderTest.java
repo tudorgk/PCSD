@@ -72,7 +72,7 @@ public class FarmSenderTest {
     }
 
     public Event defaultEvent(){
-        return new Event(12,4,42);
+        return new Event(9,4,42);
     }
 
     public List<Event> defaultEventList ()

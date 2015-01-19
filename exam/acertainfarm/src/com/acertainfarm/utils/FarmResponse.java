@@ -1,20 +1,22 @@
 package com.acertainfarm.utils;
 
-import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
+import com.acertainfarm.data.FieldState;
+
+import java.util.List;
 
 /**
  * Created by tudorgk on 17/1/15.
  */
 public class FarmResponse {
     private Exception exception = null;
-    private FarmResult result = null;
+    private List<FieldState> result = null;
 
     public FarmResponse() {
 
     }
 
     public FarmResponse(Exception exception,
-                             FarmResult result) {
+                             List<FieldState> result) {
         this.setException(exception);
         this.setResult(result);
     }
@@ -27,11 +29,11 @@ public class FarmResponse {
         this.exception = exception;
     }
 
-    public FarmResult getResult() {
+    public List<FieldState> getResult() {
         return result;
     }
 
-    public void setResult(FarmResult result) {
+    public void setResult(List<FieldState> result) {
         this.result = result;
     }
 }

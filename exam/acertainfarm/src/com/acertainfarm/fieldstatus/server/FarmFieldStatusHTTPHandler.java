@@ -1,6 +1,8 @@
 package com.acertainfarm.fieldstatus.server;
 
 import com.acertainfarm.data.Event;
+import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
+import com.acertainfarm.exceptions.PrecisionFarmingException;
 import com.acertainfarm.utils.FarmMessageTag;
 import com.acertainfarm.utils.FarmResponse;
 import com.acertainfarm.utils.FarmUtility;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by tudorgk on 17/1/15.
@@ -56,45 +59,45 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
         } else {
             switch (messageTag){
                 case UPDATE:
-                    //TODO: implement and check
+                    //TODO: implement and check! Checked and works alright
                     System.out.println("update handler");
                     String xml = FarmUtility.extractPOSTDataFromRequest(httpServletRequest);
-
-                    System.out.println(xml);
-
                     Map<?,?> payload = (Map<?,?>) FarmUtility
                             .deserializeXMLStringToObject(new String(xml));
 
-                    System.out.println(payload);
-//                    long timePeriod = ((Number)payload.get("time")).longValue();
-//
-//                    System.out.println("handle - timePeriod: " + timePeriod);
-//
-//                    List<Event> eventList = (List<Event>)payload.get("events");
-//
-//                    System.out.println("handle - eventList: " + eventList.toString());
+                    long timePeriod = ((Number)payload.get("time")).longValue();
+                    List<Event> eventList = (List<Event>)payload.get("events");
 
-
-
-//                    List<Measurement> newMeasurementList = (List<Measurement>) FarmUtility
-//                            .deserializeXMLStringToObject(new String(xml));
-//
-//                    // Make the purchase
-//                    farmResponse = new FarmResponse();
-//                    try {
-//                        fieldStatus.newMeasurements(newMeasurementList);
-//                    } catch (AttributeOutOfBoundsException e) {
-//                        e.printStackTrace();
-//                    } catch (PrecisionFarmingException e) {
-//                        e.printStackTrace();
-//                    }
-//                    String listFarmxmlString = FarmUtility
-//                            .serializeObjectToXMLString(farmResponse);
-//                    httpServletResponse.getWriter().println(listFarmxmlString);
+                    // Make the purchase
+                    farmResponse = new FarmResponse();
+                    try {
+                        fieldStatus.update(timePeriod,eventList);
+                    } catch (PrecisionFarmingException e) {
+                        e.printStackTrace();
+                    } catch (AttributeOutOfBoundsException e) {
+                        e.printStackTrace();
+                    }
+                    String listFarmxmlString = FarmUtility
+                            .serializeObjectToXMLString(farmResponse);
+                    httpServletResponse.getWriter().println(listFarmxmlString);
                     break;
                 case QUERY:
                     //TODO: implement and check
-                    System.out.println("query handler");
+                    xml = FarmUtility.extractPOSTDataFromRequest(httpServletRequest);
+                    List<Integer> fieldIDList = (List<Integer>) FarmUtility
+                            .deserializeXMLStringToObject(xml);
+
+                    farmResponse= new FarmResponse();
+                    try {
+                        farmResponse.setResult(fieldStatus.query(fieldIDList));
+                    } catch (PrecisionFarmingException e) {
+                        e.printStackTrace();
+                    } catch (AttributeOutOfBoundsException e) {
+                        e.printStackTrace();
+                    }
+                    listFarmxmlString = FarmUtility
+                            .serializeObjectToXMLString(farmResponse);
+                    httpServletResponse.getWriter().println(listFarmxmlString);
                     break;
                 default:
                     System.out.println("Unhandled message tag");
