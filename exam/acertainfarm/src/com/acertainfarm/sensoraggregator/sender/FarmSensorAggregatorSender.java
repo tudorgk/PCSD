@@ -29,7 +29,7 @@ public class FarmSensorAggregatorSender implements Sender {
 
     public FarmSensorAggregatorSender(){
         // create an executor service for the requests
-        executorService = Executors.newFixedThreadPool(1);
+        executorService = Executors.newFixedThreadPool(5);
 
         senderClient = new HttpClient();
         senderClient.setConnectorType(HttpClient.CONNECTOR_SELECT_CHANNEL);
@@ -46,15 +46,13 @@ public class FarmSensorAggregatorSender implements Sender {
 
 
     @Override
-    public SenderResult sendUpdateWithPayload(String fieldUpdateServerAddress, SenderRequest request) {
+    public void sendUpdateWithPayload(String fieldUpdateServerAddress, SenderRequest request) {
 //        DONE: check what is not working. It worked but i didnt called 'get' on the future object
 //        FarmSensorAggregatorSenderTask task = new FarmSensorAggregatorSenderTask(fieldUpdateServerAddress, request, senderClient);
 //        return executorService.submit(task);
 
         FarmMessageTag messageTag = request.getMessageType();
-        System.out.println(request);
         String xmlString = FarmUtility.serializeObjectToXMLString(request.getPayLoad());
-        System.out.println(xmlString);
         Buffer requestContent = new ByteArrayBuffer(xmlString);
         ContentExchange exchange = new ContentExchange();
 
@@ -68,9 +66,8 @@ public class FarmSensorAggregatorSender implements Sender {
         try {
             FarmUtility.SendAndRecv(senderClient, exchange);
         } catch (Exception e) {
-            return new SenderResult(fieldUpdateServerAddress, false);
+            e.printStackTrace();
         }
-        return new SenderResult(fieldUpdateServerAddress, true);
 
     }
 }

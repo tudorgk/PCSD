@@ -68,13 +68,17 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
                     long timePeriod = ((Number)payload.get("time")).longValue();
                     List<Event> eventList = (List<Event>)payload.get("events");
 
+                    System.out.println("Events " + eventList.toString());
+
                     // Make the purchase
                     farmResponse = new FarmResponse();
                     try {
                         fieldStatus.update(timePeriod,eventList);
                     } catch (PrecisionFarmingException e) {
+                        farmResponse.setException(e);
                         e.printStackTrace();
                     } catch (AttributeOutOfBoundsException e) {
+                        farmResponse.setException(e);
                         e.printStackTrace();
                     }
                     String listFarmxmlString = FarmUtility
@@ -91,8 +95,10 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
                     try {
                         farmResponse.setResult(fieldStatus.query(fieldIDList));
                     } catch (PrecisionFarmingException e) {
+                        farmResponse.setException(e);
                         e.printStackTrace();
                     } catch (AttributeOutOfBoundsException e) {
+                        farmResponse.setException(e);
                         e.printStackTrace();
                     }
                     listFarmxmlString = FarmUtility

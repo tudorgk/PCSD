@@ -38,6 +38,8 @@ public final class Measurement {
 		this.currentHumidity = currentHumidity;
 	}
 
+
+
 	/**
 	 * @return the sensorId
 	 */

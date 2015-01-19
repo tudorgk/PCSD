@@ -61,7 +61,6 @@ public class FarmSensorAggregatorHTTPMessageHandler extends AbstractHandler {
             switch (messageTag){
                 case NEWMEASUREMENT:
                     //TODO: implement and check
-                    System.out.println("new measurement in handler");
                     String xml = FarmUtility.extractPOSTDataFromRequest(httpServletRequest);
                     List<Measurement> newMeasurementList = (List<Measurement>) FarmUtility
                             .deserializeXMLStringToObject(new String(xml));
@@ -71,8 +70,10 @@ public class FarmSensorAggregatorHTTPMessageHandler extends AbstractHandler {
                     try {
                         sensorAggregator.newMeasurements(newMeasurementList);
                     } catch (AttributeOutOfBoundsException e) {
+                        farmResponse.setException(e);
                         e.printStackTrace();
                     } catch (PrecisionFarmingException e) {
+                        farmResponse.setException(e);
                         e.printStackTrace();
                     }
                     String listFarmxmlString = FarmUtility

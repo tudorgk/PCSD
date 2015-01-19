@@ -26,7 +26,7 @@ public class FarmSensorAggregator implements SensorAggregator {
     private String filePath = "aggregator.config"; //we will need this to get the field status
                                                     // server address and other fields
     private String fieldUpdateServerAddress = "http://localhost:8082/fieldstatus"; //TODO:check address
-    private int numberOfFields = 10;
+    private int numberOfFields = FarmConstants.MAX_NO_FIELDS;
 
     public FarmSensorAggregator (){
 
@@ -61,15 +61,16 @@ public class FarmSensorAggregator implements SensorAggregator {
             //just hard coding for now
             if (measure.getSensorId() < 0 )
                 throw new AttributeOutOfBoundsException("SensorID is negative");
-            if (measure.getFieldId() > numberOfFields || measure.getFieldId() < 1)
+            if (measure.getFieldId() > numberOfFields || measure.getFieldId() < 1){
                 throw new AttributeOutOfBoundsException("FieldID is invalid");
+            }
             if (measure.getCurrentTemperature() < -50 || measure.getCurrentTemperature() > 50)
                 throw new AttributeOutOfBoundsException("Temperature is invalid");
             if (measure.getCurrentHumidity() < 0 || measure.getCurrentHumidity() > 100)
                 throw new AttributeOutOfBoundsException("Humidity is invalid");
         }
 
-        long timeDiff = FarmUtility.getDateDiff(currentTime,lastFieldStatusUpdate, TimeUnit.MILLISECONDS);
+        long timeDiff = FarmUtility.getDateDiff(lastFieldStatusUpdate,currentTime, TimeUnit.MILLISECONDS);
 
         if (timeDiff > 5000){
             //just hard coding for now
@@ -98,7 +99,6 @@ public class FarmSensorAggregator implements SensorAggregator {
 
             }
 
-
             //TODO: Sender - Send payload - Needs testing!
             //send the payload to the field update server
 
@@ -107,8 +107,8 @@ public class FarmSensorAggregator implements SensorAggregator {
             payload.put(FarmConstants.SENDER_KEY_EVENTLIST, measurementsToSend);
             SenderRequest request = new SenderRequest(payload, FarmMessageTag.UPDATE);
 
-            //wait for confirmation
-            SenderResult response = sender.sendUpdateWithPayload(fieldUpdateServerAddress, request);
+            //TODO: do this in separate thread. Already in separate thread
+            sender.sendUpdateWithPayload(fieldUpdateServerAddress, request);
 
             //clear the measurements map
             measurementsMap.clear();
@@ -117,17 +117,14 @@ public class FarmSensorAggregator implements SensorAggregator {
             //add the new measurements to the map
             addMeasurementBatchToMap(measurements);
 
+            //modify the last update
+            lastFieldStatusUpdate = currentTime;
+
         }else {
             //the time period has not passed
             //add the values to the list
             addMeasurementBatchToMap(measurements);
 
-//            //TODO: Just to prove a point
-//            List<Event> toSend = new ArrayList<Event>();
-//            toSend.add(new Event(1, 42, 42));
-//            toSend.add(new Event(3,22,22));
-//            //send it the sender
-//            sender.prepareForSending(currentTime,toSend);
         }
 
     }
@@ -143,8 +140,6 @@ public class FarmSensorAggregator implements SensorAggregator {
                 measurementsMap.put(measure.getFieldId(),newList);
             }
         }
-
-        System.out.println(measurementsMap.toString());
     }
 
     public synchronized void clearDataStore(){

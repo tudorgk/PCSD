@@ -54,4 +54,10 @@ public final class FieldState {
 		return humidity;
 	}
 
+	@Override
+	public String toString() {
+		return "\nfieldID : " + this.fieldId +
+				"\ntemp    : " + this.temperature +
+				"\nhumid   : " + this.humidity + "\n";
+	}
 }

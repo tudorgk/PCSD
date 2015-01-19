@@ -14,5 +14,5 @@ import java.util.concurrent.Future;
  * Created by tudorgk on 17/1/15.
  */
 public interface Sender {
-    public SenderResult sendUpdateWithPayload(String fieldUpdateServerAddress, SenderRequest request);
+    public void sendUpdateWithPayload(String fieldUpdateServerAddress, SenderRequest request);
 }

@@ -16,5 +16,5 @@ import java.util.List;
  * @author vmarcos
  */
 public interface FieldStatus extends FieldStatusQuery,FieldStatusUpdate{
-	
+
 }
