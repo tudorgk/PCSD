@@ -196,4 +196,27 @@ When constructing the global wait-for-graph we set up the pages that are being m
 
 As we can see we have cycle between  $X -> T1 -> C -> T3 -> B -> T2 -> X$. To remove the deadlock within the system we must abort modifications that are being don on $X$, $C$ and $B$.
 
+\section* {Programming Task}
+
+\subsection* {Question 1}
+
+For the programming task I emphasized on building a strong, modular service that is based on RPCs. Im the following paragraphs I will discuss on the main components of the \emph{acertainfarm.com} web-service. As we can see in Figure 5. the application is split up into 2 different servers: the Sensor Aggregator Server and the Field Status Server. Both of these servers are implemented by instantiating a multi-threaded server using the Jetty framework\footnote{The Jetty 8 library (http://www.eclipse.org/jetty/) is used to provide the HTTP server and the HTTP client libraries.}.  The methods available for both servers are split up into two interfaces: \emph{SensorAggregator} and \emph{Field Status}. These interfaces are implemented by \emph{proxies} that serialize and send out the requests for the server to handle. The \emph{Sensor Aggregator Server} implements the SensorAggregator interface in the FarmSensorAggregator class whose methods are invoked by the handler class SernsorAggregatorHTTPMessageHandler, which handles the request that were received by the Jetty HTTP server class FarmSernsorAggregatorServer class. A similar approach is don on the Field Status Server, but using another interface (the Field Status interface). \\
+
+The RPCs are done by using a Jetty HTTPClient, which sends out HTTP request for the server to handle. This RPC mechanism is present throught the application and is used for communicating between the FarmFieldAccessPoints and FarmSensorAggregator, FarmMeasurementSender and FieldStatusServer, and FarmClient andFieldStatusServer. In the case of the Sensor Aggregator, the Field Access Point sends out a xml-serialized HTTP request through the FarmSensor AggregatorHTTPProxy class. The request is sent and handled by the server. When the server receives the requests, id deserializes it in the handler and passes it to the FarmSensorAggregator instance through a thread-safe method call. Then the request is processed by the FarmSensorAggregator class. between the Sensor Aggregator Server and Field Status Server, the communication is done directly by using an HTTP Client instantiated on the server (in our case, it is incapsulated in the FarmSensorAggregatorSender) that sends out POST Requests directly to the Field Status Server (the request doesn't pass through the HTTP Proxy).\\
+
+Because 
+
+
+
+
+\begin{figure}[ht]
+\centering
+
+{%
+\setlength{\fboxsep}{5pt}%
+\fbox{\includegraphics[scale=.25]{img/architecture}}%
+}%
+\caption{Architecture of the farm's monitoring application \label{overflow}}
+\end{figure}
+
 \end{document}               % End of document.
