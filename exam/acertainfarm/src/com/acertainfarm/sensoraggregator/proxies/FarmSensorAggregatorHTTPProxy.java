@@ -47,7 +47,6 @@ public class FarmSensorAggregatorHTTPProxy implements SensorAggregator{
 
     @Override
     public void newMeasurements(List<Measurement> measurements) throws AttributeOutOfBoundsException, PrecisionFarmingException {
-        //TODO: implement
         ContentExchange exchange = new ContentExchange();
         String urlString = serverAddress + "/" + FarmMessageTag.NEWMEASUREMENT;
 
@@ -69,7 +68,6 @@ public class FarmSensorAggregatorHTTPProxy implements SensorAggregator{
         try {
             client.stop();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

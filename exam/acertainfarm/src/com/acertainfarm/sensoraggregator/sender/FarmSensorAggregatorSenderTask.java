@@ -34,7 +34,6 @@ public class FarmSensorAggregatorSenderTask implements Callable<SenderResult> {
         Buffer requestContent = new ByteArrayBuffer(xmlString);
         ContentExchange exchange = new ContentExchange();
 
-        //TODO: Check if the address is correct
         String urlString = fieldUpdateServerAddress + "/" + messageTag;
 
         exchange.setMethod("POST");

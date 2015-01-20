@@ -14,6 +14,8 @@ import com.acertainfarm.utils.FarmUtility;
 
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * Created by tudorgk on 17/1/15.
@@ -25,8 +27,10 @@ public class FarmSensorAggregator implements SensorAggregator {
     private FarmSensorAggregatorSender sender = null;
     private String filePath = "aggregator.config"; //we will need this to get the field status
                                                     // server address and other fields
-    private String fieldUpdateServerAddress = "http://localhost:8082/fieldstatus"; //TODO:check address
+    private String fieldUpdateServerAddress = "http://localhost:8082/fieldstatus";
     private int numberOfFields = FarmConstants.MAX_NO_FIELDS;
+
+    private final ReadWriteLock myRWLock = new ReentrantReadWriteLock();
 
     public FarmSensorAggregator (){
 
@@ -42,7 +46,7 @@ public class FarmSensorAggregator implements SensorAggregator {
         // the avg measurements to the field status server
         sender = new FarmSensorAggregatorSender();
 
-        //TODO: get the field status url from the workload file
+
     }
 
     @Override
@@ -53,6 +57,10 @@ public class FarmSensorAggregator implements SensorAggregator {
         //if the interval has not passed we add the to the map
         //else we call out to the measurement sender to to send the values from the map,
         //remove the data, and add the current on
+
+        //lock writing lock
+        myRWLock.writeLock().lock();
+
 
         Date currentTime = new Date();
 
@@ -99,7 +107,7 @@ public class FarmSensorAggregator implements SensorAggregator {
 
             }
 
-            //TODO: Sender - Send payload - Needs testing!
+            //DONE: Sender - Send payload - Needs testing! - Tested
             //send the payload to the field update server
 
             Map payload = new HashMap();
@@ -107,7 +115,7 @@ public class FarmSensorAggregator implements SensorAggregator {
             payload.put(FarmConstants.SENDER_KEY_EVENTLIST, measurementsToSend);
             SenderRequest request = new SenderRequest(payload, FarmMessageTag.UPDATE);
 
-            //TODO: do this in separate thread. Already in separate thread
+            //DONE: do this in separate thread. Already in separate thread
             sender.sendUpdateWithPayload(fieldUpdateServerAddress, request);
 
             //clear the measurements map
@@ -127,9 +135,11 @@ public class FarmSensorAggregator implements SensorAggregator {
 
         }
 
+        //unlock write lock
+        myRWLock.writeLock().unlock();
     }
 
-    private synchronized void addMeasurementBatchToMap(List<Measurement> batch){
+    private void addMeasurementBatchToMap(List<Measurement> batch){
         for(Measurement measure: batch){
             List<Measurement> whereToAdd = measurementsMap.get(measure.getFieldId());
             if (whereToAdd != null){
@@ -141,6 +151,8 @@ public class FarmSensorAggregator implements SensorAggregator {
             }
         }
     }
+
+    /*NOT USED FROM THIS POINT*/
 
     public synchronized void clearDataStore(){
         measurementsMap.clear();

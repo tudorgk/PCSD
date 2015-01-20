@@ -40,7 +40,6 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
         httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         requestURI = httpServletRequest.getRequestURI();
 
-        //TODO: check this bit
         // Need to do request multi-plexing
         if (!FarmUtility.isEmpty(requestURI)
                 && requestURI.toLowerCase().startsWith("/fieldstatus")) {
@@ -59,7 +58,7 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
         } else {
             switch (messageTag){
                 case UPDATE:
-                    //TODO: implement and check! Checked and works alright
+                    //DONE: implement and check! Checked and works alright
                     System.out.println("update handler");
                     String xml = FarmUtility.extractPOSTDataFromRequest(httpServletRequest);
                     Map<?,?> payload = (Map<?,?>) FarmUtility
@@ -86,7 +85,6 @@ public class FarmFieldStatusHTTPHandler extends AbstractHandler {
                     httpServletResponse.getWriter().println(listFarmxmlString);
                     break;
                 case QUERY:
-                    //TODO: implement and check
                     xml = FarmUtility.extractPOSTDataFromRequest(httpServletRequest);
                     List<Integer> fieldIDList = (List<Integer>) FarmUtility
                             .deserializeXMLStringToObject(xml);

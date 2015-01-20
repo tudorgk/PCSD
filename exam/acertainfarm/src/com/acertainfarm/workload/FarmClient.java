@@ -23,12 +23,12 @@ public class FarmClient extends Thread {
     @Override
     public void run() {
 
-        try {
-//            try sleeping the thread for 6 secs so that we have data in the field status
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+////            try sleeping the thread for 8 secs so that we have data in the field status
+//            this.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
 
         do{

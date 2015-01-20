@@ -41,7 +41,7 @@ public class FarmSensorAggregatorHTTPMessageHandler extends AbstractHandler {
         httpServletResponse.setStatus(HttpServletResponse.SC_OK);
         requestURI = httpServletRequest.getRequestURI();
 
-        //TODO: check this bit
+
         // Need to do request multi-plexing
         if (!FarmUtility.isEmpty(requestURI)
                 && requestURI.toLowerCase().startsWith("/sensoragg")) {
@@ -60,7 +60,6 @@ public class FarmSensorAggregatorHTTPMessageHandler extends AbstractHandler {
         } else {
             switch (messageTag){
                 case NEWMEASUREMENT:
-                    //TODO: implement and check
                     String xml = FarmUtility.extractPOSTDataFromRequest(httpServletRequest);
                     List<Measurement> newMeasurementList = (List<Measurement>) FarmUtility
                             .deserializeXMLStringToObject(new String(xml));

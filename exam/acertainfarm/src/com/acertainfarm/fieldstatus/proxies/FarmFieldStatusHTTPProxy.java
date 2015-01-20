@@ -43,7 +43,6 @@ public class FarmFieldStatusHTTPProxy implements FieldStatus{
 
     @Override
     public List<FieldState> query(List<Integer> fieldIds) throws AttributeOutOfBoundsException, PrecisionFarmingException {
-        //TODO: Check
         String listFieldIDssxmlString = FarmUtility
                 .serializeObjectToXMLString(fieldIds);
         Buffer requestContent = new ByteArrayBuffer(listFieldIDssxmlString);
@@ -72,7 +71,6 @@ public class FarmFieldStatusHTTPProxy implements FieldStatus{
         try {
             client.stop();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }

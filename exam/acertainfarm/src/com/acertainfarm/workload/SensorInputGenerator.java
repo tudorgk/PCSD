@@ -21,9 +21,11 @@ public class SensorInputGenerator {
         List<Measurement> listOFMeasurements = new ArrayList<Measurement>();
 
         for (int i = 0; i<maxSensorReadings; i++){
-            listOFMeasurements.add(new Measurement(sensorId, FarmUtility.randInt(1, numOfFields),
-                    FarmUtility.randInt(FarmConstants.SENSOR_MIN_TEMP, FarmConstants.SENSOR_MAX_TEMP),
-                    FarmUtility.randInt(FarmConstants.SENSOR_MIN_HUMIDITY, FarmConstants.SENSOR_MAX_HUMIDITY)));
+            for (int j = 1; j<=numOfFields; j++){
+                listOFMeasurements.add(new Measurement(sensorId, j,
+                        FarmUtility.randInt(FarmConstants.SENSOR_MIN_TEMP, FarmConstants.SENSOR_MAX_TEMP),
+                        FarmUtility.randInt(FarmConstants.SENSOR_MIN_HUMIDITY, FarmConstants.SENSOR_MAX_HUMIDITY)));
+            }
         }
         return listOFMeasurements;
     }

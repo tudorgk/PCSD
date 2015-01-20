@@ -27,7 +27,7 @@ import java.util.concurrent.Future;
  * Created by tudorgk on 20/1/15.
  */
 public class FarmWorkloadTest {
-    private static int numConcurrentWorkloadThreads = 30;
+    private static int numConcurrentWorkloadThreads = 10;
     private static SensorAggregator sensorAggregator;
     private static FieldStatus fieldStatus;
     private static boolean localTest = false;
@@ -63,16 +63,7 @@ public class FarmWorkloadTest {
 
 
     public static void initializeSensorAggregator(){
-        //create a list of 5 farm access points
-        List<FarmAccessPoint> accessPoints = new ArrayList<FarmAccessPoint>();
-        for (int i = 0; i < FarmConstants.MAX_NO_ACCESSPOINTS; i++){
-            accessPoints.add(new FarmAccessPoint(sensorAggregator,i+1));
-        }
 
-        //start the access points
-        for (FarmAccessPoint accessPoint : accessPoints){
-            accessPoint.start();
-        }
 
 //        for (FarmAccessPoint accessPoint : accessPoints){
 //            try {
@@ -90,6 +81,17 @@ public class FarmWorkloadTest {
 
     @Test
     public void testWorkload() throws ExecutionException, InterruptedException {
+
+        //create a list of 5 farm access points
+        List<FarmAccessPoint> accessPoints = new ArrayList<FarmAccessPoint>();
+        for (int i = 0; i < FarmConstants.MAX_NO_ACCESSPOINTS; i++){
+            accessPoints.add(new FarmAccessPoint(sensorAggregator,i+1));
+        }
+
+        //start the access points
+        for (FarmAccessPoint accessPoint : accessPoints){
+            accessPoint.start();
+        }
 
         ExecutorService exec = Executors
                 .newFixedThreadPool(numConcurrentWorkloadThreads);
@@ -112,13 +114,17 @@ public class FarmWorkloadTest {
         // Finished initialization, stop the clients if not localTest
         if (!localTest) {
             ((FarmFieldStatusHTTPProxy) fieldStatus).stop();
+            //stop the access points
+            for (FarmAccessPoint ap : accessPoints){
+                ap.join(1);
+            }
         }
 
         reportMetric(workerRunResults);
     }
 
     public static void reportMetric(List<FarmWorkerRunResult> workerRunResults) {
-        // TODO: You should aggregate metrics and output them for plotting here
+        // DONE: aggregate metrics and output them for plotting here
         double successfulFreqInteractionRuns = 0;
         double totalFreqInteractionRuns = 0;
         double time = 0;

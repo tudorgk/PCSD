@@ -1,0 +1,10 @@
+synchronized
+~~~~~~~~~~~~
+
+Workers: 10, Goodput/Aggregate throughput: 248.11085516789245, Throughput: 248.11085516789245, Latency: 0.040304564640000005
+
+ReentrantReadWriteLock read/write lock
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Workers: 10, Goodput/Aggregate throughput: 299.47528686992035, Throughput: 299.47528686992035, Latency: 0.0333917369427
+Workers: 10, Goodput/Aggregate throughput: 339.71232290574613, Throughput: 339.71232290574613, Latency: 0.0294366713414

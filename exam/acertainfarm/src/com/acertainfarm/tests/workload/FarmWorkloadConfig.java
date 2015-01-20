@@ -8,8 +8,8 @@ import com.acertainfarm.fieldstatus.server.FarmFieldStatus;
  */
 public class FarmWorkloadConfig {
     private int numberOfFieldsToCheck = 8;
-    private int warmUpRuns = 100;
-    private int numActualRuns = 500;
+    private int warmUpRuns = 200;
+    private int numActualRuns = 1000;
     private FarmIDListGenerator generator = null;
     private FieldStatus fieldStatus = null;
 
