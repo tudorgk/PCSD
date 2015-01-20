@@ -4,7 +4,6 @@ import com.acertainfarm.constants.FarmConstants;
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
 import com.acertainfarm.exceptions.PrecisionFarmingException;
 import com.acertainfarm.fieldstatus.interfaces.FieldStatus;
-import com.acertainfarm.fieldstatus.interfaces.FieldStatusQuery;
 import com.acertainfarm.utils.FarmUtility;
 
 import java.util.ArrayList;
@@ -15,14 +14,22 @@ import java.util.List;
  */
 public class FarmClient extends Thread {
 
-    protected FieldStatusQuery fieldStatus = null;
+    protected FieldStatus fieldStatus = null;
 
-    public FarmClient (FieldStatusQuery fieldStatus){
+    public FarmClient (FieldStatus fieldStatus){
         this.fieldStatus = fieldStatus;
     }
 
     @Override
     public void run() {
+
+        try {
+//            try sleeping the thread for 6 secs so that we have data in the field status
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 
         do{
         List<Integer> fieldIdList = new ArrayList<Integer>();
@@ -38,12 +45,6 @@ public class FarmClient extends Thread {
         } catch (AttributeOutOfBoundsException e) {
             e.printStackTrace();
         } catch (PrecisionFarmingException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            Thread.sleep(FarmUtility.randInt(10000,30000));
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         }while (true);

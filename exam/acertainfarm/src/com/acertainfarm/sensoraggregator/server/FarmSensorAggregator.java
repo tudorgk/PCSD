@@ -42,7 +42,7 @@ public class FarmSensorAggregator implements SensorAggregator {
         // the avg measurements to the field status server
         sender = new FarmSensorAggregatorSender();
 
-        //TODO: get the field status url from the config file
+        //TODO: get the field status url from the workload file
     }
 
     @Override

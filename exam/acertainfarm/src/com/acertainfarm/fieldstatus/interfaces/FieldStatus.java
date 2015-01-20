@@ -15,6 +15,28 @@ import java.util.List;
  * 
  * @author vmarcos
  */
-public interface FieldStatus extends FieldStatusQuery,FieldStatusUpdate{
+public interface FieldStatus{
+    /**
+     * Queries the current state of the fields requested.
+     *
+     * @param fieldIds
+     *            - the identifiers of the fields being queried.
+     * @return For each field, the most up-to-date temperature and humidity.
+     */
+    public List<FieldState> query(List<Integer> fieldIds)
+            throws AttributeOutOfBoundsException, PrecisionFarmingException;
 
+    /**
+     * Updates the current state of the fields with the event list given for the
+     * time period supplied.
+     *
+     * @param timePeriod
+     *            - The truncated timestamp representing the period in time to
+     *            which the event corresponds.
+     * @param events
+     *            - the averaged measurements for a number of fields over a time
+     *            period.
+     */
+    public void update(long timePeriod, List<Event> events)
+            throws AttributeOutOfBoundsException, PrecisionFarmingException;
 }

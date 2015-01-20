@@ -21,5 +21,6 @@ public final class FarmConstants {
     public static int SENSOR_MAX_HUMIDITY = 100;
 
     public static int MAX_NO_FIELDS = 10;
+    public static int MAX_NO_ACCESSPOINTS= 10;
 
 }

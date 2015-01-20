@@ -6,7 +6,6 @@ import com.acertainfarm.data.FieldState;
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
 import com.acertainfarm.exceptions.PrecisionFarmingException;
 import com.acertainfarm.fieldstatus.interfaces.FieldStatus;
-import com.acertainfarm.fieldstatus.interfaces.FieldStatusQuery;
 import com.acertainfarm.utils.FarmMessageTag;
 import com.acertainfarm.utils.FarmResult;
 import com.acertainfarm.utils.FarmUtility;
@@ -22,7 +21,7 @@ import java.util.List;
 /**
  * Created by tudorgk on 17/1/15.
  */
-public class FarmFieldStatusHTTPProxy implements FieldStatusQuery {
+public class FarmFieldStatusHTTPProxy implements FieldStatus{
     protected HttpClient client;
     protected String serverAddress = null;
 
@@ -61,6 +60,20 @@ public class FarmFieldStatusHTTPProxy implements FieldStatusQuery {
         } catch (Exception e) {
             e.printStackTrace();
             throw new PrecisionFarmingException(e);
+        }
+    }
+
+    @Override
+    public void update(long timePeriod, List<Event> events) throws AttributeOutOfBoundsException, PrecisionFarmingException {
+        //Not used
+    }
+
+    public void stop() {
+        try {
+            client.stop();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
     }
 }

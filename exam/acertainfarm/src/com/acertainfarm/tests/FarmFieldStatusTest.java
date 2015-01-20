@@ -4,7 +4,6 @@ import com.acertainfarm.constants.FarmConstants;
 import com.acertainfarm.exceptions.AttributeOutOfBoundsException;
 import com.acertainfarm.exceptions.PrecisionFarmingException;
 import com.acertainfarm.fieldstatus.interfaces.FieldStatus;
-import com.acertainfarm.fieldstatus.interfaces.FieldStatusQuery;
 import com.acertainfarm.fieldstatus.proxies.FarmFieldStatusHTTPProxy;
 import com.acertainfarm.fieldstatus.server.FarmFieldStatus;
 import com.acertainfarm.sensoraggregator.interfaces.SensorAggregator;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 public class FarmFieldStatusTest {
     private static SensorAggregator sensorAggregator;
-    private static FieldStatusQuery fieldStatus;
+    private static FieldStatus fieldStatus;
     private static boolean localTest = false;
 
     @BeforeClass

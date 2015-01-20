@@ -25,7 +25,6 @@ public class SensorInputGenerator {
                     FarmUtility.randInt(FarmConstants.SENSOR_MIN_TEMP, FarmConstants.SENSOR_MAX_TEMP),
                     FarmUtility.randInt(FarmConstants.SENSOR_MIN_HUMIDITY, FarmConstants.SENSOR_MAX_HUMIDITY)));
         }
-
         return listOFMeasurements;
     }
 
