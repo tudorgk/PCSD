@@ -5,6 +5,7 @@ package com.acertainfarm.fieldstatus.log;
  */
 import com.acertainfarm.data.Event;
 import com.acertainfarm.data.LogRecord;
+import com.acertainfarm.data.TimedEvent;
 
 import java.io.*;
 import java.util.List;
@@ -87,18 +88,25 @@ public class FieldStatusLogManager {
 
 
 
-    public synchronized void flushToFileLog(String action, long timePeriod, List<Event> events ) throws IOException {
+    public synchronized void flushToFileLog(List<TimedEvent> dataStoreTimedEvents ,
+                                            long timePeriod, List<Event> eventsFromUpdateList ) throws IOException {
 
             if (oFile.canWrite()) {
 
-                for (Event ev : events){
-                    LogRecord record = new LogRecord(++lastLogRecordID, action,timePeriod, ev.toString());
+                for (TimedEvent ev : dataStoreTimedEvents){
+                    LogRecord record = new LogRecord(++lastLogRecordID, "SNAPSHOT", ev.getTimePeriod(), ev.toString());
+                    oWriter.write(record.toString());
+                    lastLogRecord = record;
+                }
+
+                for (Event ev : eventsFromUpdateList){
+                    LogRecord record = new LogRecord(++lastLogRecordID, "UPDATE", timePeriod, ev.toString());
                     oWriter.write(record.toString());
                     lastLogRecord = record;
                 }
 
                 //add a checkpoint on finished update
-                oWriter.write(new LogRecord(++lastLogRecordID,"CHECKPOINT",timePeriod,"-").toString());
+                oWriter.write(new LogRecord(++lastLogRecordID,"CHECKPOINT",0,"-").toString());
 
                 oWriter.flush();
 

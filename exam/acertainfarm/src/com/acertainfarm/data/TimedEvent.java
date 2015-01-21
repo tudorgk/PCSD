@@ -22,7 +22,9 @@ public final class TimedEvent {
 
     @Override
     public String toString() {
-        return "time:" + timePeriod + "; fieldID = "+ event.getFieldId() +"; avgTemp = " + event.getAvgTemperature()+";avgHum = " + event.getAvgHumidity();
+        return "TimedEvent{" +
+                "timePeriod=" + timePeriod +
+                ", event=" + event.toString() +
+                '}';
     }
-
 }

@@ -31,10 +31,10 @@ public class FarmLogMangerTest {
             list.add(new Event(1,12,12));
         }
 
-        try {
-            logManager.flushToFileLog("UPDATE", 1231, list);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+////            logManager.flushToFileLog("UPDATE", 1231, list);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 }

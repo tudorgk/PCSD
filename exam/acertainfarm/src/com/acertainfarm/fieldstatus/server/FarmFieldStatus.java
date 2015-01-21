@@ -66,6 +66,27 @@ public class FarmFieldStatus implements FieldStatus {
         //update the snapshot
         snapshotID ++;
 
+        //TODO: Do not forget about the log manager // write on the log after each update
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    logManager.flushToFileLog(new ArrayList<TimedEvent>(aggregatedEventsMap.values()),timePeriod,events);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
+
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         for(Event ev: events){
             //add the timed events to the map. we replace the ol event object
             if (aggregatedEventsMap.get(ev.getFieldId())!=null){
@@ -77,21 +98,6 @@ public class FarmFieldStatus implements FieldStatus {
                 aggregatedEventsMap.put(ev.getFieldId(),new TimedEvent(timePeriod,ev));
             }
         }
-
-
-        //TODO: Do not forget about the log manager // write on the log after each update
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    logManager.flushToFileLog("UPDATE",timePeriod,events);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-        thread.start();
 
         //unlock write lock
         myRWLock.writeLock().unlock();

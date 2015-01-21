@@ -248,7 +248,14 @@ Appears in Communications of the ACM, Vol. 19, No. 11,1976} for ensuring that th
 
 We could improve my current implementation by adding an o
 
-\subsection* {Question 4 - TODO}
+\subsection* {Question 4}
+
+Durability is achieved by writing the updates to a log. This is implemented by the FieldStatusLogManager class which access the log file for reading or writing. I implemented the Write-Ahead Logging protocol by forcing for an update to a log, before modifying the map. I wait for the log manager to finish writing to disk. This approach guarantees atomicity and durability. After each flush to the log I add a CHECKPOINT record so that in case of a possible failure of the Field Status Server we can REDO the operations from the CHECKPOINT entry. Because we are storing everything in main memory, we do not need UNDO events. We should however keep the data that comes through the update method, in order to REDO them. We write a full snapshot of the HashMap to the log, to rebuild the map in case of a possible failure, and the newly updated fields list.\\
+
+In case of a system failure, we would need to REDO the events by reading from the last CHECKPOINT. Because we reside our data in main memory, we do not need to UNDO other updates. In the log I first write the SNAPSHOT of he map present in main memory, then I write the UPDATE records that came with the update request from the Sensor Aggregator Server. By implementing this mechanism of log keeping we can reconstruct the HashMap during the recovery phase. \\
+
+Because the two servers are independent from on another, we would not need to apply any special actions to start them up. The Sensor Aggregator continues to send updates to the address specified and if the Field Status Server is unreachable, it would get a TIMEOUT response (this complies with the fail-stop model). \\
+
 \subsection* {Question 5 - TODO}
 \subsection* {Question 6 - TODO}
 
