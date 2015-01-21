@@ -32,6 +32,7 @@
 \usepackage[super]{nth}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage[table,xcdraw]{xcolor}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -257,10 +258,30 @@ In case of a system failure, we would need to REDO the events by reading from th
 Because the two servers are independent from on another, we would not need to apply any special actions to start them up. The Sensor Aggregator continues to send updates to the address specified and if the Field Status Server is unreachable, it would get a TIMEOUT response (this complies with the fail-stop model). \\
 
 \subsection* {Question 5 - TODO}
+
+For testing I used a combination of manual and automated tests. The automated tests are implemented with JUnit. 
+
+
 \subsection* {Question 6 - TODO}
 
+The setup that I have chosen for the workload tests is the following: 
 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|
+>{\columncolor[HTML]{333333}}c |l|lll}
+\cline{1-2}
+{\color[HTML]{FFFFFF} \textbf{Model}}  & Macbook Pro 15" (Early 2011)    &  &  &  \\ \cline{1-2}
+{\color[HTML]{FFFFFF} \textbf{CPU}}    & 2 GHz Intel Core i7 (8 threads) &  &  &  \\ \cline{1-2}
+{\color[HTML]{FFFFFF} \textbf{Memory}} & 8 GB                            &  &  &  \\ \cline{1-2}
+{\color[HTML]{FFFFFF} \textbf{JRE}}    & Oracle JRE 1.8                  &  &  &  \\ \cline{1-2}
+\end{tabular}
+\caption{Hardware setup}
+\label{Hardware setup}
+\end{center}
+\end{table}
 
+The workload test were run by emulating the two Jetty servers and creating a workload test that is similar to the CertainBookStore implementation.
 
 
 

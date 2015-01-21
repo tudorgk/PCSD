@@ -1,10 +1,14 @@
-synchronized
+
+WorkLoadTest
 ~~~~~~~~~~~~
 
-Workers: 10, Goodput/Aggregate throughput: 248.11085516789245, Throughput: 248.11085516789245, Latency: 0.040304564640000005
-
-ReentrantReadWriteLock read/write lock
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Workers: 10, Goodput/Aggregate throughput: 299.47528686992035, Throughput: 299.47528686992035, Latency: 0.0333917369427
-Workers: 10, Goodput/Aggregate throughput: 339.71232290574613, Throughput: 339.71232290574613, Latency: 0.0294366713414
+Workers: 1, Goodput/Aggregate throughput: 186.56781413820772, Throughput: 186.56781413820772, Latency: 0.005359981327
+Workers: 2, Goodput/Aggregate throughput: 201.7311316021449, Throughput: 201.7311316021449, Latency: 0.00669498351
+Workers: 3, Goodput/Aggregate throughput: 312.98036165522313, Throughput: 312.98036165522313, Latency: 0.008746856483333334
+Workers: 4, Goodput/Aggregate throughput: 342.18277520550197, Throughput: 342.18277520550197, Latency: 0.011689659123249999
+Workers: 5, Goodput/Aggregate throughput: 350.6718491344498, Throughput: 350.6718491344498, Latency: 0.011718607661
+Workers: 6, Goodput/Aggregate throughput: 337.4415675763076, Throughput: 337.4415675763076, Latency: 0.01778085623266667
+Workers: 7, Goodput/Aggregate throughput: 343.4539290934008, Throughput: 343.4539290934008, Latency: 0.027618431582571427
+Workers: 8, Goodput/Aggregate throughput: 376.32081894238166, Throughput: 376.32081894238166, Latency: 0.021258457139
+Workers: 9, Goodput/Aggregate throughput: 362.0123327401955, Throughput: 362.0123327401955, Latency: 0.02486103147888889
+Workers: 10, Goodput/Aggregate throughput: 332.5925293376349, Throughput: 332.5925293376349, Latency: 0.0300668208631

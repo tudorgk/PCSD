@@ -114,3 +114,1518 @@
 114;1421859651244;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
 115;1421859651244;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=50}
 116;0;CHECKPOINT;-
+117;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+118;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+119;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+120;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+121;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+122;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+123;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+124;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+125;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+126;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+127;0;CHECKPOINT;-
+128;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+129;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+130;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+131;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+132;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+133;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+134;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+135;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+136;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+137;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+138;1421862720625;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+139;1421862720625;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=49}
+140;1421862720625;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=50}
+141;1421862720625;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=50}
+142;1421862720625;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=51}
+143;1421862720625;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=50}
+144;1421862720625;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+145;1421862720625;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+146;1421862720625;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=46}
+147;1421862720625;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+148;0;CHECKPOINT;-
+149;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+150;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=2, avgTemperature=1, avgHumidity=49}}
+151;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=3, avgTemperature=1, avgHumidity=50}}
+152;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=4, avgTemperature=1, avgHumidity=50}}
+153;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=5, avgTemperature=1, avgHumidity=51}}
+154;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=6, avgTemperature=0, avgHumidity=50}}
+155;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+156;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+157;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=9, avgTemperature=0, avgHumidity=46}}
+158;1421862720625;SNAPSHOT;TimedEvent{timePeriod=1421862720625, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+159;1421862787780;UPDATE;Event{fieldId=1, avgTemperature=-2, avgHumidity=48}
+160;1421862787780;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+161;1421862787780;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=48}
+162;1421862787780;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+163;1421862787780;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+164;1421862787780;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=52}
+165;1421862787780;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=47}
+166;1421862787780;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=54}
+167;1421862787780;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=52}
+168;1421862787780;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=51}
+169;0;CHECKPOINT;-
+170;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=1, avgTemperature=-2, avgHumidity=48}}
+171;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+172;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=3, avgTemperature=0, avgHumidity=48}}
+173;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+174;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+175;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=52}}
+176;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=7, avgTemperature=0, avgHumidity=47}}
+177;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=54}}
+178;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=52}}
+179;1421862787780;SNAPSHOT;TimedEvent{timePeriod=1421862787780, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=51}}
+180;1421862792987;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=48}
+181;1421862792987;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=51}
+182;1421862792987;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=48}
+183;1421862792987;UPDATE;Event{fieldId=4, avgTemperature=-1, avgHumidity=50}
+184;1421862792987;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+185;1421862792987;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=50}
+186;1421862792987;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+187;1421862792987;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=51}
+188;1421862792987;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=51}
+189;1421862792987;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=47}
+190;0;CHECKPOINT;-
+191;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=1, avgTemperature=1, avgHumidity=48}}
+192;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=2, avgTemperature=1, avgHumidity=51}}
+193;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=3, avgTemperature=1, avgHumidity=48}}
+194;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=4, avgTemperature=-1, avgHumidity=50}}
+195;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+196;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=6, avgTemperature=0, avgHumidity=50}}
+197;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+198;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=51}}
+199;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=51}}
+200;1421862792987;SNAPSHOT;TimedEvent{timePeriod=1421862792987, event=Event{fieldId=10, avgTemperature=0, avgHumidity=47}}
+201;1421862809948;UPDATE;Event{fieldId=1, avgTemperature=2, avgHumidity=49}
+202;1421862809948;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+203;1421862809948;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=48}
+204;1421862809948;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=48}
+205;1421862809948;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=47}
+206;1421862809948;UPDATE;Event{fieldId=6, avgTemperature=-2, avgHumidity=51}
+207;1421862809948;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=50}
+208;1421862809948;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+209;1421862809948;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+210;1421862809948;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=50}
+211;0;CHECKPOINT;-
+212;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=1, avgTemperature=2, avgHumidity=49}}
+213;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+214;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=3, avgTemperature=0, avgHumidity=48}}
+215;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=4, avgTemperature=0, avgHumidity=48}}
+216;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=5, avgTemperature=1, avgHumidity=47}}
+217;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=6, avgTemperature=-2, avgHumidity=51}}
+218;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=7, avgTemperature=0, avgHumidity=50}}
+219;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+220;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=9, avgTemperature=0, avgHumidity=49}}
+221;1421862809948;SNAPSHOT;TimedEvent{timePeriod=1421862809948, event=Event{fieldId=10, avgTemperature=1, avgHumidity=50}}
+222;1421862815208;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=47}
+223;1421862815208;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=50}
+224;1421862815208;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+225;1421862815208;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=50}
+226;1421862815208;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=49}
+227;1421862815208;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=50}
+228;1421862815208;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+229;1421862815208;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+230;1421862815208;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+231;1421862815208;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+232;0;CHECKPOINT;-
+233;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=1, avgTemperature=0, avgHumidity=47}}
+234;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=2, avgTemperature=0, avgHumidity=50}}
+235;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+236;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=4, avgTemperature=1, avgHumidity=50}}
+237;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=5, avgTemperature=1, avgHumidity=49}}
+238;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=6, avgTemperature=0, avgHumidity=50}}
+239;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+240;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+241;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+242;1421862815208;SNAPSHOT;TimedEvent{timePeriod=1421862815208, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+243;1421862820400;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=48}
+244;1421862820400;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=50}
+245;1421862820400;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=48}
+246;1421862820400;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+247;1421862820400;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+248;1421862820400;UPDATE;Event{fieldId=6, avgTemperature=-2, avgHumidity=51}
+249;1421862820400;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+250;1421862820400;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+251;1421862820400;UPDATE;Event{fieldId=9, avgTemperature=1, avgHumidity=48}
+252;1421862820400;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+253;0;CHECKPOINT;-
+254;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=48}}
+255;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=50}}
+256;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=3, avgTemperature=0, avgHumidity=48}}
+257;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+258;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+259;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=6, avgTemperature=-2, avgHumidity=51}}
+260;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+261;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+262;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=9, avgTemperature=1, avgHumidity=48}}
+263;1421862820400;SNAPSHOT;TimedEvent{timePeriod=1421862820400, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+264;1421862836014;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=46}
+265;1421862836014;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+266;1421862836014;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=52}
+267;1421862836014;UPDATE;Event{fieldId=4, avgTemperature=-2, avgHumidity=49}
+268;1421862836014;UPDATE;Event{fieldId=5, avgTemperature=4, avgHumidity=45}
+269;1421862836014;UPDATE;Event{fieldId=6, avgTemperature=2, avgHumidity=50}
+270;1421862836014;UPDATE;Event{fieldId=7, avgTemperature=-6, avgHumidity=51}
+271;1421862836014;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+272;1421862836014;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+273;1421862836014;UPDATE;Event{fieldId=10, avgTemperature=-3, avgHumidity=54}
+274;0;CHECKPOINT;-
+275;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=1, avgTemperature=0, avgHumidity=46}}
+276;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+277;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=52}}
+278;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=4, avgTemperature=-2, avgHumidity=49}}
+279;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=5, avgTemperature=4, avgHumidity=45}}
+280;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=6, avgTemperature=2, avgHumidity=50}}
+281;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=7, avgTemperature=-6, avgHumidity=51}}
+282;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+283;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+284;1421862836014;SNAPSHOT;TimedEvent{timePeriod=1421862836014, event=Event{fieldId=10, avgTemperature=-3, avgHumidity=54}}
+285;1421862841263;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+286;1421862841263;UPDATE;Event{fieldId=2, avgTemperature=2, avgHumidity=51}
+287;1421862841263;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+288;1421862841263;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+289;1421862841263;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=50}
+290;1421862841263;UPDATE;Event{fieldId=6, avgTemperature=-2, avgHumidity=50}
+291;1421862841263;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+292;1421862841263;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=48}
+293;1421862841263;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+294;1421862841263;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=50}
+295;0;CHECKPOINT;-
+296;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+297;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=2, avgTemperature=2, avgHumidity=51}}
+298;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+299;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+300;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=50}}
+301;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=6, avgTemperature=-2, avgHumidity=50}}
+302;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+303;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=8, avgTemperature=1, avgHumidity=48}}
+304;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=9, avgTemperature=0, avgHumidity=49}}
+305;1421862841263;SNAPSHOT;TimedEvent{timePeriod=1421862841263, event=Event{fieldId=10, avgTemperature=0, avgHumidity=50}}
+306;1421862846421;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=49}
+307;1421862846421;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=50}
+308;1421862846421;UPDATE;Event{fieldId=3, avgTemperature=-4, avgHumidity=49}
+309;1421862846421;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=52}
+310;1421862846421;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=47}
+311;1421862846421;UPDATE;Event{fieldId=6, avgTemperature=2, avgHumidity=50}
+312;1421862846421;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+313;1421862846421;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=49}
+314;1421862846421;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=51}
+315;1421862846421;UPDATE;Event{fieldId=10, avgTemperature=-2, avgHumidity=50}
+316;0;CHECKPOINT;-
+317;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=1, avgTemperature=1, avgHumidity=49}}
+318;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=2, avgTemperature=0, avgHumidity=50}}
+319;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=3, avgTemperature=-4, avgHumidity=49}}
+320;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=4, avgTemperature=0, avgHumidity=52}}
+321;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=5, avgTemperature=0, avgHumidity=47}}
+322;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=6, avgTemperature=2, avgHumidity=50}}
+323;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+324;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=8, avgTemperature=1, avgHumidity=49}}
+325;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=9, avgTemperature=0, avgHumidity=51}}
+326;1421862846421;SNAPSHOT;TimedEvent{timePeriod=1421862846421, event=Event{fieldId=10, avgTemperature=-2, avgHumidity=50}}
+327;1421862864054;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=50}
+328;1421862864054;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=51}
+329;1421862864054;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=47}
+330;1421862864054;UPDATE;Event{fieldId=4, avgTemperature=-1, avgHumidity=50}
+331;1421862864054;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+332;1421862864054;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=49}
+333;1421862864054;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=50}
+334;1421862864054;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=51}
+335;1421862864054;UPDATE;Event{fieldId=9, avgTemperature=2, avgHumidity=48}
+336;1421862864054;UPDATE;Event{fieldId=10, avgTemperature=-3, avgHumidity=48}
+337;0;CHECKPOINT;-
+338;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=1, avgTemperature=0, avgHumidity=50}}
+339;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=2, avgTemperature=0, avgHumidity=51}}
+340;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=3, avgTemperature=0, avgHumidity=47}}
+341;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=4, avgTemperature=-1, avgHumidity=50}}
+342;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+343;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=6, avgTemperature=1, avgHumidity=49}}
+344;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=7, avgTemperature=1, avgHumidity=50}}
+345;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=8, avgTemperature=0, avgHumidity=51}}
+346;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=9, avgTemperature=2, avgHumidity=48}}
+347;1421862864054;SNAPSHOT;TimedEvent{timePeriod=1421862864054, event=Event{fieldId=10, avgTemperature=-3, avgHumidity=48}}
+348;1421862869275;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=49}
+349;1421862869275;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+350;1421862869275;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=50}
+351;1421862869275;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=48}
+352;1421862869275;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=51}
+353;1421862869275;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+354;1421862869275;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=49}
+355;1421862869275;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=49}
+356;1421862869275;UPDATE;Event{fieldId=9, avgTemperature=-2, avgHumidity=49}
+357;1421862869275;UPDATE;Event{fieldId=10, avgTemperature=-2, avgHumidity=49}
+358;0;CHECKPOINT;-
+359;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=49}}
+360;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+361;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=3, avgTemperature=0, avgHumidity=50}}
+362;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=4, avgTemperature=0, avgHumidity=48}}
+363;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=5, avgTemperature=0, avgHumidity=51}}
+364;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+365;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=7, avgTemperature=0, avgHumidity=49}}
+366;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=8, avgTemperature=1, avgHumidity=49}}
+367;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=9, avgTemperature=-2, avgHumidity=49}}
+368;1421862869275;SNAPSHOT;TimedEvent{timePeriod=1421862869275, event=Event{fieldId=10, avgTemperature=-2, avgHumidity=49}}
+369;1421862874446;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=49}
+370;1421862874446;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+371;1421862874446;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=47}
+372;1421862874446;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=48}
+373;1421862874446;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=50}
+374;1421862874446;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=48}
+375;1421862874446;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=49}
+376;1421862874446;UPDATE;Event{fieldId=8, avgTemperature=2, avgHumidity=49}
+377;1421862874446;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=51}
+378;1421862874446;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=50}
+379;0;CHECKPOINT;-
+380;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=1, avgTemperature=1, avgHumidity=49}}
+381;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+382;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=3, avgTemperature=0, avgHumidity=47}}
+383;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=4, avgTemperature=0, avgHumidity=48}}
+384;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=50}}
+385;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=6, avgTemperature=0, avgHumidity=48}}
+386;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=7, avgTemperature=0, avgHumidity=49}}
+387;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=8, avgTemperature=2, avgHumidity=49}}
+388;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=51}}
+389;1421862874446;SNAPSHOT;TimedEvent{timePeriod=1421862874446, event=Event{fieldId=10, avgTemperature=1, avgHumidity=50}}
+390;1421862879624;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+391;1421862879624;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=52}
+392;1421862879624;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=50}
+393;1421862879624;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=52}
+394;1421862879624;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=52}
+395;1421862879624;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=50}
+396;1421862879624;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=49}
+397;1421862879624;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+398;1421862879624;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=52}
+399;1421862879624;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=47}
+400;0;CHECKPOINT;-
+401;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+402;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=2, avgTemperature=0, avgHumidity=52}}
+403;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=3, avgTemperature=1, avgHumidity=50}}
+404;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=4, avgTemperature=0, avgHumidity=52}}
+405;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=5, avgTemperature=1, avgHumidity=52}}
+406;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=6, avgTemperature=0, avgHumidity=50}}
+407;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=7, avgTemperature=0, avgHumidity=49}}
+408;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+409;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=9, avgTemperature=0, avgHumidity=52}}
+410;1421862879624;SNAPSHOT;TimedEvent{timePeriod=1421862879624, event=Event{fieldId=10, avgTemperature=1, avgHumidity=47}}
+411;1421862884824;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=49}
+412;1421862884824;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+413;1421862884824;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=53}
+414;1421862884824;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+415;1421862884824;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+416;1421862884824;UPDATE;Event{fieldId=6, avgTemperature=2, avgHumidity=50}
+417;1421862884824;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+418;1421862884824;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+419;1421862884824;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=51}
+420;1421862884824;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=49}
+421;0;CHECKPOINT;-
+422;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+423;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+424;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+425;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+426;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+427;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+428;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+429;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+430;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+431;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+432;0;CHECKPOINT;-
+433;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+434;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+435;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+436;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+437;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+438;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+439;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+440;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+441;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+442;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+443;1421862920029;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+444;1421862920029;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+445;1421862920029;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=47}
+446;1421862920029;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=52}
+447;1421862920029;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=49}
+448;1421862920029;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=51}
+449;1421862920029;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=48}
+450;1421862920029;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=48}
+451;1421862920029;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=50}
+452;1421862920029;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+453;0;CHECKPOINT;-
+454;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+455;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=2, avgTemperature=0, avgHumidity=48}}
+456;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=3, avgTemperature=0, avgHumidity=47}}
+457;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=4, avgTemperature=1, avgHumidity=52}}
+458;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=49}}
+459;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=6, avgTemperature=1, avgHumidity=51}}
+460;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=7, avgTemperature=1, avgHumidity=48}}
+461;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=8, avgTemperature=0, avgHumidity=48}}
+462;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=50}}
+463;1421862920029;SNAPSHOT;TimedEvent{timePeriod=1421862920029, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+464;1421862925227;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=51}
+465;1421862925227;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=50}
+466;1421862925227;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=49}
+467;1421862925227;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+468;1421862925227;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=48}
+469;1421862925227;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=50}
+470;1421862925227;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+471;1421862925227;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+472;1421862925227;UPDATE;Event{fieldId=9, avgTemperature=-2, avgHumidity=50}
+473;1421862925227;UPDATE;Event{fieldId=10, avgTemperature=2, avgHumidity=50}
+474;0;CHECKPOINT;-
+475;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+476;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+477;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+478;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+479;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+480;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+481;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+482;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+483;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+484;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+485;0;CHECKPOINT;-
+486;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+487;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+488;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+489;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+490;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+491;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+492;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+493;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+494;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+495;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+496;1421862973210;UPDATE;Event{fieldId=1, avgTemperature=3, avgHumidity=49}
+497;1421862973210;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=48}
+498;1421862973210;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=52}
+499;1421862973210;UPDATE;Event{fieldId=4, avgTemperature=-1, avgHumidity=49}
+500;1421862973210;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+501;1421862973210;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=49}
+502;1421862973210;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+503;1421862973210;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+504;1421862973210;UPDATE;Event{fieldId=9, avgTemperature=-2, avgHumidity=51}
+505;1421862973210;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+506;0;CHECKPOINT;-
+507;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=1, avgTemperature=3, avgHumidity=49}}
+508;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=2, avgTemperature=1, avgHumidity=48}}
+509;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=3, avgTemperature=0, avgHumidity=52}}
+510;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=4, avgTemperature=-1, avgHumidity=49}}
+511;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+512;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=6, avgTemperature=1, avgHumidity=49}}
+513;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+514;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+515;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=9, avgTemperature=-2, avgHumidity=51}}
+516;1421862973210;SNAPSHOT;TimedEvent{timePeriod=1421862973210, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+517;1421862978523;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+518;1421862978523;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=54}
+519;1421862978523;UPDATE;Event{fieldId=3, avgTemperature=-2, avgHumidity=49}
+520;1421862978523;UPDATE;Event{fieldId=4, avgTemperature=2, avgHumidity=49}
+521;1421862978523;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+522;1421862978523;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=51}
+523;1421862978523;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+524;1421862978523;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+525;1421862978523;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+526;1421862978523;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=50}
+527;0;CHECKPOINT;-
+528;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+529;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=2, avgTemperature=1, avgHumidity=54}}
+530;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=3, avgTemperature=-2, avgHumidity=49}}
+531;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=4, avgTemperature=2, avgHumidity=49}}
+532;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+533;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=6, avgTemperature=1, avgHumidity=51}}
+534;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+535;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+536;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=9, avgTemperature=0, avgHumidity=49}}
+537;1421862978523;SNAPSHOT;TimedEvent{timePeriod=1421862978523, event=Event{fieldId=10, avgTemperature=0, avgHumidity=50}}
+538;1421862983788;UPDATE;Event{fieldId=1, avgTemperature=2, avgHumidity=50}
+539;1421862983788;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+540;1421862983788;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=51}
+541;1421862983788;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=51}
+542;1421862983788;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+543;1421862983788;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=51}
+544;1421862983788;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+545;1421862983788;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=51}
+546;1421862983788;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+547;1421862983788;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+548;0;CHECKPOINT;-
+549;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=1, avgTemperature=2, avgHumidity=50}}
+550;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=2, avgTemperature=0, avgHumidity=48}}
+551;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=51}}
+552;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=4, avgTemperature=0, avgHumidity=51}}
+553;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+554;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=51}}
+555;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+556;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=8, avgTemperature=0, avgHumidity=51}}
+557;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+558;1421862983788;SNAPSHOT;TimedEvent{timePeriod=1421862983788, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+559;1421863005860;UPDATE;Event{fieldId=1, avgTemperature=2, avgHumidity=51}
+560;1421863005860;UPDATE;Event{fieldId=2, avgTemperature=-3, avgHumidity=49}
+561;1421863005860;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=50}
+562;1421863005860;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=51}
+563;1421863005860;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+564;1421863005860;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=50}
+565;1421863005860;UPDATE;Event{fieldId=7, avgTemperature=2, avgHumidity=48}
+566;1421863005860;UPDATE;Event{fieldId=8, avgTemperature=3, avgHumidity=53}
+567;1421863005860;UPDATE;Event{fieldId=9, avgTemperature=1, avgHumidity=49}
+568;1421863005860;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=48}
+569;0;CHECKPOINT;-
+570;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=1, avgTemperature=2, avgHumidity=51}}
+571;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=2, avgTemperature=-3, avgHumidity=49}}
+572;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=3, avgTemperature=0, avgHumidity=50}}
+573;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=4, avgTemperature=0, avgHumidity=51}}
+574;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+575;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=50}}
+576;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=7, avgTemperature=2, avgHumidity=48}}
+577;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=8, avgTemperature=3, avgHumidity=53}}
+578;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=9, avgTemperature=1, avgHumidity=49}}
+579;1421863005860;SNAPSHOT;TimedEvent{timePeriod=1421863005860, event=Event{fieldId=10, avgTemperature=0, avgHumidity=48}}
+580;1421863011103;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+581;1421863011103;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=51}
+582;1421863011103;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=52}
+583;1421863011103;UPDATE;Event{fieldId=4, avgTemperature=-1, avgHumidity=51}
+584;1421863011103;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=49}
+585;1421863011103;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=50}
+586;1421863011103;UPDATE;Event{fieldId=7, avgTemperature=2, avgHumidity=47}
+587;1421863011103;UPDATE;Event{fieldId=8, avgTemperature=2, avgHumidity=51}
+588;1421863011103;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=48}
+589;1421863011103;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+590;0;CHECKPOINT;-
+591;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+592;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=51}}
+593;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=3, avgTemperature=1, avgHumidity=52}}
+594;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=4, avgTemperature=-1, avgHumidity=51}}
+595;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=5, avgTemperature=1, avgHumidity=49}}
+596;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=50}}
+597;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=7, avgTemperature=2, avgHumidity=47}}
+598;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=8, avgTemperature=2, avgHumidity=51}}
+599;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=9, avgTemperature=0, avgHumidity=48}}
+600;1421863011103;SNAPSHOT;TimedEvent{timePeriod=1421863011103, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+601;1421863016284;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+602;1421863016284;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=50}
+603;1421863016284;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=50}
+604;1421863016284;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=50}
+605;1421863016284;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+606;1421863016284;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=51}
+607;1421863016284;UPDATE;Event{fieldId=7, avgTemperature=2, avgHumidity=50}
+608;1421863016284;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=51}
+609;1421863016284;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+610;1421863016284;UPDATE;Event{fieldId=10, avgTemperature=-2, avgHumidity=50}
+611;0;CHECKPOINT;-
+612;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+613;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=2, avgTemperature=0, avgHumidity=50}}
+614;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=3, avgTemperature=1, avgHumidity=50}}
+615;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=4, avgTemperature=1, avgHumidity=50}}
+616;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+617;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=6, avgTemperature=1, avgHumidity=51}}
+618;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=7, avgTemperature=2, avgHumidity=50}}
+619;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=8, avgTemperature=1, avgHumidity=51}}
+620;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+621;1421863016284;SNAPSHOT;TimedEvent{timePeriod=1421863016284, event=Event{fieldId=10, avgTemperature=-2, avgHumidity=50}}
+622;1421863021477;UPDATE;Event{fieldId=1, avgTemperature=-2, avgHumidity=50}
+623;1421863021477;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=50}
+624;1421863021477;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=50}
+625;1421863021477;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+626;1421863021477;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=51}
+627;1421863021477;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=50}
+628;1421863021477;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=50}
+629;1421863021477;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=51}
+630;1421863021477;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=48}
+631;1421863021477;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=48}
+632;0;CHECKPOINT;-
+633;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=1, avgTemperature=-2, avgHumidity=50}}
+634;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=2, avgTemperature=1, avgHumidity=50}}
+635;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=50}}
+636;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=4, avgTemperature=0, avgHumidity=50}}
+637;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=5, avgTemperature=1, avgHumidity=51}}
+638;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=6, avgTemperature=0, avgHumidity=50}}
+639;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=7, avgTemperature=0, avgHumidity=50}}
+640;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=51}}
+641;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=9, avgTemperature=0, avgHumidity=48}}
+642;1421863021477;SNAPSHOT;TimedEvent{timePeriod=1421863021477, event=Event{fieldId=10, avgTemperature=0, avgHumidity=48}}
+643;1421863026661;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=47}
+644;1421863026661;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=47}
+645;1421863026661;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=50}
+646;1421863026661;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+647;1421863026661;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=50}
+648;1421863026661;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=50}
+649;1421863026661;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+650;1421863026661;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+651;1421863026661;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+652;1421863026661;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=50}
+653;0;CHECKPOINT;-
+654;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=1, avgTemperature=1, avgHumidity=47}}
+655;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=2, avgTemperature=0, avgHumidity=47}}
+656;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=3, avgTemperature=0, avgHumidity=50}}
+657;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+658;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=5, avgTemperature=2, avgHumidity=50}}
+659;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=50}}
+660;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+661;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+662;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+663;1421863026661;SNAPSHOT;TimedEvent{timePeriod=1421863026661, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=50}}
+664;1421863048612;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=52}
+665;1421863048612;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+666;1421863048612;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=54}
+667;1421863048612;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=54}
+668;1421863048612;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=55}
+669;1421863048612;UPDATE;Event{fieldId=6, avgTemperature=-2, avgHumidity=49}
+670;1421863048612;UPDATE;Event{fieldId=7, avgTemperature=-3, avgHumidity=52}
+671;1421863048612;UPDATE;Event{fieldId=8, avgTemperature=-3, avgHumidity=51}
+672;1421863048612;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+673;1421863048612;UPDATE;Event{fieldId=10, avgTemperature=-2, avgHumidity=52}
+674;0;CHECKPOINT;-
+675;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=52}}
+676;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=2, avgTemperature=0, avgHumidity=48}}
+677;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=3, avgTemperature=0, avgHumidity=54}}
+678;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=4, avgTemperature=1, avgHumidity=54}}
+679;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=55}}
+680;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=6, avgTemperature=-2, avgHumidity=49}}
+681;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=7, avgTemperature=-3, avgHumidity=52}}
+682;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=8, avgTemperature=-3, avgHumidity=51}}
+683;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+684;1421863048612;SNAPSHOT;TimedEvent{timePeriod=1421863048612, event=Event{fieldId=10, avgTemperature=-2, avgHumidity=52}}
+685;1421863053834;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+686;1421863053834;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=51}
+687;1421863053834;UPDATE;Event{fieldId=3, avgTemperature=-2, avgHumidity=50}
+688;1421863053834;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+689;1421863053834;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=51}
+690;1421863053834;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=47}
+691;1421863053834;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=50}
+692;1421863053834;UPDATE;Event{fieldId=8, avgTemperature=-2, avgHumidity=47}
+693;1421863053834;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=51}
+694;1421863053834;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=47}
+695;0;CHECKPOINT;-
+696;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+697;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=2, avgTemperature=1, avgHumidity=51}}
+698;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=3, avgTemperature=-2, avgHumidity=50}}
+699;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+700;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=5, avgTemperature=0, avgHumidity=51}}
+701;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=6, avgTemperature=0, avgHumidity=47}}
+702;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=7, avgTemperature=0, avgHumidity=50}}
+703;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=8, avgTemperature=-2, avgHumidity=47}}
+704;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=9, avgTemperature=0, avgHumidity=51}}
+705;1421863053834;SNAPSHOT;TimedEvent{timePeriod=1421863053834, event=Event{fieldId=10, avgTemperature=1, avgHumidity=47}}
+706;1421863059020;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=48}
+707;1421863059020;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=51}
+708;1421863059020;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+709;1421863059020;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=48}
+710;1421863059020;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=51}
+711;1421863059020;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+712;1421863059020;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=50}
+713;1421863059020;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=50}
+714;1421863059020;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=50}
+715;1421863059020;UPDATE;Event{fieldId=10, avgTemperature=2, avgHumidity=50}
+716;0;CHECKPOINT;-
+717;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=1, avgTemperature=1, avgHumidity=48}}
+718;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=2, avgTemperature=0, avgHumidity=51}}
+719;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+720;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=4, avgTemperature=0, avgHumidity=48}}
+721;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=51}}
+722;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+723;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=7, avgTemperature=0, avgHumidity=50}}
+724;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=50}}
+725;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=50}}
+726;1421863059020;SNAPSHOT;TimedEvent{timePeriod=1421863059020, event=Event{fieldId=10, avgTemperature=2, avgHumidity=50}}
+727;1421863064218;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=52}
+728;1421863064218;UPDATE;Event{fieldId=2, avgTemperature=2, avgHumidity=51}
+729;1421863064218;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=47}
+730;1421863064218;UPDATE;Event{fieldId=4, avgTemperature=-2, avgHumidity=51}
+731;1421863064218;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+732;1421863064218;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=48}
+733;1421863064218;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=48}
+734;1421863064218;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=54}
+735;1421863064218;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=51}
+736;1421863064218;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=50}
+737;0;CHECKPOINT;-
+738;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=1, avgTemperature=0, avgHumidity=52}}
+739;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=2, avgTemperature=2, avgHumidity=51}}
+740;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=3, avgTemperature=0, avgHumidity=47}}
+741;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=4, avgTemperature=-2, avgHumidity=51}}
+742;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=5, avgTemperature=0, avgHumidity=49}}
+743;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=6, avgTemperature=0, avgHumidity=48}}
+744;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=7, avgTemperature=1, avgHumidity=48}}
+745;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=8, avgTemperature=0, avgHumidity=54}}
+746;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=9, avgTemperature=0, avgHumidity=51}}
+747;1421863064218;SNAPSHOT;TimedEvent{timePeriod=1421863064218, event=Event{fieldId=10, avgTemperature=1, avgHumidity=50}}
+748;1421863069412;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+749;1421863069412;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=50}
+750;1421863069412;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=49}
+751;1421863069412;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+752;1421863069412;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=49}
+753;1421863069412;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+754;1421863069412;UPDATE;Event{fieldId=7, avgTemperature=2, avgHumidity=51}
+755;1421863069412;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=48}
+756;1421863069412;UPDATE;Event{fieldId=9, avgTemperature=1, avgHumidity=50}
+757;1421863069412;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=49}
+758;0;CHECKPOINT;-
+759;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+760;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=2, avgTemperature=1, avgHumidity=50}}
+761;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=49}}
+762;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=4, avgTemperature=0, avgHumidity=50}}
+763;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=49}}
+764;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+765;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=7, avgTemperature=2, avgHumidity=51}}
+766;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=8, avgTemperature=0, avgHumidity=48}}
+767;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=9, avgTemperature=1, avgHumidity=50}}
+768;1421863069412;SNAPSHOT;TimedEvent{timePeriod=1421863069412, event=Event{fieldId=10, avgTemperature=1, avgHumidity=49}}
+769;1421863074610;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+770;1421863074610;UPDATE;Event{fieldId=2, avgTemperature=3, avgHumidity=50}
+771;1421863074610;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+772;1421863074610;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=48}
+773;1421863074610;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+774;1421863074610;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=48}
+775;1421863074610;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=50}
+776;1421863074610;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=50}
+777;1421863074610;UPDATE;Event{fieldId=9, avgTemperature=-2, avgHumidity=50}
+778;1421863074610;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+779;0;CHECKPOINT;-
+780;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+781;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=2, avgTemperature=3, avgHumidity=50}}
+782;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+783;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=4, avgTemperature=0, avgHumidity=48}}
+784;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+785;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=6, avgTemperature=1, avgHumidity=48}}
+786;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=7, avgTemperature=-1, avgHumidity=50}}
+787;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=8, avgTemperature=1, avgHumidity=50}}
+788;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=9, avgTemperature=-2, avgHumidity=50}}
+789;1421863074610;SNAPSHOT;TimedEvent{timePeriod=1421863074610, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+790;1421863079838;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+791;1421863079838;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+792;1421863079838;UPDATE;Event{fieldId=3, avgTemperature=2, avgHumidity=51}
+793;1421863079838;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=48}
+794;1421863079838;UPDATE;Event{fieldId=5, avgTemperature=-2, avgHumidity=52}
+795;1421863079838;UPDATE;Event{fieldId=6, avgTemperature=2, avgHumidity=49}
+796;1421863079838;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=48}
+797;1421863079838;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=48}
+798;1421863079838;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+799;1421863079838;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=51}
+800;0;CHECKPOINT;-
+801;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+802;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=2, avgTemperature=0, avgHumidity=48}}
+803;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=3, avgTemperature=2, avgHumidity=51}}
+804;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=4, avgTemperature=1, avgHumidity=48}}
+805;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=5, avgTemperature=-2, avgHumidity=52}}
+806;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=6, avgTemperature=2, avgHumidity=49}}
+807;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=7, avgTemperature=1, avgHumidity=48}}
+808;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=8, avgTemperature=1, avgHumidity=48}}
+809;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+810;1421863079838;SNAPSHOT;TimedEvent{timePeriod=1421863079838, event=Event{fieldId=10, avgTemperature=1, avgHumidity=51}}
+811;1421863104517;UPDATE;Event{fieldId=1, avgTemperature=-3, avgHumidity=53}
+812;1421863104517;UPDATE;Event{fieldId=2, avgTemperature=3, avgHumidity=50}
+813;1421863104517;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+814;1421863104517;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+815;1421863104517;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=48}
+816;1421863104517;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+817;1421863104517;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=50}
+818;1421863104517;UPDATE;Event{fieldId=8, avgTemperature=5, avgHumidity=49}
+819;1421863104517;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+820;1421863104517;UPDATE;Event{fieldId=10, avgTemperature=2, avgHumidity=48}
+821;0;CHECKPOINT;-
+822;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=1, avgTemperature=-3, avgHumidity=53}}
+823;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=2, avgTemperature=3, avgHumidity=50}}
+824;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+825;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+826;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=48}}
+827;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+828;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=7, avgTemperature=0, avgHumidity=50}}
+829;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=8, avgTemperature=5, avgHumidity=49}}
+830;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=9, avgTemperature=0, avgHumidity=49}}
+831;1421863104517;SNAPSHOT;TimedEvent{timePeriod=1421863104517, event=Event{fieldId=10, avgTemperature=2, avgHumidity=48}}
+832;1421863109751;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+833;1421863109751;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=50}
+834;1421863109751;UPDATE;Event{fieldId=3, avgTemperature=2, avgHumidity=48}
+835;1421863109751;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+836;1421863109751;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=48}
+837;1421863109751;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=49}
+838;1421863109751;UPDATE;Event{fieldId=7, avgTemperature=-2, avgHumidity=49}
+839;1421863109751;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=48}
+840;1421863109751;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=53}
+841;1421863109751;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+842;0;CHECKPOINT;-
+843;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+844;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=50}}
+845;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=3, avgTemperature=2, avgHumidity=48}}
+846;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=4, avgTemperature=0, avgHumidity=50}}
+847;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=5, avgTemperature=1, avgHumidity=48}}
+848;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=49}}
+849;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=7, avgTemperature=-2, avgHumidity=49}}
+850;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=8, avgTemperature=0, avgHumidity=48}}
+851;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=9, avgTemperature=0, avgHumidity=53}}
+852;1421863109751;SNAPSHOT;TimedEvent{timePeriod=1421863109751, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+853;1421863114977;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=51}
+854;1421863114977;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=49}
+855;1421863114977;UPDATE;Event{fieldId=3, avgTemperature=-2, avgHumidity=48}
+856;1421863114977;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=48}
+857;1421863114977;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=48}
+858;1421863114977;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=50}
+859;1421863114977;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+860;1421863114977;UPDATE;Event{fieldId=8, avgTemperature=-3, avgHumidity=50}
+861;1421863114977;UPDATE;Event{fieldId=9, avgTemperature=-2, avgHumidity=50}
+862;1421863114977;UPDATE;Event{fieldId=10, avgTemperature=4, avgHumidity=50}
+863;0;CHECKPOINT;-
+864;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=1, avgTemperature=0, avgHumidity=51}}
+865;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=49}}
+866;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=3, avgTemperature=-2, avgHumidity=48}}
+867;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=4, avgTemperature=1, avgHumidity=48}}
+868;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=48}}
+869;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=6, avgTemperature=1, avgHumidity=50}}
+870;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+871;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=8, avgTemperature=-3, avgHumidity=50}}
+872;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=9, avgTemperature=-2, avgHumidity=50}}
+873;1421863114977;SNAPSHOT;TimedEvent{timePeriod=1421863114977, event=Event{fieldId=10, avgTemperature=4, avgHumidity=50}}
+874;1421863120178;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=51}
+875;1421863120178;UPDATE;Event{fieldId=2, avgTemperature=-2, avgHumidity=52}
+876;1421863120178;UPDATE;Event{fieldId=3, avgTemperature=-2, avgHumidity=50}
+877;1421863120178;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+878;1421863120178;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=51}
+879;1421863120178;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=49}
+880;1421863120178;UPDATE;Event{fieldId=7, avgTemperature=-2, avgHumidity=49}
+881;1421863120178;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+882;1421863120178;UPDATE;Event{fieldId=9, avgTemperature=-2, avgHumidity=49}
+883;1421863120178;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+884;0;CHECKPOINT;-
+885;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=1, avgTemperature=0, avgHumidity=51}}
+886;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=2, avgTemperature=-2, avgHumidity=52}}
+887;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=3, avgTemperature=-2, avgHumidity=50}}
+888;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=4, avgTemperature=0, avgHumidity=50}}
+889;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=51}}
+890;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=6, avgTemperature=1, avgHumidity=49}}
+891;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=7, avgTemperature=-2, avgHumidity=49}}
+892;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+893;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=9, avgTemperature=-2, avgHumidity=49}}
+894;1421863120178;SNAPSHOT;TimedEvent{timePeriod=1421863120178, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+895;1421863125404;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+896;1421863125404;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=50}
+897;1421863125404;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=52}
+898;1421863125404;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=48}
+899;1421863125404;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=54}
+900;1421863125404;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=52}
+901;1421863125404;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=50}
+902;1421863125404;UPDATE;Event{fieldId=8, avgTemperature=2, avgHumidity=50}
+903;1421863125404;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=48}
+904;1421863125404;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=51}
+905;0;CHECKPOINT;-
+906;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+907;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=2, avgTemperature=0, avgHumidity=50}}
+908;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=3, avgTemperature=0, avgHumidity=52}}
+909;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=4, avgTemperature=0, avgHumidity=48}}
+910;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=5, avgTemperature=1, avgHumidity=54}}
+911;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=6, avgTemperature=1, avgHumidity=52}}
+912;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=7, avgTemperature=-1, avgHumidity=50}}
+913;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=8, avgTemperature=2, avgHumidity=50}}
+914;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=9, avgTemperature=0, avgHumidity=48}}
+915;1421863125404;SNAPSHOT;TimedEvent{timePeriod=1421863125404, event=Event{fieldId=10, avgTemperature=1, avgHumidity=51}}
+916;1421863130590;UPDATE;Event{fieldId=1, avgTemperature=1, avgHumidity=48}
+917;1421863130590;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=52}
+918;1421863130590;UPDATE;Event{fieldId=3, avgTemperature=3, avgHumidity=50}
+919;1421863130590;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+920;1421863130590;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+921;1421863130590;UPDATE;Event{fieldId=6, avgTemperature=-2, avgHumidity=50}
+922;1421863130590;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=49}
+923;1421863130590;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+924;1421863130590;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=51}
+925;1421863130590;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+926;0;CHECKPOINT;-
+927;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=1, avgTemperature=1, avgHumidity=48}}
+928;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=2, avgTemperature=1, avgHumidity=52}}
+929;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=3, avgTemperature=3, avgHumidity=50}}
+930;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=4, avgTemperature=0, avgHumidity=50}}
+931;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+932;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=6, avgTemperature=-2, avgHumidity=50}}
+933;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=7, avgTemperature=0, avgHumidity=49}}
+934;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+935;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=51}}
+936;1421863130590;SNAPSHOT;TimedEvent{timePeriod=1421863130590, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+937;1421863135825;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=49}
+938;1421863135825;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+939;1421863135825;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=50}
+940;1421863135825;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=52}
+941;1421863135825;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=51}
+942;1421863135825;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=48}
+943;1421863135825;UPDATE;Event{fieldId=7, avgTemperature=2, avgHumidity=51}
+944;1421863135825;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=49}
+945;1421863135825;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=52}
+946;1421863135825;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=52}
+947;0;CHECKPOINT;-
+948;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=49}}
+949;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=2, avgTemperature=0, avgHumidity=48}}
+950;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=3, avgTemperature=0, avgHumidity=50}}
+951;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=4, avgTemperature=0, avgHumidity=52}}
+952;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=5, avgTemperature=0, avgHumidity=51}}
+953;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=48}}
+954;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=7, avgTemperature=2, avgHumidity=51}}
+955;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=8, avgTemperature=1, avgHumidity=49}}
+956;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=9, avgTemperature=0, avgHumidity=52}}
+957;1421863135825;SNAPSHOT;TimedEvent{timePeriod=1421863135825, event=Event{fieldId=10, avgTemperature=0, avgHumidity=52}}
+958;1421863141061;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+959;1421863141061;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=50}
+960;1421863141061;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+961;1421863141061;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+962;1421863141061;UPDATE;Event{fieldId=5, avgTemperature=-3, avgHumidity=49}
+963;1421863141061;UPDATE;Event{fieldId=6, avgTemperature=3, avgHumidity=50}
+964;1421863141061;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+965;1421863141061;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+966;1421863141061;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+967;1421863141061;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=49}
+968;0;CHECKPOINT;-
+969;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+970;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=50}}
+971;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+972;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=4, avgTemperature=0, avgHumidity=50}}
+973;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=5, avgTemperature=-3, avgHumidity=49}}
+974;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=6, avgTemperature=3, avgHumidity=50}}
+975;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+976;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+977;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=9, avgTemperature=0, avgHumidity=49}}
+978;1421863141061;SNAPSHOT;TimedEvent{timePeriod=1421863141061, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=49}}
+979;1421863146334;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=50}
+980;1421863146334;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=51}
+981;1421863146334;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+982;1421863146334;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=48}
+983;1421863146334;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+984;1421863146334;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=50}
+985;1421863146334;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=49}
+986;1421863146334;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=51}
+987;1421863146334;UPDATE;Event{fieldId=9, avgTemperature=1, avgHumidity=49}
+988;1421863146334;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+989;0;CHECKPOINT;-
+990;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=1, avgTemperature=0, avgHumidity=50}}
+991;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=2, avgTemperature=1, avgHumidity=51}}
+992;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+993;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=4, avgTemperature=1, avgHumidity=48}}
+994;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=5, avgTemperature=0, avgHumidity=49}}
+995;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=6, avgTemperature=0, avgHumidity=50}}
+996;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=7, avgTemperature=-1, avgHumidity=49}}
+997;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=8, avgTemperature=0, avgHumidity=51}}
+998;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=9, avgTemperature=1, avgHumidity=49}}
+999;1421863146334;SNAPSHOT;TimedEvent{timePeriod=1421863146334, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+1000;1421863151570;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=50}
+1001;1421863151570;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=52}
+1002;1421863151570;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+1003;1421863151570;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=50}
+1004;1421863151570;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=48}
+1005;1421863151570;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=51}
+1006;1421863151570;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+1007;1421863151570;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=50}
+1008;1421863151570;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=51}
+1009;1421863151570;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+1010;0;CHECKPOINT;-
+1011;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=1, avgTemperature=0, avgHumidity=50}}
+1012;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=2, avgTemperature=0, avgHumidity=52}}
+1013;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+1014;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=4, avgTemperature=1, avgHumidity=50}}
+1015;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=5, avgTemperature=2, avgHumidity=48}}
+1016;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=6, avgTemperature=1, avgHumidity=51}}
+1017;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+1018;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=50}}
+1019;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=9, avgTemperature=0, avgHumidity=51}}
+1020;1421863151570;SNAPSHOT;TimedEvent{timePeriod=1421863151570, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+1021;1421863156823;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=50}
+1022;1421863156823;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+1023;1421863156823;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=50}
+1024;1421863156823;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=51}
+1025;1421863156823;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+1026;1421863156823;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=49}
+1027;1421863156823;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=49}
+1028;1421863156823;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+1029;1421863156823;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=51}
+1030;1421863156823;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=52}
+1031;0;CHECKPOINT;-
+1032;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=50}}
+1033;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+1034;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=50}}
+1035;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=4, avgTemperature=1, avgHumidity=51}}
+1036;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+1037;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=6, avgTemperature=1, avgHumidity=49}}
+1038;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=7, avgTemperature=1, avgHumidity=49}}
+1039;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+1040;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=9, avgTemperature=0, avgHumidity=51}}
+1041;1421863156823;SNAPSHOT;TimedEvent{timePeriod=1421863156823, event=Event{fieldId=10, avgTemperature=0, avgHumidity=52}}
+1042;1421863179772;UPDATE;Event{fieldId=1, avgTemperature=-2, avgHumidity=53}
+1043;1421863179772;UPDATE;Event{fieldId=2, avgTemperature=-4, avgHumidity=46}
+1044;1421863179772;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=47}
+1045;1421863179772;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=55}
+1046;1421863179772;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=50}
+1047;1421863179772;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=54}
+1048;1421863179772;UPDATE;Event{fieldId=7, avgTemperature=-2, avgHumidity=49}
+1049;1421863179772;UPDATE;Event{fieldId=8, avgTemperature=-2, avgHumidity=44}
+1050;1421863179772;UPDATE;Event{fieldId=9, avgTemperature=3, avgHumidity=48}
+1051;1421863179772;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=53}
+1052;0;CHECKPOINT;-
+1053;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=1, avgTemperature=-2, avgHumidity=53}}
+1054;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=2, avgTemperature=-4, avgHumidity=46}}
+1055;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=3, avgTemperature=1, avgHumidity=47}}
+1056;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=4, avgTemperature=1, avgHumidity=55}}
+1057;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=5, avgTemperature=2, avgHumidity=50}}
+1058;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=6, avgTemperature=0, avgHumidity=54}}
+1059;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=7, avgTemperature=-2, avgHumidity=49}}
+1060;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=8, avgTemperature=-2, avgHumidity=44}}
+1061;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=9, avgTemperature=3, avgHumidity=48}}
+1062;1421863179772;SNAPSHOT;TimedEvent{timePeriod=1421863179772, event=Event{fieldId=10, avgTemperature=0, avgHumidity=53}}
+1063;1421863185009;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+1064;1421863185009;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+1065;1421863185009;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+1066;1421863185009;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=48}
+1067;1421863185009;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=50}
+1068;1421863185009;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+1069;1421863185009;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=50}
+1070;1421863185009;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=50}
+1071;1421863185009;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=47}
+1072;1421863185009;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+1073;0;CHECKPOINT;-
+1074;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+1075;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=2, avgTemperature=0, avgHumidity=48}}
+1076;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+1077;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=4, avgTemperature=0, avgHumidity=48}}
+1078;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=5, avgTemperature=2, avgHumidity=50}}
+1079;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+1080;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=7, avgTemperature=-1, avgHumidity=50}}
+1081;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=50}}
+1082;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=9, avgTemperature=0, avgHumidity=47}}
+1083;1421863185009;SNAPSHOT;TimedEvent{timePeriod=1421863185009, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+1084;1421863190166;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+1085;1421863190166;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=49}
+1086;1421863190166;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=49}
+1087;1421863190166;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+1088;1421863190166;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=50}
+1089;1421863190166;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+1090;1421863190166;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=50}
+1091;1421863190166;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=52}
+1092;1421863190166;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=50}
+1093;1421863190166;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=50}
+1094;0;CHECKPOINT;-
+1095;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+1096;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=49}}
+1097;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=3, avgTemperature=1, avgHumidity=49}}
+1098;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+1099;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=5, avgTemperature=2, avgHumidity=50}}
+1100;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+1101;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=7, avgTemperature=0, avgHumidity=50}}
+1102;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=52}}
+1103;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=50}}
+1104;1421863190166;SNAPSHOT;TimedEvent{timePeriod=1421863190166, event=Event{fieldId=10, avgTemperature=0, avgHumidity=50}}
+1105;1421863195325;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=47}
+1106;1421863195325;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=53}
+1107;1421863195325;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=50}
+1108;1421863195325;UPDATE;Event{fieldId=4, avgTemperature=-1, avgHumidity=49}
+1109;1421863195325;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+1110;1421863195325;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+1111;1421863195325;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=49}
+1112;1421863195325;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+1113;1421863195325;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=52}
+1114;1421863195325;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=48}
+1115;0;CHECKPOINT;-
+1116;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=1, avgTemperature=0, avgHumidity=47}}
+1117;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=53}}
+1118;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=3, avgTemperature=1, avgHumidity=50}}
+1119;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=4, avgTemperature=-1, avgHumidity=49}}
+1120;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+1121;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+1122;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=7, avgTemperature=0, avgHumidity=49}}
+1123;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+1124;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=9, avgTemperature=0, avgHumidity=52}}
+1125;1421863195325;SNAPSHOT;TimedEvent{timePeriod=1421863195325, event=Event{fieldId=10, avgTemperature=1, avgHumidity=48}}
+1126;1421863200482;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=49}
+1127;1421863200482;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=49}
+1128;1421863200482;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+1129;1421863200482;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=48}
+1130;1421863200482;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+1131;1421863200482;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=51}
+1132;1421863200482;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=50}
+1133;1421863200482;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=47}
+1134;1421863200482;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+1135;1421863200482;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+1136;0;CHECKPOINT;-
+1137;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=49}}
+1138;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=49}}
+1139;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+1140;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=4, avgTemperature=1, avgHumidity=48}}
+1141;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=5, avgTemperature=0, avgHumidity=49}}
+1142;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=6, avgTemperature=1, avgHumidity=51}}
+1143;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=7, avgTemperature=1, avgHumidity=50}}
+1144;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=8, avgTemperature=0, avgHumidity=47}}
+1145;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+1146;1421863200482;SNAPSHOT;TimedEvent{timePeriod=1421863200482, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+1147;1421863211039;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=50}
+1148;1421863211039;UPDATE;Event{fieldId=2, avgTemperature=-3, avgHumidity=51}
+1149;1421863211039;UPDATE;Event{fieldId=3, avgTemperature=4, avgHumidity=46}
+1150;1421863211039;UPDATE;Event{fieldId=4, avgTemperature=-4, avgHumidity=54}
+1151;1421863211039;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=45}
+1152;1421863211039;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=48}
+1153;1421863211039;UPDATE;Event{fieldId=7, avgTemperature=2, avgHumidity=49}
+1154;1421863211039;UPDATE;Event{fieldId=8, avgTemperature=2, avgHumidity=54}
+1155;1421863211039;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=55}
+1156;1421863211039;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+1157;0;CHECKPOINT;-
+1158;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=1, avgTemperature=0, avgHumidity=50}}
+1159;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=2, avgTemperature=-3, avgHumidity=51}}
+1160;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=3, avgTemperature=4, avgHumidity=46}}
+1161;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=4, avgTemperature=-4, avgHumidity=54}}
+1162;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=5, avgTemperature=1, avgHumidity=45}}
+1163;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=6, avgTemperature=0, avgHumidity=48}}
+1164;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=7, avgTemperature=2, avgHumidity=49}}
+1165;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=8, avgTemperature=2, avgHumidity=54}}
+1166;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=55}}
+1167;1421863211039;SNAPSHOT;TimedEvent{timePeriod=1421863211039, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+1168;1421863216261;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+1169;1421863216261;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=51}
+1170;1421863216261;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=50}
+1171;1421863216261;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=51}
+1172;1421863216261;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=48}
+1173;1421863216261;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=49}
+1174;1421863216261;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=50}
+1175;1421863216261;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=48}
+1176;1421863216261;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=50}
+1177;1421863216261;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=48}
+1178;0;CHECKPOINT;-
+1179;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+1180;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=2, avgTemperature=0, avgHumidity=51}}
+1181;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=50}}
+1182;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=4, avgTemperature=0, avgHumidity=51}}
+1183;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=5, avgTemperature=2, avgHumidity=48}}
+1184;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=49}}
+1185;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=7, avgTemperature=1, avgHumidity=50}}
+1186;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=8, avgTemperature=0, avgHumidity=48}}
+1187;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=50}}
+1188;1421863216261;SNAPSHOT;TimedEvent{timePeriod=1421863216261, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=48}}
+1189;1421863221394;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=49}
+1190;1421863221394;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+1191;1421863221394;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=48}
+1192;1421863221394;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=51}
+1193;1421863221394;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+1194;1421863221394;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=49}
+1195;1421863221394;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+1196;1421863221394;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+1197;1421863221394;UPDATE;Event{fieldId=9, avgTemperature=1, avgHumidity=50}
+1198;1421863221394;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=51}
+1199;0;CHECKPOINT;-
+1200;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=49}}
+1201;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+1202;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=3, avgTemperature=0, avgHumidity=48}}
+1203;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=4, avgTemperature=1, avgHumidity=51}}
+1204;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+1205;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=6, avgTemperature=1, avgHumidity=49}}
+1206;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+1207;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+1208;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=9, avgTemperature=1, avgHumidity=50}}
+1209;1421863221394;SNAPSHOT;TimedEvent{timePeriod=1421863221394, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=51}}
+1210;1421863226566;UPDATE;Event{fieldId=1, avgTemperature=-2, avgHumidity=50}
+1211;1421863226566;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=51}
+1212;1421863226566;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=51}
+1213;1421863226566;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=50}
+1214;1421863226566;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+1215;1421863226566;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+1216;1421863226566;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=51}
+1217;1421863226566;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=49}
+1218;1421863226566;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+1219;1421863226566;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=49}
+1220;0;CHECKPOINT;-
+1221;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=1, avgTemperature=-2, avgHumidity=50}}
+1222;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=2, avgTemperature=0, avgHumidity=51}}
+1223;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=3, avgTemperature=0, avgHumidity=51}}
+1224;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=4, avgTemperature=0, avgHumidity=50}}
+1225;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+1226;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+1227;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=7, avgTemperature=1, avgHumidity=51}}
+1228;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=49}}
+1229;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+1230;1421863226566;SNAPSHOT;TimedEvent{timePeriod=1421863226566, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=49}}
+1231;1421863231716;UPDATE;Event{fieldId=1, avgTemperature=3, avgHumidity=50}
+1232;1421863231716;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=48}
+1233;1421863231716;UPDATE;Event{fieldId=3, avgTemperature=-2, avgHumidity=50}
+1234;1421863231716;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=49}
+1235;1421863231716;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+1236;1421863231716;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=51}
+1237;1421863231716;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=48}
+1238;1421863231716;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+1239;1421863231716;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+1240;1421863231716;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=50}
+1241;0;CHECKPOINT;-
+1242;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+1243;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+1244;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+1245;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+1246;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+1247;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+1248;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+1249;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+1250;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+1251;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+1252;0;CHECKPOINT;-
+1253;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+1254;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+1255;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+1256;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+1257;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+1258;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+1259;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+1260;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+1261;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+1262;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+1263;1421863295243;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=51}
+1264;1421863295243;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+1265;1421863295243;UPDATE;Event{fieldId=3, avgTemperature=1, avgHumidity=48}
+1266;1421863295243;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=51}
+1267;1421863295243;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=50}
+1268;1421863295243;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=51}
+1269;1421863295243;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+1270;1421863295243;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=51}
+1271;1421863295243;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=51}
+1272;1421863295243;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=49}
+1273;0;CHECKPOINT;-
+1274;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=1, avgTemperature=0, avgHumidity=51}}
+1275;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+1276;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=3, avgTemperature=1, avgHumidity=48}}
+1277;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=4, avgTemperature=0, avgHumidity=51}}
+1278;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=5, avgTemperature=2, avgHumidity=50}}
+1279;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=6, avgTemperature=0, avgHumidity=51}}
+1280;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+1281;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=8, avgTemperature=0, avgHumidity=51}}
+1282;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=51}}
+1283;1421863295243;SNAPSHOT;TimedEvent{timePeriod=1421863295243, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=49}}
+1284;1421863300476;UPDATE;Event{fieldId=1, avgTemperature=2, avgHumidity=49}
+1285;1421863300476;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+1286;1421863300476;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+1287;1421863300476;UPDATE;Event{fieldId=4, avgTemperature=-3, avgHumidity=52}
+1288;1421863300476;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=52}
+1289;1421863300476;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=51}
+1290;1421863300476;UPDATE;Event{fieldId=7, avgTemperature=-2, avgHumidity=47}
+1291;1421863300476;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+1292;1421863300476;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=52}
+1293;1421863300476;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=48}
+1294;0;CHECKPOINT;-
+1295;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=1, avgTemperature=2, avgHumidity=49}}
+1296;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+1297;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=3, avgTemperature=0, avgHumidity=49}}
+1298;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=4, avgTemperature=-3, avgHumidity=52}}
+1299;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=5, avgTemperature=0, avgHumidity=52}}
+1300;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=6, avgTemperature=1, avgHumidity=51}}
+1301;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=7, avgTemperature=-2, avgHumidity=47}}
+1302;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+1303;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=9, avgTemperature=0, avgHumidity=52}}
+1304;1421863300476;SNAPSHOT;TimedEvent{timePeriod=1421863300476, event=Event{fieldId=10, avgTemperature=0, avgHumidity=48}}
+1305;1421863305720;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+1306;1421863305720;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=49}
+1307;1421863305720;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=50}
+1308;1421863305720;UPDATE;Event{fieldId=4, avgTemperature=-3, avgHumidity=48}
+1309;1421863305720;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=50}
+1310;1421863305720;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=49}
+1311;1421863305720;UPDATE;Event{fieldId=7, avgTemperature=-2, avgHumidity=49}
+1312;1421863305720;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=48}
+1313;1421863305720;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+1314;1421863305720;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=52}
+1315;0;CHECKPOINT;-
+1316;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+1317;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=49}}
+1318;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=50}}
+1319;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=4, avgTemperature=-3, avgHumidity=48}}
+1320;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=5, avgTemperature=0, avgHumidity=50}}
+1321;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=49}}
+1322;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=7, avgTemperature=-2, avgHumidity=49}}
+1323;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=8, avgTemperature=0, avgHumidity=48}}
+1324;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+1325;1421863305720;SNAPSHOT;TimedEvent{timePeriod=1421863305720, event=Event{fieldId=10, avgTemperature=0, avgHumidity=52}}
+1326;1421863310965;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=50}
+1327;1421863310965;UPDATE;Event{fieldId=2, avgTemperature=2, avgHumidity=51}
+1328;1421863310965;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=48}
+1329;1421863310965;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=53}
+1330;1421863310965;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+1331;1421863310965;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=51}
+1332;1421863310965;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=50}
+1333;1421863310965;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=49}
+1334;1421863310965;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+1335;1421863310965;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+1336;0;CHECKPOINT;-
+1337;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=50}}
+1338;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=2, avgTemperature=2, avgHumidity=51}}
+1339;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=3, avgTemperature=0, avgHumidity=48}}
+1340;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=4, avgTemperature=0, avgHumidity=53}}
+1341;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=5, avgTemperature=0, avgHumidity=49}}
+1342;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=51}}
+1343;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=7, avgTemperature=1, avgHumidity=50}}
+1344;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=8, avgTemperature=1, avgHumidity=49}}
+1345;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+1346;1421863310965;SNAPSHOT;TimedEvent{timePeriod=1421863310965, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+1347;1421863316211;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=51}
+1348;1421863316211;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=52}
+1349;1421863316211;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=50}
+1350;1421863316211;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=51}
+1351;1421863316211;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=49}
+1352;1421863316211;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+1353;1421863316211;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=48}
+1354;1421863316211;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=48}
+1355;1421863316211;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=48}
+1356;1421863316211;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=48}
+1357;0;CHECKPOINT;-
+1358;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+1359;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+1360;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+1361;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+1362;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+1363;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+1364;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+1365;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+1366;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+1367;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+1368;0;CHECKPOINT;-
+1369;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+1370;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+1371;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+1372;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+1373;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+1374;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+1375;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+1376;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+1377;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+1378;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+1379;1421863379278;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=51}
+1380;1421863379278;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=48}
+1381;1421863379278;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=50}
+1382;1421863379278;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=50}
+1383;1421863379278;UPDATE;Event{fieldId=5, avgTemperature=-2, avgHumidity=51}
+1384;1421863379278;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=49}
+1385;1421863379278;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=50}
+1386;1421863379278;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=47}
+1387;1421863379278;UPDATE;Event{fieldId=9, avgTemperature=1, avgHumidity=51}
+1388;1421863379278;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=51}
+1389;0;CHECKPOINT;-
+1390;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=1, avgTemperature=0, avgHumidity=51}}
+1391;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=48}}
+1392;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=3, avgTemperature=0, avgHumidity=50}}
+1393;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=4, avgTemperature=1, avgHumidity=50}}
+1394;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=5, avgTemperature=-2, avgHumidity=51}}
+1395;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=6, avgTemperature=0, avgHumidity=49}}
+1396;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=7, avgTemperature=0, avgHumidity=50}}
+1397;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=8, avgTemperature=0, avgHumidity=47}}
+1398;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=9, avgTemperature=1, avgHumidity=51}}
+1399;1421863379278;SNAPSHOT;TimedEvent{timePeriod=1421863379278, event=Event{fieldId=10, avgTemperature=0, avgHumidity=51}}
+1400;1421863384528;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=51}
+1401;1421863384528;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=48}
+1402;1421863384528;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=49}
+1403;1421863384528;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=49}
+1404;1421863384528;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=50}
+1405;1421863384528;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=48}
+1406;1421863384528;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=48}
+1407;1421863384528;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=49}
+1408;1421863384528;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=49}
+1409;1421863384528;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+1410;0;CHECKPOINT;-
+1411;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=51}}
+1412;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=2, avgTemperature=0, avgHumidity=48}}
+1413;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=49}}
+1414;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=4, avgTemperature=1, avgHumidity=49}}
+1415;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=5, avgTemperature=1, avgHumidity=50}}
+1416;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=6, avgTemperature=0, avgHumidity=48}}
+1417;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=7, avgTemperature=0, avgHumidity=48}}
+1418;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=8, avgTemperature=0, avgHumidity=49}}
+1419;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=49}}
+1420;1421863384528;SNAPSHOT;TimedEvent{timePeriod=1421863384528, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+1421;1421863389787;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=50}
+1422;1421863389787;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=49}
+1423;1421863389787;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=47}
+1424;1421863389787;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=51}
+1425;1421863389787;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=53}
+1426;1421863389787;UPDATE;Event{fieldId=6, avgTemperature=2, avgHumidity=49}
+1427;1421863389787;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=51}
+1428;1421863389787;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=49}
+1429;1421863389787;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=48}
+1430;1421863389787;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+1431;0;CHECKPOINT;-
+1432;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=1, avgTemperature=-1, avgHumidity=50}}
+1433;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=2, avgTemperature=0, avgHumidity=49}}
+1434;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=3, avgTemperature=0, avgHumidity=47}}
+1435;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=4, avgTemperature=0, avgHumidity=51}}
+1436;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=5, avgTemperature=0, avgHumidity=53}}
+1437;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=6, avgTemperature=2, avgHumidity=49}}
+1438;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=7, avgTemperature=0, avgHumidity=51}}
+1439;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=49}}
+1440;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=9, avgTemperature=0, avgHumidity=48}}
+1441;1421863389787;SNAPSHOT;TimedEvent{timePeriod=1421863389787, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+1442;1421863395049;UPDATE;Event{fieldId=1, avgTemperature=2, avgHumidity=51}
+1443;1421863395049;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=51}
+1444;1421863395049;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=50}
+1445;1421863395049;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+1446;1421863395049;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=49}
+1447;1421863395049;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=50}
+1448;1421863395049;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=50}
+1449;1421863395049;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+1450;1421863395049;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=48}
+1451;1421863395049;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=50}
+1452;0;CHECKPOINT;-
+1453;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=1, avgTemperature=2, avgHumidity=51}}
+1454;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=51}}
+1455;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=3, avgTemperature=0, avgHumidity=50}}
+1456;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=4, avgTemperature=0, avgHumidity=49}}
+1457;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=5, avgTemperature=2, avgHumidity=49}}
+1458;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=6, avgTemperature=1, avgHumidity=50}}
+1459;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=7, avgTemperature=-1, avgHumidity=50}}
+1460;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+1461;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=9, avgTemperature=0, avgHumidity=48}}
+1462;1421863395049;SNAPSHOT;TimedEvent{timePeriod=1421863395049, event=Event{fieldId=10, avgTemperature=0, avgHumidity=50}}
+1463;1421863400283;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+1464;1421863400283;UPDATE;Event{fieldId=2, avgTemperature=-2, avgHumidity=49}
+1465;1421863400283;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=47}
+1466;1421863400283;UPDATE;Event{fieldId=4, avgTemperature=-2, avgHumidity=50}
+1467;1421863400283;UPDATE;Event{fieldId=5, avgTemperature=2, avgHumidity=49}
+1468;1421863400283;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=50}
+1469;1421863400283;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=49}
+1470;1421863400283;UPDATE;Event{fieldId=8, avgTemperature=1, avgHumidity=50}
+1471;1421863400283;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+1472;1421863400283;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=50}
+1473;0;CHECKPOINT;-
+1474;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+1475;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+1476;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+1477;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+1478;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+1479;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+1480;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+1481;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+1482;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+1483;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+1484;0;CHECKPOINT;-
+1485;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=1, avgTemperature=0, avgHumidity=0}}
+1486;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=2, avgTemperature=0, avgHumidity=0}}
+1487;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=3, avgTemperature=0, avgHumidity=0}}
+1488;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=4, avgTemperature=0, avgHumidity=0}}
+1489;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=5, avgTemperature=0, avgHumidity=0}}
+1490;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=6, avgTemperature=0, avgHumidity=0}}
+1491;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=7, avgTemperature=0, avgHumidity=0}}
+1492;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=8, avgTemperature=0, avgHumidity=0}}
+1493;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=9, avgTemperature=0, avgHumidity=0}}
+1494;0;SNAPSHOT;TimedEvent{timePeriod=0, event=Event{fieldId=10, avgTemperature=0, avgHumidity=0}}
+1495;1421863435903;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+1496;1421863435903;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=50}
+1497;1421863435903;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=51}
+1498;1421863435903;UPDATE;Event{fieldId=4, avgTemperature=-2, avgHumidity=49}
+1499;1421863435903;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=48}
+1500;1421863435903;UPDATE;Event{fieldId=6, avgTemperature=1, avgHumidity=48}
+1501;1421863435903;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=50}
+1502;1421863435903;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=50}
+1503;1421863435903;UPDATE;Event{fieldId=9, avgTemperature=-1, avgHumidity=49}
+1504;1421863435903;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+1505;0;CHECKPOINT;-
+1506;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+1507;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=2, avgTemperature=0, avgHumidity=50}}
+1508;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=3, avgTemperature=0, avgHumidity=51}}
+1509;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=4, avgTemperature=-2, avgHumidity=49}}
+1510;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=5, avgTemperature=0, avgHumidity=48}}
+1511;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=6, avgTemperature=1, avgHumidity=48}}
+1512;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=7, avgTemperature=-1, avgHumidity=50}}
+1513;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=50}}
+1514;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=9, avgTemperature=-1, avgHumidity=49}}
+1515;1421863435903;SNAPSHOT;TimedEvent{timePeriod=1421863435903, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+1516;1421863440909;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=49}
+1517;1421863440909;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=49}
+1518;1421863440909;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=48}
+1519;1421863440909;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=47}
+1520;1421863440909;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+1521;1421863440909;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=47}
+1522;1421863440909;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=50}
+1523;1421863440909;UPDATE;Event{fieldId=8, avgTemperature=0, avgHumidity=50}
+1524;1421863440909;UPDATE;Event{fieldId=9, avgTemperature=1, avgHumidity=49}
+1525;1421863440909;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=47}
+1526;0;CHECKPOINT;-
+1527;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=1, avgTemperature=0, avgHumidity=49}}
+1528;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=2, avgTemperature=1, avgHumidity=49}}
+1529;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=3, avgTemperature=0, avgHumidity=48}}
+1530;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=4, avgTemperature=0, avgHumidity=47}}
+1531;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=5, avgTemperature=0, avgHumidity=49}}
+1532;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=6, avgTemperature=0, avgHumidity=47}}
+1533;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=7, avgTemperature=-1, avgHumidity=50}}
+1534;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=8, avgTemperature=0, avgHumidity=50}}
+1535;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=9, avgTemperature=1, avgHumidity=49}}
+1536;1421863440909;SNAPSHOT;TimedEvent{timePeriod=1421863440909, event=Event{fieldId=10, avgTemperature=0, avgHumidity=47}}
+1537;1421863445942;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=50}
+1538;1421863445942;UPDATE;Event{fieldId=2, avgTemperature=-1, avgHumidity=48}
+1539;1421863445942;UPDATE;Event{fieldId=3, avgTemperature=-3, avgHumidity=51}
+1540;1421863445942;UPDATE;Event{fieldId=4, avgTemperature=-1, avgHumidity=51}
+1541;1421863445942;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+1542;1421863445942;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=51}
+1543;1421863445942;UPDATE;Event{fieldId=7, avgTemperature=3, avgHumidity=50}
+1544;1421863445942;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=51}
+1545;1421863445942;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+1546;1421863445942;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=48}
+1547;0;CHECKPOINT;-
+1548;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=1, avgTemperature=0, avgHumidity=50}}
+1549;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=2, avgTemperature=-1, avgHumidity=48}}
+1550;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=3, avgTemperature=-3, avgHumidity=51}}
+1551;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=4, avgTemperature=-1, avgHumidity=51}}
+1552;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=5, avgTemperature=0, avgHumidity=49}}
+1553;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=51}}
+1554;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=7, avgTemperature=3, avgHumidity=50}}
+1555;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=51}}
+1556;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+1557;1421863445942;SNAPSHOT;TimedEvent{timePeriod=1421863445942, event=Event{fieldId=10, avgTemperature=0, avgHumidity=48}}
+1558;1421863451154;UPDATE;Event{fieldId=1, avgTemperature=-2, avgHumidity=49}
+1559;1421863451154;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=51}
+1560;1421863451154;UPDATE;Event{fieldId=3, avgTemperature=3, avgHumidity=49}
+1561;1421863451154;UPDATE;Event{fieldId=4, avgTemperature=1, avgHumidity=50}
+1562;1421863451154;UPDATE;Event{fieldId=5, avgTemperature=1, avgHumidity=50}
+1563;1421863451154;UPDATE;Event{fieldId=6, avgTemperature=-1, avgHumidity=50}
+1564;1421863451154;UPDATE;Event{fieldId=7, avgTemperature=1, avgHumidity=50}
+1565;1421863451154;UPDATE;Event{fieldId=8, avgTemperature=-2, avgHumidity=50}
+1566;1421863451154;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=49}
+1567;1421863451154;UPDATE;Event{fieldId=10, avgTemperature=1, avgHumidity=51}
+1568;0;CHECKPOINT;-
+1569;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=1, avgTemperature=-2, avgHumidity=49}}
+1570;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=2, avgTemperature=0, avgHumidity=51}}
+1571;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=3, avgTemperature=3, avgHumidity=49}}
+1572;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=4, avgTemperature=1, avgHumidity=50}}
+1573;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=5, avgTemperature=1, avgHumidity=50}}
+1574;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=6, avgTemperature=-1, avgHumidity=50}}
+1575;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=7, avgTemperature=1, avgHumidity=50}}
+1576;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=8, avgTemperature=-2, avgHumidity=50}}
+1577;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=9, avgTemperature=0, avgHumidity=49}}
+1578;1421863451154;SNAPSHOT;TimedEvent{timePeriod=1421863451154, event=Event{fieldId=10, avgTemperature=1, avgHumidity=51}}
+1579;1421863456179;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=50}
+1580;1421863456179;UPDATE;Event{fieldId=2, avgTemperature=0, avgHumidity=50}
+1581;1421863456179;UPDATE;Event{fieldId=3, avgTemperature=-1, avgHumidity=51}
+1582;1421863456179;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=47}
+1583;1421863456179;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=49}
+1584;1421863456179;UPDATE;Event{fieldId=6, avgTemperature=-2, avgHumidity=50}
+1585;1421863456179;UPDATE;Event{fieldId=7, avgTemperature=0, avgHumidity=52}
+1586;1421863456179;UPDATE;Event{fieldId=8, avgTemperature=3, avgHumidity=51}
+1587;1421863456179;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+1588;1421863456179;UPDATE;Event{fieldId=10, avgTemperature=-1, avgHumidity=49}
+1589;0;CHECKPOINT;-
+1590;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=1, avgTemperature=0, avgHumidity=50}}
+1591;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=2, avgTemperature=0, avgHumidity=50}}
+1592;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=3, avgTemperature=-1, avgHumidity=51}}
+1593;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=4, avgTemperature=0, avgHumidity=47}}
+1594;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=5, avgTemperature=-1, avgHumidity=49}}
+1595;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=6, avgTemperature=-2, avgHumidity=50}}
+1596;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=7, avgTemperature=0, avgHumidity=52}}
+1597;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=8, avgTemperature=3, avgHumidity=51}}
+1598;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=9, avgTemperature=0, avgHumidity=50}}
+1599;1421863456179;SNAPSHOT;TimedEvent{timePeriod=1421863456179, event=Event{fieldId=10, avgTemperature=-1, avgHumidity=49}}
+1600;1421863461222;UPDATE;Event{fieldId=1, avgTemperature=0, avgHumidity=48}
+1601;1421863461222;UPDATE;Event{fieldId=2, avgTemperature=1, avgHumidity=49}
+1602;1421863461222;UPDATE;Event{fieldId=3, avgTemperature=2, avgHumidity=51}
+1603;1421863461222;UPDATE;Event{fieldId=4, avgTemperature=-1, avgHumidity=50}
+1604;1421863461222;UPDATE;Event{fieldId=5, avgTemperature=0, avgHumidity=49}
+1605;1421863461222;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=48}
+1606;1421863461222;UPDATE;Event{fieldId=7, avgTemperature=-2, avgHumidity=49}
+1607;1421863461222;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=48}
+1608;1421863461222;UPDATE;Event{fieldId=9, avgTemperature=3, avgHumidity=51}
+1609;1421863461222;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=49}
+1610;0;CHECKPOINT;-
+1611;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=1, avgTemperature=0, avgHumidity=48}}
+1612;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=2, avgTemperature=1, avgHumidity=49}}
+1613;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=3, avgTemperature=2, avgHumidity=51}}
+1614;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=4, avgTemperature=-1, avgHumidity=50}}
+1615;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=5, avgTemperature=0, avgHumidity=49}}
+1616;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=6, avgTemperature=0, avgHumidity=48}}
+1617;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=7, avgTemperature=-2, avgHumidity=49}}
+1618;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=8, avgTemperature=-1, avgHumidity=48}}
+1619;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=9, avgTemperature=3, avgHumidity=51}}
+1620;1421863461222;SNAPSHOT;TimedEvent{timePeriod=1421863461222, event=Event{fieldId=10, avgTemperature=0, avgHumidity=49}}
+1621;1421863466227;UPDATE;Event{fieldId=1, avgTemperature=-1, avgHumidity=50}
+1622;1421863466227;UPDATE;Event{fieldId=2, avgTemperature=-2, avgHumidity=49}
+1623;1421863466227;UPDATE;Event{fieldId=3, avgTemperature=0, avgHumidity=49}
+1624;1421863466227;UPDATE;Event{fieldId=4, avgTemperature=0, avgHumidity=49}
+1625;1421863466227;UPDATE;Event{fieldId=5, avgTemperature=-1, avgHumidity=50}
+1626;1421863466227;UPDATE;Event{fieldId=6, avgTemperature=0, avgHumidity=47}
+1627;1421863466227;UPDATE;Event{fieldId=7, avgTemperature=-1, avgHumidity=51}
+1628;1421863466227;UPDATE;Event{fieldId=8, avgTemperature=-1, avgHumidity=52}
+1629;1421863466227;UPDATE;Event{fieldId=9, avgTemperature=0, avgHumidity=50}
+1630;1421863466227;UPDATE;Event{fieldId=10, avgTemperature=0, avgHumidity=52}
+1631;0;CHECKPOINT;-
