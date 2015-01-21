@@ -50,7 +50,7 @@ public class FarmSensorAggregator implements SensorAggregator {
     }
 
     @Override
-    public synchronized void newMeasurements(List<Measurement> measurements) throws AttributeOutOfBoundsException, PrecisionFarmingException {
+    public void newMeasurements(List<Measurement> measurements) throws AttributeOutOfBoundsException, PrecisionFarmingException {
         //sanity checks first -> all or nothing atomicity
         //when we get the measurements we assign timestamps and add then check the interval
         // that has been read from the file

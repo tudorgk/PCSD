@@ -49,7 +49,7 @@ public class FarmFieldStatus implements FieldStatus {
     }
 
     @Override
-    public void update(long timePeriod, List<Event> events) throws AttributeOutOfBoundsException, PrecisionFarmingException {
+    public void update(final long timePeriod, final List<Event> events) throws AttributeOutOfBoundsException, PrecisionFarmingException {
         //sanity checks
         for (Event ev: events) {
             if (ev.getFieldId() > numberOfFields || ev.getFieldId() < 1)
@@ -78,7 +78,20 @@ public class FarmFieldStatus implements FieldStatus {
             }
         }
 
+
         //TODO: Do not forget about the log manager // write on the log after each update
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    logManager.flushToFileLog("UPDATE",timePeriod,events);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread.start();
 
         //unlock write lock
         myRWLock.writeLock().unlock();

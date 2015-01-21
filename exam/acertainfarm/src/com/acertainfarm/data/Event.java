@@ -24,6 +24,15 @@ public final class Event {
 	 */
 	private final int avgHumidity;
 
+	@Override
+	public String toString() {
+		return "Event{" +
+				"fieldId=" + fieldId +
+				", avgTemperature=" + avgTemperature +
+				", avgHumidity=" + avgHumidity +
+				'}';
+	}
+
 	/**
 	 * Constructs a new event with the given data.
 	 */
@@ -55,8 +64,4 @@ public final class Event {
 	}
 
 
-	@Override
-	public String toString() {
-		return "fieldID = "+ fieldId +"; avgTemp = " + avgTemperature +";avgHum = " + avgHumidity;
-	}
 }

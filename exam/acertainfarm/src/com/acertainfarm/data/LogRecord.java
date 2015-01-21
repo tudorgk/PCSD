@@ -6,14 +6,14 @@ package com.acertainfarm.data;
 public final class LogRecord {
     private final long logSN;
     private final String action;
-    private final String transaction;
+    private final long timePeriod;
 
     @Override
     public String toString() {
         return  logSN + ";"
+                + timePeriod + ";"
                 + action + ";"
-                + transaction + ";"
-                + modified_object + ";"
+                + modified_object 
                 + '\n';
     }
 
@@ -25,8 +25,8 @@ public final class LogRecord {
         return action;
     }
 
-    public String getTransaction() {
-        return transaction;
+    public long getTimePeriod() {
+        return timePeriod;
     }
 
     public String getModified_object() {
@@ -35,10 +35,10 @@ public final class LogRecord {
 
     private final String modified_object;
 
-    public LogRecord(long logSN, String action, String transaction, String modified_object){
+    public LogRecord(long logSN, String action, long timePeriod, String modified_object){
         this.logSN = logSN;
         this.action = action;
-        this.transaction = transaction;
+        this.timePeriod = timePeriod;
         this.modified_object = modified_object;
     }
 }
