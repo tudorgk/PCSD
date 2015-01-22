@@ -87,7 +87,7 @@ I made the following assumptions:
 \item
 We don't have any indices on the tables so the entries are not in sorted order in any of the two tables.
 \item  
-The friends table has only uni-directional relations, in the sense that Person1 can be friends with Person2 but it's not requested that Person2 has to be friends with Person1. (Person1 has 1 friend and Person2 has 0 friends.)
+The friends table has only uni-directional relations, in the sense that \emph{Person1} can be friends with \emph{Person2} but it's not required that \emph{Person2} has to be friends with \emph{Person1}. (\emph{Person1} has 1 friend and \emph{Person2} has 0 friends.)
 \item
 The table with the biggest number of records has \emph{N} records.
 \item
@@ -96,11 +96,11 @@ We know that the main memory can hold \begin{math}\sqrt{N}\end{math} records. If
 Number of passes in Phase 2 is P then: \begin{math}B(B-1)^P = N\end{math}\\
  \end{enumerate}
 
-First I build the table with the aggregate count function for the friends table by altering the way that we merge the pages on a pass. I will explain how it is done in the following paragraphs on a concrete example:
+First I build the table with the aggregate count function for the \emph{friends} table by altering the way that we merge the pages on a pass. I will explain how it is done in the following paragraphs on a concrete example:
 
 \begin{enumerate}
 \item 
-Every entry in the friends table has this form : ($uid1$, $uid2$). The input is split up in multiple blocks. Let us assume that we have a block that has these following ($uid1$, $uid2$) relations:
+Every entry in the \emph{friends} table has this form : ($uid1$, $uid2$). The input is split up in multiple blocks. Let us assume that we have a block that has these following ($uid1$, $uid2$) relations:
 (3,7) (1,4) (2,3) (2,5) (1,3) (1,2) (2,4) (3,1)
 \item
 In order to calculate the number of friends for each user, I will sort records with the form ($uid1$, $friendCount$). because every record in the \emph{friends} table essentially means 1 friend added, when reading in the first phase, the $friendCount$ is 1. So we will have initially tuples with the form ($uid$, 1) that need to be sorted by \emph{uid}. We assume that the buffer page number is 4. So after the first phase we will have [(3,1) (1,1) (2,1) (2,1)] [(1,1) (1,1) (2,1) (3,1)]. 
@@ -112,7 +112,7 @@ Finally we will have [(1,3) (2,3) (3,2)].
 This will continue until all the pages buffers are empty and have no more data to fill them up with. 
 \end{enumerate}
 
-After we create the number of friends table that has entries sorted by $uid$, we sort the $user$ table We sort the users by uid because we would like to split both sorted inputs into blocks and combine the result to (uid, networh, nrOfFriends) output form. Because we have space in memory for \begin{math}\sqrt{N}\end{math} records, each buffer block should have a size of \begin{math}\sqrt{N}/2\end{math}. We compare the heads of the lists, because they always have the smallest possible id and merge the values together. We continue filling up the buffers and stop when there are no more entries to compare.
+After we create the number of \emph{friends} table that has entries sorted by $uid$, we sort the $user$ table We sort the users by uid because we would like to split both sorted inputs into blocks and combine the result to (uid, networh, nrOfFriends) output form. Because we have space in memory for \begin{math}\sqrt{N}\end{math} records, each buffer block should have a size of \begin{math}\sqrt{N}/2\end{math}. We compare the heads of the lists, because they always have the smallest possible id and merge the values together. We continue filling up the buffers and stop when there are no more entries to compare.
   
 \subsection* {2. Hash-based external memory algorithm}
 
@@ -120,12 +120,12 @@ The hash-based algorithm is very similar to the \emph{GRACE hash join algorithm}
 
 \begin{enumerate}
 \item 
-There are B-1 buckets, with B main memory buffers. These buckets will hold \begin{math}\sqrt{N}/2\end{math} records, where N is the highest of U and F. 
+There are $B-1$ buckets, with $B$ main memory buffers. These buckets will hold \begin{math}\sqrt{N}/2\end{math} records, where $N$ is the highest of $U$ and $F$. 
 \item
-The hashtable in the second phase is smaller than B-1 pages.
+The hashtable in the second phase is smaller than $B-1$ pages.
 \end{enumerate}
 
-We first partition both relations U (user table) and F (friend table) via a hash function into B-1 buckets. We read one partition at a time. We iterate through it and place the record in one of the buckets by the hashing the join attribute (in our case the $uid$). Then we can be sure that if tuples of U and F join, they will wind up in corresponding buckets $U_i$ and $F_i$ for some \emph{i}. After this phase we read a bucket of $U$ from disk and hash it using another function and construct the hash table in memory. Then we load in an buffer for $S_i$ and iterate through it. When we match the $uid$, we increment the $numberOfFriends$ counter in the hash table. When the buffer is empty, we write to disk the hash table with $(uid, networth, numberOfFriends)$ and load the next entries in the buffer.\\
+We first partition both relations $U$ (user table) and $F$ (friend table) via a hash function into $B-1$ buckets. We read one partition at a time. We iterate through it and place the record in one of the buckets by the hashing the join attribute (in our case the $uid$). Then we can be sure that if tuples of U and F join, they will wind up in corresponding buckets $U_i$ and $F_i$ for some \emph{i}. After this phase we read a bucket of $U$ from disk and hash it using another function and construct the hash table in memory. Then we load in an buffer for $S_i$ and iterate through it. When we match the $uid$, we increment the $numberOfFriends$ counter in the hash table. When the buffer is empty, we write to disk the hash table with $(uid, networth, numberOfFriends)$ and load the next entries in the buffer.\\
 
 \subsection* {3. I/O costs}
 
@@ -204,7 +204,7 @@ As we can see we have cycle between  $X -> T1 -> C -> T3 -> B -> T2 -> X$. To re
 
 \subsection* {Question 1}
 
-For the programming task I emphasized on building a strong, modular service that is based on RPCs. Im the following paragraphs I will discuss on the main components of the \emph{acertainfarm.com} web-service. As we can see in Figure 5. the application is split up into 2 different servers: the Sensor Aggregator Server and the Field Status Server. Both of these servers are implemented by instantiating a multi-threaded server using the Jetty framework\footnote{The Jetty 8 library (http://www.eclipse.org/jetty/) is used to provide the HTTP server and the HTTP client libraries.}.  The methods available for both servers are split up into two interfaces: \emph{SensorAggregator} and \emph{Field Status}. These interfaces are implemented by \emph{proxies} that serialize and send out the requests for the server to handle. The \emph{Sensor Aggregator Server} implements the SensorAggregator interface in the FarmSensorAggregator class whose methods are invoked by the handler class SernsorAggregatorHTTPMessageHandler, which handles the request that were received by the Jetty HTTP server class FarmSernsorAggregatorServer class. A similar approach is don on the Field Status Server, but using another interface (the Field Status interface). \\
+For the programming task I emphasized on building a strong, modular service that is based on RPCs. Im the following paragraphs I will discuss on the main components of the \emph{acertainfarm.com} web-service. As we can see in Figure 5. the application is split up into 2 different servers: the Sensor Aggregator Server and the Field Status Server. Both of these servers are implemented by instantiating a multi-threaded server using the Jetty framework\footnote{The Jetty 8 library (http://www.eclipse.org/jetty/) is used to provide the HTTP server and the HTTP client libraries.}.  The methods available for both servers are split up into two interfaces: \emph{SensorAggregator} and \emph{Field Status}. These interfaces are implemented by \emph{proxies} that serialize and send out the requests for the server to handle. The \emph{Sensor Aggregator Server} implements the \emph{SensorAggregator} interface in the \emph{FarmSensorAggregator} class whose methods are invoked by the handler class \emph{SensorAggregatorHTTPMessageHandler}, which handles the request that were received by the Jetty HTTP server class \emph{FarmSensorAggregatorServer} class. A similar approach is don on the \emph{Field Status Server}, but using another interface (the \emph{Field Status} interface). \\
 
 \begin{figure}[ht]
 \centering
@@ -216,15 +216,15 @@ For the programming task I emphasized on building a strong, modular service that
 \caption{Architecture of the farm's monitoring application \label{overflow}}
 \end{figure}
 
-The RPCs are done by using a Jetty HTTPClient, which sends out HTTP request for the server to handle. This exactly-once RPC mechanism is present through the application and is used for communicating between the FarmFieldAccessPoints and FarmSensorAggregator, FarmMeasurementSender and FieldStatusServer, and FarmClient andFieldStatusServer by keeping track of requests and responses. In the case of the Sensor Aggregator, the Field Access Point sends out a xml-serialized HTTP request through the FarmSensor AggregatorHTTPProxy class. The request is sent and handled by the server. When the server receives the requests, id deserializes it in the handler and passes it to the FarmSensorAggregator instance through a thread-safe method call. Then the request is processed by the FarmSensorAggregator class. between the Sensor Aggregator Server and Field Status Server, the communication is done directly by using an HTTP Client instantiated on the server (in our case, it is incapsulated in the FarmSensorAggregatorSender) that sends out POST Requests directly to the Field Status Server (the request doesn't pass through the HTTP Proxy).\\
+The RPCs are done by using a Jetty HTTPClient, which sends out HTTP request for the server to handle. This \emph{exactly-once RPC mechanism} is present through the application and is used for communicating between the \emph{FarmFieldAccessPoints} and \emph{FarmSensorAggregator}, \emph{FarmMeasurementSender} and \emph{FieldStatusServer}, and \emph{FarmClient} and \emph{FieldStatusServer} by keeping track of requests and responses. In the case of the \emph{Sensor Aggregator}, the \emph{Field Access Point} sends out a xml-serialized HTTP request through the \emph{FarmSensorAggregatorHTTPProxy} class. The request is sent and handled by the server. When the server receives the requests, it deserializes it in the handler and passes it to the \emph{FarmSensorAggregator} instance through a thread-safe method call. Then the request is processed by the \emph{FarmSensorAggregator} class. between the \emph{Sensor Aggregator Server} and \emph{Field Status Server}, the communication is done directly by using an HTTP Client instantiated on the server (in our case, it is incapsulated in the \emph{FarmSensorAggregatorSender}) that sends out POST Requests directly to the \emph{Field Status Server} (the request doesn't pass through the HTTP Proxy).\\
 
-Because I use two different servers, each one is independent from another. In a more concrete case, if the Field Status Server is not responding the Sensor Aggregator Server continues polling and processing Field Access Points Measurements, but the requests that are being sent to the Field Status Server will respond with a TIMEOUT by the FarmSensorAggregatorSender class.\\
+Because I use two different servers, each one is independent from another. In a more concrete case, if the \emph{Field Status Server} is not responding the \emph{Sensor Aggregator Server} continues polling and processing \emph{Field Access Points Measurements}, but the requests that are being sent to the \emph{Field Status Server} will respond with a TIMEOUT by the \emph{FarmSensorAggregatorSender} class.\\
 
-On other side, in the case of the Sensor Aggregator Server failure, the Field Status Server can continue handling requests from Farm Clients with the last known measurements that it received from the other server. As we can see both failures are contained within each service and one does not influence the behavior of the other. The Field Status Server continuously listens for further updates from the Sensor Aggregator Server.\\
+On other side, in the case of the \emph{Sensor Aggregator Server} failure, the \emph{Field Status Server} can continue handling requests from \emph{Farm Clients} with the last known measurements that it received from the other server. As we can see both failures are contained within each service and one does not influence the behavior of the other. The \emph{Field Status Server} continuously listens for further updates from the \emph{Sensor Aggregator Server}.\\
 
 \subsection* {Question 2}
 
-For the implementation of the locking protocol used in the FarmSensorAggregator class I used the \emph{ReentrantReadWriteLock} class available in the \emph{java.util.concurrent.locks} package. A ReentrantLock is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock. 
+For the implementation of the locking protocol used in the \emph{FarmSensorAggregator} class I used the \emph{ReentrantReadWriteLock} class available in the \emph{java.util.concurrent.locks} package. A \emph{ReentrantLock} is owned by the thread last successfully locking, but not yet unlocking it. A thread invoking lock will return, successfully acquiring the lock, when the lock is not owned by another thread. The method will return immediately if the current thread already owns the lock. 
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -239,11 +239,11 @@ For the implementation of the locking protocol used in the FarmSensorAggregator 
 \end{table}
 This approach guarantees atomicity within transactions but does not allow a lot of concurrent access to the map that is modified. I provided an all-or-nothing approach by aborting the entire transaction, when an input is invalid. I implemented the strict two-phase locking (S2PL) by requiring a write lock when modifying the data at the start of the method. \\
 
-The exam question states that it is recommended that we do a fast path solution. First I tried using a Multiple Granularity Lock Protocol because we need to modify only a key-value pair in the map and we do not want to keep a lock on the entire HashMap, so that other threads can modify different pairs concurrently. I tried using the ConcurrentHashMap\footnote{A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. This class obeys the same functional specification as Hashtable, and includes versions of methods corresponding to each method of Hashtable. However, even though all operations are thread-safe, retrieval operations do not entail locking, and there is not any support for locking the entire table in a way that prevents all access. This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.} class that is part of the java.util.concurrent package, but eventually I gave up on the implementation and went with the safe approach. I had problems when sending the map to the Field Status Server through the Sender class so I decided it was best to stick to the solution that works, rather than going with one that didn't.\\
+The exam question states that it is recommended that we do a fast path solution. First I tried using a \emph{Multiple Granularity Lock Protocol} because we need to modify only a key-value pair in the map and we do not want to keep a lock on the entire HashMap, so that other threads can modify different pairs concurrently. I tried using the \emph{ConcurrentHashMap}\footnote{A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. This class obeys the same functional specification as Hashtable, and includes versions of methods corresponding to each method of Hashtable. However, even though all operations are thread-safe, retrieval operations do not entail locking, and there is not any support for locking the entire table in a way that prevents all access. This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.} class that is part of the \emph{java.util.concurrent package}, but eventually I gave up on the implementation and went with the safe approach. I had problems when sending the map to the \emph{Field Status Server} through the \emph{Sender} class so I decided it was best to stick to the solution that works, rather than going with one that didn't.\\
 
 \subsection* {Question 3}
 
-For ensuring serializability of transaction on the Field Status Server, I keep track of the last time period that the Sensor Aggregator sends. By comparing the two values upon the arrival an update request, I check that the timestamp is newer than the one currently present in the HashMap. After each update request I require an write lock using the same locking system as in the Sensor Aggregator. If the timestamp is points out an earlier time, the request is discarded. \\
+For ensuring serializability of transaction on the \emph{Field Status Server}, I keep track of the last time period that the \emph{Sensor Aggregator} sends. By comparing the two values upon the arrival an update request, I check that the timestamp is newer than the one currently present in the HashMap. After each update request I require an write lock using the same locking system as in the Sensor Aggregator. If the timestamp is points out an earlier time, the request is discarded. \\
 
 Because update request are not as frequent as query operations, it made sense that i would use a conservative locking protocol for ensuring serializability. 
 The serializability of the transaction (update and query) are done by a simple locking mechanism. When an update arrives, I acquire a lock on the data store, which means that the query operations will have to wait for the release of the write lock. If there are only queries, the operations can occur concurrently.\\
@@ -293,17 +293,17 @@ class RWDictionary {
 
 \subsection* {Question 4}
 
-Durability is achieved by writing the updates to a log. This is implemented by the FieldStatusLogManager class which access the log file for reading or writing. I implemented the Write-Ahead Logging protocol by forcing for an update to a log, before modifying the map. I wait for the log manager to finish writing to disk. This approach guarantees atomicity and durability. After each flush to the log I add a CHECKPOINT record so that in case of a possible failure of the Field Status Server we can REDO the operations from the CHECKPOINT entry. Because we are storing everything in main memory, we do not need UNDO events. We should however keep the data that comes through the update method, in order to REDO them. We write a full snapshot of the HashMap to the log, to rebuild the map in case of a possible failure, and the newly updated fields list.\\
+Durability is achieved by writing the updates to a log. This is implemented by the \emph{FieldStatusLogManager} class which access the log file for reading or writing. I implemented the \emph{Write-Ahead Logging} protocol by forcing for an update to a log, before modifying the map. I wait for the log manager to finish writing to disk. This approach guarantees atomicity and durability. After each flush to the log I add a CHECKPOINT record so that in case of a possible failure of the \emph{Field Status Server} we can REDO the operations from the CHECKPOINT entry. Because we are storing everything in main memory, we do not need UNDO events. We should however keep the data that comes through the update method, in order to REDO them. We write a full snapshot of the HashMap to the log, to rebuild the map in case of a possible failure, and the newly updated fields list.\\
 
-In case of a system failure, we would need to REDO the events by reading from the last CHECKPOINT. Because we reside our data in main memory, we do not need to UNDO other updates. In the log I first write the SNAPSHOT of he map present in main memory, then I write the UPDATE records that came with the update request from the Sensor Aggregator Server. By implementing this mechanism of log keeping we can reconstruct the HashMap during the recovery phase. \\
+In case of a system failure, we would need to REDO the events by reading from the last CHECKPOINT. Because we reside our data in main memory, we do not need to UNDO other updates. In the log I first write the SNAPSHOT of he map present in main memory, then I write the UPDATE records that came with the update request from the \emph{Sensor Aggregator Server}. By implementing this mechanism of log keeping we can reconstruct the HashMap during the recovery phase. \\
 
-Because the two servers are independent from on another, we would not need to apply any special actions to start them up. The Sensor Aggregator continues to send updates to the address specified and if the Field Status Server is unreachable, it would get a TIMEOUT response (this complies with the fail-stop model). \\
+Because the two servers are independent from on another, we would not need to apply any special actions to start them up. The \emph{Sensor Aggregator} continues to send updates to the address specified and if the \emph{Field Status Server} is unreachable, it would get a TIMEOUT response (this complies with the fail-stop model). \\
 
 \subsection* {Question 5}
 
-For testing I used a combination of manual and automated tests. The automated tests are implemented with JUnit. For the functionality of the services I did white-box testing that test the internal structures of my application. For testing the proxy interface i used black-box testing to simulate how a real client would actual use the service.\\
+For testing I used a combination of manual and automated tests. The automated tests are implemented with \emph{JUnit}. For the functionality of the services I did white-box testing that test the internal structures of my application. For testing the proxy interface i used black-box testing to simulate how a real client would actual use the service.\\
 
-Error conditions are met and the proper exceptions are being thrown on each step. This ensures that we have consistent data across the system so that we don not have anomalies in calculations that may output wrong values. I have written JUnit test classes for testing each component in the system. The WorkloadTest class test the system as a whole by enabling all components.\\ 
+Error conditions are met and the proper exceptions are being thrown on each step. This ensures that we have consistent data across the system so that we don not have anomalies in calculations that may output wrong values. I have written JUnit test classes for testing each component in the system. The \emph{WorkloadTest} class test the system as a whole by enabling all components.\\ 
 
 
 \subsection* {Question 6}
@@ -325,9 +325,9 @@ The setup that I have chosen for the workload tests is the following:
 \end{center}
 \end{table}
 
-The workload test were run by emulating the two Jetty servers and creating a workload test that is similar to the CertainBookStore implementation. The FarmWorkloadConfig contains parameters that can be modified for testing different scenarios. By default I have 10 Fields and 10 FarmAccessFields that output 10 random Measurements each for the FarmSensorAggregator. The FarmAccess Points output Measurements for different fieldIDs. The Measurements are sent to the SensorAggregator every 500 milliseconds by each access point client. The SensorAggregator outputs every 5 seconds the aggregate of the measurements for each field. The following graphs represents the throughput and latency for a workload test that performs 1000 queries for 8 fields. The throughput is calculated as in the CertainBookStore assignment and provides us with the following values for multiple worker threads.\\
+The workload test were run by emulating the two Jetty servers and creating a workload test that is similar to the \emph{CertainBookStore} implementation. The \emph{FarmWorkloadConfig} contains parameters that can be modified for testing different scenarios. By default I have 10 \emph{Fields} and 10 \emph{FarmAccessPoints} that output 10 random \emph{Measurements} each for the \emph{FarmSensorAggregator}. The \emph{FarmAccess Points} output \emph{Measurements} for different fieldIDs. The \emph{Measurements} are sent to the \emph{SensorAggregator} every 500 milliseconds by each access point client. The \emph{SensorAggregator} outputs every 5 seconds the aggregate of the measurements for each field. The following graphs represents the throughput and latency for a workload test that performs 1000 queries for 8 fields. The throughput is calculated as in the \emph{CertainBookStore} assignment and provides us with the following values for multiple worker threads.\\
 
-We observe that the service throughput does scale, but not perfectly. My tests simulate between 1 and 10 Farm Clients that interact with the FarmFieldStatusServer. We can observe an increase in throughput when adding more Farm Clients but the highest throughput value is at the 8 thread mark. This makes senses because the system on which i run the experiments has only 8 threads. From the latency graph we see a steady increase by adding more requests to the service. 
+We observe that the service throughput does scale, but not perfectly. My tests simulate between 1 and 10 \emph{Farm Clients} that interact with the \emph{FarmFieldStatusServer}. We can observe an increase in throughput when adding more \emph{Farm Clients} but the highest throughput value is at the 8 thread mark. This makes senses because the system on which i run the experiments has only 8 threads. From the latency graph we see a steady increase by adding more requests to the service. 
 
 \begin{figure}[ht]
 \centering
@@ -339,12 +339,6 @@ We observe that the service throughput does scale, but not perfectly. My tests s
 }%
 \caption{Throughput and latency\label{overflow}}
 \end{figure}
-
-
-
-
-
-
 
 
 \end{document}               % End of document.
