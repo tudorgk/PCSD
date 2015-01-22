@@ -87,11 +87,11 @@ I made the following assumptions:
 \item
 We don't have any indices on the tables so the entries are not in sorted order in any of the two tables.
 \item  
-The friends table has only uni-directional relations, in the sense that \emph{Person1} can be friends with \emph{Person2} but it's not required that \emph{Person2} has to be friends with \emph{Person1}. (\emph{Person1} has 1 friend and \emph{Person2} has 0 friends.)
+The \emph{friends} table has only uni-directional relations, in the sense that \emph{Person1} can be friends with \emph{Person2} but it's not required that \emph{Person2} has to be friends with \emph{Person1}. (\emph{Person1} has 1 friend and \emph{Person2} has 0 friends.)
 \item
 The table with the biggest number of records has \emph{N} records.
 \item
-We know that the main memory can hold \begin{math}\sqrt{N}\end{math} records. If we read B records at a time in memory, the number of runs will be \begin{math}N/B\end{math}.
+We know that the main memory can hold \begin{math}\sqrt{N}\end{math} records. If we read \emph{B} records at a time in memory, the number of runs will be \begin{math}N/B\end{math}.
 \item 
 Number of passes in Phase 2 is P then: \begin{math}B(B-1)^P = N\end{math}\\
  \end{enumerate}
@@ -105,14 +105,14 @@ Every entry in the \emph{friends} table has this form : ($uid1$, $uid2$). The in
 \item
 In order to calculate the number of friends for each user, I will sort records with the form ($uid1$, $friendCount$). because every record in the \emph{friends} table essentially means 1 friend added, when reading in the first phase, the $friendCount$ is 1. So we will have initially tuples with the form ($uid$, 1) that need to be sorted by \emph{uid}. We assume that the buffer page number is 4. So after the first phase we will have [(3,1) (1,1) (2,1) (2,1)] [(1,1) (1,1) (2,1) (3,1)]. 
 \item
-The next pass will be [(1,1) (2,2) (3,1)] [(1,2) (2,1) (3,1)], Then we combine the values by adding up the number of friends by comparing the heads of the lists (the heads contain the smallest $uid$) and add up or write to disk the smallest one $uid$ with the friend count.
+The next pass will be [(1,1) (2,2) (3,1)] [(1,2) (2,1) (3,1)], Then we combine the values by adding up the number of friends by comparing the heads of the lists (the heads contain the smallest $uid$) and add up or write to disk the smallest $uid$ with the friend count.
 \item
 Finally we will have [(1,3) (2,3) (3,2)].
 \item 
 This will continue until all the pages buffers are empty and have no more data to fill them up with. 
 \end{enumerate}
 
-After we create the number of \emph{friends} table that has entries sorted by $uid$, we sort the $user$ table We sort the users by uid because we would like to split both sorted inputs into blocks and combine the result to (uid, networh, nrOfFriends) output form. Because we have space in memory for \begin{math}\sqrt{N}\end{math} records, each buffer block should have a size of \begin{math}\sqrt{N}/2\end{math}. We compare the heads of the lists, because they always have the smallest possible id and merge the values together. We continue filling up the buffers and stop when there are no more entries to compare.
+After we create the number of \emph{friends} table that has entries sorted by $uid$, we sort the $user$ table We sort the users by uid because we would like to split both sorted inputs into blocks and combine the result to (uid, networh, nrOfFriends) output form. Because we have space in memory for \begin{math}\sqrt{N}\end{math} records, each buffer block should have a size of \begin{math}\sqrt{N}/2\end{math}. We compare the heads of the lists, because they always have the smallest possible $id$ and merge the values together. We continue filling up the buffers and stop when there are no more entries to compare.
   
 \subsection* {2. Hash-based external memory algorithm}
 
@@ -125,15 +125,15 @@ There are $B-1$ buckets, with $B$ main memory buffers. These buckets will hold \
 The hashtable in the second phase is smaller than $B-1$ pages.
 \end{enumerate}
 
-We first partition both relations $U$ (user table) and $F$ (friend table) via a hash function into $B-1$ buckets. We read one partition at a time. We iterate through it and place the record in one of the buckets by the hashing the join attribute (in our case the $uid$). Then we can be sure that if tuples of U and F join, they will wind up in corresponding buckets $U_i$ and $F_i$ for some \emph{i}. After this phase we read a bucket of $U$ from disk and hash it using another function and construct the hash table in memory. Then we load in an buffer for $S_i$ and iterate through it. When we match the $uid$, we increment the $numberOfFriends$ counter in the hash table. When the buffer is empty, we write to disk the hash table with $(uid, networth, numberOfFriends)$ and load the next entries in the buffer.\\
+We first partition both relations $U$ (user table) and $F$ (friend table) via a hash function into $B-1$ buckets. We read one partition at a time. We iterate through it and place the record in one of the buckets by the hashing the join attribute (in our case the $uid$). Then we can be sure that if tuples of $U$ and $F$ join, they will wind up in corresponding buckets $U_i$ and $F_i$ for some \emph{i}. After this phase, we read a bucket of $U$ from disk and hash it using another function and construct the hash table in memory. Then we load in an buffer for $S_i$ and iterate through it. When we match the $uid$, we increment the $numberOfFriends$ counter in the hash table. When the buffer is empty, we write to disk the hash table with $(uid, networth, numberOfFriends)$ and load the next entries in the buffer.\\
 
 \subsection* {3. I/O costs}
 
 \subsubsection* {Sort-merge algorithm}
 
-For the sort-merge algorithm, the "worst-case" cost is:
+For the sort-merge algorithm, the cost is:
 \begin{equation}
-Sort_U + Sort_F + 2* Pages_U 
+Sort_U + Sort_F + 2 * Pages_U 
 \end{equation}
 
 where  \begin{math}Sort_U \end{math} and \begin{math}Sort_F \end{math} = the cost of one external merge sort on the user table and friend table respectively with:
@@ -146,7 +146,7 @@ Sort_F = 2*F(log_2F + 1)
 
 and \begin{math}Pages_U \end{math} and \begin{math}Pages_F \end{math}  = the cost of page writes/reads (concurrently).\\
 
-After the sorting of the friends table, the friend table will have a lower or equal amount of pages as the user table be cause we aggregate the results by counting up the relationships between users. Because of this instead of having \begin{math}Pages_U + Pages_F \end{math} we would have in the worst-case scenario \begin{math}2 * Pages_U\end{math}. The result would have the same number of pages as the users table.
+After the sorting of the friends table, the friend table will have a lower or equal amount of pages as the user table be cause we aggregate the results by counting up the relationships between users. Because of this instead of having \begin{math}Pages_U + Pages_F \end{math} we would have in this scenario \begin{math}2 * Pages_U\end{math}. The result would have the same number of pages as the users table.\\
 
 
 
@@ -159,7 +159,7 @@ The hash-based algorithm has a cost of:
 
 where \begin{math}Pages_U\end{math} and \begin{math}Pages_F\end{math}  = the cost of page writes/reads (concurrently).
 
-This total cost reflects the fact that after the split in buckets and combining them using the GRACE hash join algorithm, we only construct on disk the a table has the same number of pages as the user table, so we would have only \begin{math}2 * Pages_F\end{math} instead of \begin{math}3 * Pages_F\end{math} that is present in the GRACE algorithm.
+This total cost reflects the fact that after the split in buckets and combining them using the GRACE hash join algorithm, we only construct on disk a final table that has the same number of pages as the user table, so we would have \begin{math}2 * Pages_F\end{math} instead of \begin{math}3 * Pages_F\end{math}.\\
 
 \section* {Question 2: Distributed Transaction}
 
@@ -198,13 +198,13 @@ When constructing the global wait-for-graph we set up the pages that are being m
 \caption{Global wait-for-graph\label{overflow}}
 \end{figure}
 
-As we can see we have cycle between  $X -> T1 -> C -> T3 -> B -> T2 -> X$. To remove the deadlock within the system we must abort modifications that are being don on $X$, $C$ and $B$.
+As we can see, we have cycle between  $X -> T1 -> C -> T3 -> B -> T2 -> X$. To remove the deadlock within the system, we must abort modifications that are being done on $X$, $C$ and $B$.\\
 
 \section* {Programming Task}
 
 \subsection* {Question 1}
 
-For the programming task I emphasized on building a strong, modular service that is based on RPCs. Im the following paragraphs I will discuss on the main components of the \emph{acertainfarm.com} web-service. As we can see in Figure 5. the application is split up into 2 different servers: the Sensor Aggregator Server and the Field Status Server. Both of these servers are implemented by instantiating a multi-threaded server using the Jetty framework\footnote{The Jetty 8 library (http://www.eclipse.org/jetty/) is used to provide the HTTP server and the HTTP client libraries.}.  The methods available for both servers are split up into two interfaces: \emph{SensorAggregator} and \emph{Field Status}. These interfaces are implemented by \emph{proxies} that serialize and send out the requests for the server to handle. The \emph{Sensor Aggregator Server} implements the \emph{SensorAggregator} interface in the \emph{FarmSensorAggregator} class whose methods are invoked by the handler class \emph{SensorAggregatorHTTPMessageHandler}, which handles the request that were received by the Jetty HTTP server class \emph{FarmSensorAggregatorServer} class. A similar approach is don on the \emph{Field Status Server}, but using another interface (the \emph{Field Status} interface). \\
+For the programming task I emphasized on building a strong, modular service that is based on RPCs. Im the following paragraphs I will discuss on the main components of the \emph{acertainfarm.com} web-service. As we can see in Figure 5. the application is split up into 2 different servers: the \emph{Sensor Aggregator Server} and the \emph{Field Status Server}. Both of these servers are implemented by instantiating a multi-threaded server using the Jetty framework\footnote{The Jetty 8 library (http://www.eclipse.org/jetty/) is used to provide the HTTP server and the HTTP client libraries.}.  The methods available for both servers are split up into two interfaces: \emph{SensorAggregator} and \emph{Field Status}. These interfaces are implemented by \emph{proxies} that serialize and send out the requests for the server to handle. The \emph{Sensor Aggregator Server} implements the \emph{SensorAggregator} interface in the \emph{FarmSensorAggregator} class whose methods are invoked by the handler class \emph{SensorAggregatorHTTPMessageHandler}, which handles the request that were received by the Jetty HTTP server class \emph{FarmSensorAggregatorServer} class. A similar approach is don on the \emph{Field Status Server}, but using another interface (the \emph{Field Status} interface). \\
 
 \begin{figure}[ht]
 \centering
@@ -218,7 +218,7 @@ For the programming task I emphasized on building a strong, modular service that
 
 The RPCs are done by using a Jetty HTTPClient, which sends out HTTP request for the server to handle. This \emph{exactly-once RPC mechanism} is present through the application and is used for communicating between the \emph{FarmFieldAccessPoints} and \emph{FarmSensorAggregator}, \emph{FarmMeasurementSender} and \emph{FieldStatusServer}, and \emph{FarmClient} and \emph{FieldStatusServer} by keeping track of requests and responses. In the case of the \emph{Sensor Aggregator}, the \emph{Field Access Point} sends out a xml-serialized HTTP request through the \emph{FarmSensorAggregatorHTTPProxy} class. The request is sent and handled by the server. When the server receives the requests, it deserializes it in the handler and passes it to the \emph{FarmSensorAggregator} instance through a thread-safe method call. Then the request is processed by the \emph{FarmSensorAggregator} class. between the \emph{Sensor Aggregator Server} and \emph{Field Status Server}, the communication is done directly by using an HTTP Client instantiated on the server (in our case, it is incapsulated in the \emph{FarmSensorAggregatorSender}) that sends out POST Requests directly to the \emph{Field Status Server} (the request doesn't pass through the HTTP Proxy).\\
 
-Because I use two different servers, each one is independent from another. In a more concrete case, if the \emph{Field Status Server} is not responding the \emph{Sensor Aggregator Server} continues polling and processing \emph{Field Access Points Measurements}, but the requests that are being sent to the \emph{Field Status Server} will respond with a TIMEOUT by the \emph{FarmSensorAggregatorSender} class.\\
+Because I use two different servers, each one is independent from another. In a more concrete case, if the \emph{Field Status Server} is not responding the \emph{Sensor Aggregator Server} continues polling and processing \emph{Field Access Points Measurements}, but the requests that are being sent to the \emph{Field Status Server} will respond with a TIMEOUT by the \emph{FarmSensorAggregatorSender} class that conforms to the fail-stop model.\\
 
 On other side, in the case of the \emph{Sensor Aggregator Server} failure, the \emph{Field Status Server} can continue handling requests from \emph{Farm Clients} with the last known measurements that it received from the other server. As we can see both failures are contained within each service and one does not influence the behavior of the other. The \emph{Field Status Server} continuously listens for further updates from the \emph{Sensor Aggregator Server}.\\
 
@@ -243,10 +243,9 @@ The exam question states that it is recommended that we do a fast path solution.
 
 \subsection* {Question 3}
 
-For ensuring serializability of transaction on the \emph{Field Status Server}, I keep track of the last time period that the \emph{Sensor Aggregator} sends. By comparing the two values upon the arrival an update request, I check that the timestamp is newer than the one currently present in the HashMap. After each update request I require an write lock using the same locking system as in the Sensor Aggregator. If the timestamp is points out an earlier time, the request is discarded. \\
+For ensuring serializability of transactions on the \emph{Field Status Server}, I keep track of the last time period that the \emph{Sensor Aggregator} sends. By comparing the two values upon the arrival an update request, I check that the timestamp is newer than the one currently present in the HashMap. After each update request I require an write lock using the same locking system as in the Sensor Aggregator. If the timestamp is pointing out an earlier time, the request is discarded. \\
 
-Because update request are not as frequent as query operations, it made sense that i would use a conservative locking protocol for ensuring serializability. 
-The serializability of the transaction (update and query) are done by a simple locking mechanism. When an update arrives, I acquire a lock on the data store, which means that the query operations will have to wait for the release of the write lock. If there are only queries, the operations can occur concurrently.\\
+Because update request are not as frequent as query operations, it made sense that i would use a conservative locking protocol for ensuring serializability. The serializability of the transaction (update and query) are done by a simple locking mechanism. When an update arrives, I acquire a lock on the data store, which means that the query operations will have to wait for the release of the write lock. If there are only queries, the operations can occur concurrently.\\
 
 I used predicate lock\footnote{K.P. Eswaran, J.N. Gray, R.A. Lorie, and I.L. Traiger.
 Appears in Communications of the ACM, Vol. 19, No. 11,1976} for ensuring that the updates and queries are atomic operations.  The idea is to acquire a shared lock on the QUERY predicate and an exclusive lock on the UPDATE. The lock can't be granted if a conflicting lock is held already. This maintains the ACID properties and ensures serializability between calls.\\
@@ -295,9 +294,9 @@ class RWDictionary {
 
 Durability is achieved by writing the updates to a log. This is implemented by the \emph{FieldStatusLogManager} class which access the log file for reading or writing. I implemented the \emph{Write-Ahead Logging} protocol by forcing for an update to a log, before modifying the map. I wait for the log manager to finish writing to disk. This approach guarantees atomicity and durability. After each flush to the log I add a CHECKPOINT record so that in case of a possible failure of the \emph{Field Status Server} we can REDO the operations from the CHECKPOINT entry. Because we are storing everything in main memory, we do not need UNDO events. We should however keep the data that comes through the update method, in order to REDO them. We write a full snapshot of the HashMap to the log, to rebuild the map in case of a possible failure, and the newly updated fields list.\\
 
-In case of a system failure, we would need to REDO the events by reading from the last CHECKPOINT. Because we reside our data in main memory, we do not need to UNDO other updates. In the log I first write the SNAPSHOT of he map present in main memory, then I write the UPDATE records that came with the update request from the \emph{Sensor Aggregator Server}. By implementing this mechanism of log keeping we can reconstruct the HashMap during the recovery phase. \\
+In case of a system failure, we would need to REDO the events by reading from the last CHECKPOINT. Because we reside our data in main memory, we do not need to UNDO other updates. In the log I first write the SNAPSHOT of the map present in main memory, then I write the UPDATE records that came with the update request from the \emph{Sensor Aggregator Server}. By implementing this mechanism of log keeping we can reconstruct the HashMap during the recovery phase. \\
 
-Because the two servers are independent from on another, we would not need to apply any special actions to start them up. The \emph{Sensor Aggregator} continues to send updates to the address specified and if the \emph{Field Status Server} is unreachable, it would get a TIMEOUT response (this complies with the fail-stop model). \\
+Because the two servers are independent from one another, we would not need to apply any special actions to start them up. The \emph{Sensor Aggregator} continues to send updates to the address specified and if the \emph{Field Status Server} is unreachable, it would get a TIMEOUT response (this complies with the fail-stop model). \\
 
 \subsection* {Question 5}
 
