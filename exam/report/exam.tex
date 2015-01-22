@@ -32,6 +32,7 @@
 \usepackage[super]{nth}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage[linesnumbered]{algorithm2e}
 \usepackage[table,xcdraw]{xcolor}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -79,16 +80,6 @@
 
 \subsection* {1. Sort-based external memory algorithm}
 
-\begin{figure}[htbp]
-\begin{center}
-\begin{lstlisting}
-//TODO: Insert pseudocode here
-\end{lstlisting}
-\caption{Sort-based external memory algorithm}
-\label{Sort-based external memory algorithm}
-\end{center}
-\end{figure}
-
 For this part of the exam we must implement an algorithm that first applies an aggregated function (in our case the \emph{count} function) on the table \emph{friends}, and then combine the results to write up the table that consists of (uid, networh, nrOfFriends). In order to achieve this, I used a modified sort-merge join algorithm.\\
 
 I made the following assumptions:
@@ -125,16 +116,6 @@ After we create the number of friends table that has entries sorted by $uid$, we
   
 \subsection* {2. Hash-based external memory algorithm}
 
-\begin{figure}[htbp]
-\begin{center}
-\begin{lstlisting}
-//TODO: Insert pseudocode here
-\end{lstlisting}
-\caption{Hash-based external memory algorithm}
-\label{Hash-based external memory algorithm}
-\end{center}
-\end{figure}
-
 The hash-based algorithm is very similar to the \emph{GRACE hash join algorithm} with a slight modification that increments a counter for displaying the number of friends for each user. We make the following assumptions:
 
 \begin{enumerate}
@@ -148,15 +129,37 @@ We first partition both relations U (user table) and F (friend table) via a hash
 
 \subsection* {3. I/O costs}
 
-
 \subsubsection* {Sort-merge algorithm}
 
-For the sort-merge algortihm the "expected" cost is:
+For the sort-merge algorithm, the "worst-case" cost is:
 \begin{equation}
-Sort_U + Sort_F + (Pages_U + Pages_F)
+Sort_U + Sort_F + 2* Pages_U 
 \end{equation}
 
+where  \begin{math}Sort_U \end{math} and \begin{math}Sort_F \end{math} = the cost of one external merge sort on the user table and friend table respectively with:
+\begin{equation}
+Sort_U = 2*U(log_2U + 1)
+\end{equation}
+\begin{equation}
+Sort_F = 2*F(log_2F + 1)
+\end{equation}
+
+and \begin{math}Pages_U \end{math} and \begin{math}Pages_F \end{math}  = the cost of page writes/reads (concurrently).\\
+
+After the sorting of the friends table, the friend table will have a lower or equal amount of pages as the user table be cause we aggregate the results by counting up the relationships between users. Because of this instead of having \begin{math}Pages_U + Pages_F \end{math} we would have in the worst-case scenario \begin{math}2 * Pages_U\end{math}. The result would have the same number of pages as the users table.
+
+
+
 \subsubsection* {Hash-based algorithm}
+
+The hash-based algorithm has a cost of:
+\begin{equation}
+3 * Pages_U + 2 * Pages_F
+\end{equation}
+
+where \begin{math}Pages_U\end{math} and \begin{math}Pages_F\end{math}  = the cost of page writes/reads (concurrently).
+
+This total cost reflects the fact that after the split in buckets and combining them using the GRACE hash join algorithm, we only construct on disk the a table has the same number of pages as the user table, so we would have only \begin{math}2 * Pages_F\end{math} instead of \begin{math}3 * Pages_F\end{math} that is present in the GRACE algorithm.
 
 \section* {Question 2: Distributed Transaction}
 
@@ -213,7 +216,7 @@ For the programming task I emphasized on building a strong, modular service that
 \caption{Architecture of the farm's monitoring application \label{overflow}}
 \end{figure}
 
-The RPCs are done by using a Jetty HTTPClient, which sends out HTTP request for the server to handle. This RPC mechanism is present throught the application and is used for communicating between the FarmFieldAccessPoints and FarmSensorAggregator, FarmMeasurementSender and FieldStatusServer, and FarmClient andFieldStatusServer. In the case of the Sensor Aggregator, the Field Access Point sends out a xml-serialized HTTP request through the FarmSensor AggregatorHTTPProxy class. The request is sent and handled by the server. When the server receives the requests, id deserializes it in the handler and passes it to the FarmSensorAggregator instance through a thread-safe method call. Then the request is processed by the FarmSensorAggregator class. between the Sensor Aggregator Server and Field Status Server, the communication is done directly by using an HTTP Client instantiated on the server (in our case, it is incapsulated in the FarmSensorAggregatorSender) that sends out POST Requests directly to the Field Status Server (the request doesn't pass through the HTTP Proxy).\\
+The RPCs are done by using a Jetty HTTPClient, which sends out HTTP request for the server to handle. This exactly-once RPC mechanism is present through the application and is used for communicating between the FarmFieldAccessPoints and FarmSensorAggregator, FarmMeasurementSender and FieldStatusServer, and FarmClient andFieldStatusServer by keeping track of requests and responses. In the case of the Sensor Aggregator, the Field Access Point sends out a xml-serialized HTTP request through the FarmSensor AggregatorHTTPProxy class. The request is sent and handled by the server. When the server receives the requests, id deserializes it in the handler and passes it to the FarmSensorAggregator instance through a thread-safe method call. Then the request is processed by the FarmSensorAggregator class. between the Sensor Aggregator Server and Field Status Server, the communication is done directly by using an HTTP Client instantiated on the server (in our case, it is incapsulated in the FarmSensorAggregatorSender) that sends out POST Requests directly to the Field Status Server (the request doesn't pass through the HTTP Proxy).\\
 
 Because I use two different servers, each one is independent from another. In a more concrete case, if the Field Status Server is not responding the Sensor Aggregator Server continues polling and processing Field Access Points Measurements, but the requests that are being sent to the Field Status Server will respond with a TIMEOUT by the FarmSensorAggregatorSender class.\\
 
@@ -238,16 +241,55 @@ This approach guarantees atomicity within transactions but does not allow a lot 
 
 The exam question states that it is recommended that we do a fast path solution. First I tried using a Multiple Granularity Lock Protocol because we need to modify only a key-value pair in the map and we do not want to keep a lock on the entire HashMap, so that other threads can modify different pairs concurrently. I tried using the ConcurrentHashMap\footnote{A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. This class obeys the same functional specification as Hashtable, and includes versions of methods corresponding to each method of Hashtable. However, even though all operations are thread-safe, retrieval operations do not entail locking, and there is not any support for locking the entire table in a way that prevents all access. This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.} class that is part of the java.util.concurrent package, but eventually I gave up on the implementation and went with the safe approach. I had problems when sending the map to the Field Status Server through the Sender class so I decided it was best to stick to the solution that works, rather than going with one that didn't.\\
 
-\subsection* {Question 3 - TODO}
+\subsection* {Question 3}
 
 For ensuring serializability of transaction on the Field Status Server, I keep track of the last time period that the Sensor Aggregator sends. By comparing the two values upon the arrival an update request, I check that the timestamp is newer than the one currently present in the HashMap. After each update request I require an write lock using the same locking system as in the Sensor Aggregator. If the timestamp is points out an earlier time, the request is discarded. \\
 
+Because update request are not as frequent as query operations, it made sense that i would use a conservative locking protocol for ensuring serializability. 
 The serializability of the transaction (update and query) are done by a simple locking mechanism. When an update arrives, I acquire a lock on the data store, which means that the query operations will have to wait for the release of the write lock. If there are only queries, the operations can occur concurrently.\\
 
 I used predicate lock\footnote{K.P. Eswaran, J.N. Gray, R.A. Lorie, and I.L. Traiger.
 Appears in Communications of the ACM, Vol. 19, No. 11,1976} for ensuring that the updates and queries are atomic operations.  The idea is to acquire a shared lock on the QUERY predicate and an exclusive lock on the UPDATE. The lock can't be granted if a conflicting lock is held already. This maintains the ACID properties and ensures serializability between calls.\\
 
-We could improve my current implementation by adding an o
+We could improve our current solution by adding an optimistic approach on how the locking is done. Instead of locking the entire HashMap we could lock the objects at a key accessing level. This is done by using the following code: 
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{lstlisting}
+class RWDictionary {
+    private final Map<String, Data> m = new TreeMap<String, Data>();
+    private final ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
+    private final Lock r = rwl.readLock();
+    private final Lock w = rwl.writeLock();
+
+    public Data get(String key) {
+        r.lock();
+        try { return m.get(key); }
+        finally { r.unlock(); }
+    }
+    public String[] allKeys() {
+        r.lock();
+        try { return m.keySet().toArray(); }
+        finally { r.unlock(); }
+    }
+    public Data put(String key, Data value) {
+        w.lock();
+        try { return m.put(key, value); }
+        finally { w.unlock(); }
+    }
+    public void clear() {
+        w.lock();
+        try { m.clear(); }
+        finally { w.unlock(); }
+    }
+ }
+\end{lstlisting}
+\caption{Improving concurrency by acquiring locks at the key level}
+\label{Improving concurrency by acquiring locks at the key level}
+\end{center}
+\end{figure}
+
+
 
 \subsection* {Question 4}
 
@@ -257,12 +299,14 @@ In case of a system failure, we would need to REDO the events by reading from th
 
 Because the two servers are independent from on another, we would not need to apply any special actions to start them up. The Sensor Aggregator continues to send updates to the address specified and if the Field Status Server is unreachable, it would get a TIMEOUT response (this complies with the fail-stop model). \\
 
-\subsection* {Question 5 - TODO}
+\subsection* {Question 5}
 
-For testing I used a combination of manual and automated tests. The automated tests are implemented with JUnit. 
+For testing I used a combination of manual and automated tests. The automated tests are implemented with JUnit. For the functionality of the services I did white-box testing that test the internal structures of my application. For testing the proxy interface i used black-box testing to simulate how a real client would actual use the service.\\
+
+Error conditions are met and the proper exceptions are being thrown on each step. This ensures that we have consistent data across the system so that we don not have anomalies in calculations that may output wrong values. I have written JUnit test classes for testing each component in the system. The WorkloadTest class test the system as a whole by enabling all components.\\ 
 
 
-\subsection* {Question 6 - TODO}
+\subsection* {Question 6}
 
 The setup that I have chosen for the workload tests is the following: 
 
@@ -281,7 +325,20 @@ The setup that I have chosen for the workload tests is the following:
 \end{center}
 \end{table}
 
-The workload test were run by emulating the two Jetty servers and creating a workload test that is similar to the CertainBookStore implementation.
+The workload test were run by emulating the two Jetty servers and creating a workload test that is similar to the CertainBookStore implementation. The FarmWorkloadConfig contains parameters that can be modified for testing different scenarios. By default I have 10 Fields and 10 FarmAccessFields that output 10 random Measurements each for the FarmSensorAggregator. The FarmAccess Points output Measurements for different fieldIDs. The Measurements are sent to the SensorAggregator every 500 milliseconds by each access point client. The SensorAggregator outputs every 5 seconds the aggregate of the measurements for each field. The following graphs represents the throughput and latency for a workload test that performs 1000 queries for 8 fields. The throughput is calculated as in the CertainBookStore assignment and provides us with the following values for multiple worker threads.\\
+
+We observe that the service throughput does scale, but not perfectly. My tests simulate between 1 and 10 Farm Clients that interact with the FarmFieldStatusServer. We can observe an increase in throughput when adding more Farm Clients but the highest throughput value is at the 8 thread mark. This makes senses because the system on which i run the experiments has only 8 threads. From the latency graph we see a steady increase by adding more requests to the service. 
+
+\begin{figure}[ht]
+\centering
+
+{%
+\setlength{\fboxsep}{5pt}%
+\includegraphics[scale=.23]{img/throughput}%
+\includegraphics[scale=.23]{img/latency}%
+}%
+\caption{Throughput and latency\label{overflow}}
+\end{figure}
 
 
 
